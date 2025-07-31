@@ -1,15 +1,15 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 
+import router from '@/router'
+
 import App from './App.vue'
-import router from './router'
 import { setupPlugins } from './plugins'
+import './assets/main.css'
 
 function bootstrap() {
   const app = createApp(App)
 
-  setupPlugins(app)
+  setupPlugins(app, router)
 
   app.use(router)
   app.mount('#app')

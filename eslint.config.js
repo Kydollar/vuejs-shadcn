@@ -1,39 +1,41 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import globals from 'globals'
-import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
-import pluginVitest from '@vitest/eslint-plugin'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import antfu from '@antfu/eslint-config'
 
-export default defineConfig([
-  {
-    name: 'app/files-to-lint',
-    files: ['**/*.{js,mjs,jsx,vue}'],
-  },
+export default antfu({
+  // Specify that this is a Vue.js project
+  vue: true,
+  // Since this is a JavaScript project, disable TypeScript
+  typescript: false,
 
-  globalIgnores([
+  ignores: [
+    '**/node_modules/**',
     '**/dist/**',
     '**/dist-ssr/**',
     '**/coverage/**',
     '**/.output/**',
-    '**/node_modules/**',
-  ]),
+    '**/build/**',
+    '**/*.md', // Ignore all Markdown files
+    '**/*d.ts', // Ignore all TypeScript declaration files
+  ],
 
-  {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
+  // Vue.js specific settings
+  settings: {
+    'import/core-modules': ['vue-router/auto-routes'],
   },
 
-  js.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
-
-  {
-    ...pluginVitest.configs.recommended,
-    files: ['src/**/__tests__/*'],
+  // Global variables for your Vue.js project
+  globals: {
+    definePage: 'readonly',
   },
 
-  skipFormatting,
-])
+  rules: {
+    // Keep the no-console rule
+    'no-console': 'error',
+
+    // Enable import sorting for better formatting
+    'perfectionist/sort-imports': 'error',
+
+    // Vue.js specific rules adjustments
+    'vue/multi-word-component-names': 'off', // Allow single-word component names
+    'vue/no-unused-vars': 'error',
+  },
+})

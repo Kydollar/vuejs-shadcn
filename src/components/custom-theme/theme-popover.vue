@@ -1,0 +1,28 @@
+<script setup>
+import { Paintbrush } from 'lucide-vue-next'
+
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+
+import CustomColor from './custom-color.vue'
+import CustomRadius from './custom-radius.vue'
+import CustomThemeTitle from './custom-theme-title.vue'
+import ToggleColorMode from './toggle-color-mode.vue'
+</script>
+
+<template>
+  <Popover>
+    <PopoverTrigger>
+      <UiButton variant="outline" size="icon">
+        <Paintbrush />
+      </UiButton>
+    </PopoverTrigger>
+    <PopoverContent align="end">
+      <CustomThemeTitle />
+      <CustomColor />
+      <CustomRadius />
+      <ToggleColorMode />
+    </PopoverContent>
+  </Popover>
+</template>
+
+<style scoped></style>

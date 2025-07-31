@@ -1,7 +1,9 @@
-import { setupPinia } from '@/plugins/pinia'
 import { setupNProgress } from '@/plugins/nprogress'
+import { setupPinia } from '@/plugins/pinia'
+import { setupTheme } from '@/plugins/theme'
 
-export function setupPlugins(app) {
-  setupNProgress()
+export function setupPlugins(app, router) {
   setupPinia(app)
+  setupTheme()
+  setupNProgress(router)
 }

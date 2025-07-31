@@ -25,7 +25,11 @@ if (error) {
     description: h(
       'pre',
       { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4 overflow-x-auto' },
-      h('code', { class: 'text-white text-sm' }, JSON.stringify(error.flatten().fieldErrors, null, 2)),
+      h(
+        'code',
+        { class: 'text-white text-sm' },
+        JSON.stringify(error.flatten().fieldErrors, null, 2)
+      )
     ),
   })
 }

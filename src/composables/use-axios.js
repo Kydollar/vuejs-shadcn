@@ -9,7 +9,7 @@ export function useAxios() {
   const baseURL = `${cleanBase}${prefix}`
 
   if (import.meta.env.DEV && !env.VITE_SERVER_API_PREFIX) {
-    console.warn('[useAxios] ⚠️ No API prefix set — using base URL only:', env.VITE_SERVER_API_URL)
+    console.warn('[use-axios] ⚠️ No API prefix set — using base URL only:', env.VITE_SERVER_API_URL)
   }
 
   const axiosInstance = axios.create({
