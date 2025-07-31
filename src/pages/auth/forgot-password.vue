@@ -20,17 +20,16 @@
   <UiCardFooter class="flex flex-col gap-2">
     <UiButton class="w-full">
       Continue
-
-      <div>
-        Don't have an account?
-        <UiButton
-          variant="link"
-          class="px-0 text-muted-foreground"
-          @click="$router.push('/auth/sign-up')"
-        >
-          Sign up.
-        </UiButton>
-      </div>
     </UiButton>
+    <div>
+      Don't have an account?
+      <UiButton
+        variant="link"
+        class="px-0 text-muted-foreground"
+        @click="$router.push('/auth/sign-up')"
+      >
+        Sign up.
+      </UiButton>
+    </div>
   </UiCardFooter>
 </template>
