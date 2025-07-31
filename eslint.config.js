@@ -37,5 +37,8 @@ export default antfu({
     // Vue.js specific rules adjustments
     'vue/multi-word-component-names': 'off', // Allow single-word component names
     'vue/no-unused-vars': 'error',
+
+    // Disable the self-closing rule for Vue.js templates
+    'vue/html-self-closing': 'off',
   },
 })

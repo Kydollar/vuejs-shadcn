@@ -10,11 +10,12 @@ const { navData, otherPages } = useSidebar()
 
 function getFlatNavItems(navData) {
   const flatItems = []
-  navData.forEach(group => {
-    group.items.forEach(item => {
+  navData.forEach((group) => {
+    group.items.forEach((item) => {
       if (item.items) {
         flatItems.push(...getFlatNavItems([item]))
-      } else {
+      }
+      else {
         flatItems.push(item)
       }
     })

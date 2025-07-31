@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+coverage
+.output
+build
+*.md
+*d.ts

@@ -1,14 +1,14 @@
 <script setup>
-import { ErrorMessage } from "vee-validate";
-import { toValue } from "vue";
-import { cn } from "@/lib/utils";
-import { useFormField } from "./useFormField";
+import { ErrorMessage } from 'vee-validate'
+import { toValue } from 'vue'
+import { cn } from '@/lib/utils'
+import { useFormField } from './useFormField'
 
 const props = defineProps({
   class: { type: null, required: false },
-});
+})
 
-const { name, formMessageId } = useFormField();
+const { name, formMessageId } = useFormField()
 </script>
 
 <template>

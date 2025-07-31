@@ -28,8 +28,8 @@ if (error) {
       h(
         'code',
         { class: 'text-white text-sm' },
-        JSON.stringify(error.flatten().fieldErrors, null, 2)
-      )
+        JSON.stringify(error.flatten().fieldErrors, null, 2),
+      ),
     ),
   })
 }

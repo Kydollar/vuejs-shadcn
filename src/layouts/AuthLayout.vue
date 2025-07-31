@@ -1,17 +1,26 @@
-<script setup></script>
+<script setup>
+import { useColorMode } from '@vueuse/core'
+import ToggleMode from '@/components/toggle-mode.vue'
+
+const mode = useColorMode()
+const logo = computed(() => {
+  return mode.value === 'dark' ? '/logo.svg' : '/logo-black.svg'
+})
+</script>
 
 <template>
-  <div class="container mx-auto p-4 grow bg-blue-500">
-    <div class="flex flex-col gap-4 bg-green-900">
-      <ul>
-        <li>
-          <RouterLink to="/auth/sign-in"> Sign In </RouterLink>
-          <RouterLink to="/auth/sign-up"> Sign Up </RouterLink>
-          <RouterLink to="/auth/forgot-password"> Forgot Password </RouterLink>
-          <RouterLink to="/auth/otp"> OTP </RouterLink>
-        </li>
-      </ul>
-    </div>
-    <RouterView />
+  <div class="flex items-center justify-center min-h-screen p-4 min-w-screen">
+    <main class="flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <h1 class="flex items-center gap-2 text-xl font-bold">
+          <img :src="logo" />
+          <span>VUEJS SHADCN</span>
+        </h1>
+        <ToggleMode />
+      </div>
+      <UiCard>
+        <RouterView />
+      </UiCard>
+    </main>
   </div>
 </template>
