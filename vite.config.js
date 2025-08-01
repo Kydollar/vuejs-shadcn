@@ -19,7 +19,7 @@ export default defineConfig({
     VueRouter({
       routesFolder: 'src/pages',
       exclude: RouteGenerateExclude,
-      dts: false,
+      dts: 'src/_auto-generated/auto-routes.d.ts',
     }),
 
     vue(),
@@ -46,7 +46,7 @@ export default defineConfig({
         'src/store/**/*.ts',
       ],
       defaultExportByFilename: true,
-      dts: false,
+      dts: 'src/_auto-generated/auto-imports.d.ts',
     }),
 
     // Otomatis import komponen Vue dari folder tertentu
@@ -56,7 +56,7 @@ export default defineConfig({
       ],
       collapseSamePrefixes: true,
       directoryAsNamespace: true,
-      dts: false,
+      dts: 'src/_auto-generated/auto-components.d.ts',
     }),
   ],
   resolve: {

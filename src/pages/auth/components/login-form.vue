@@ -1,8 +1,9 @@
 <script setup>
 // import { useRouter } from 'vue-router'
 
-// import { useLoginMutation } from '@/modules/auth'
+// import { MENU_APP } from '@/constants/menu-app'
 
+// import { useLoginMutation } from '@/modules/auth'
 // Assuming these are specific login-related components
 import GitHubButton from './github-button.vue'
 import GoogleButton from './google-button.vue'
@@ -28,15 +29,15 @@ const password = ref('emilyspass')
  * sends the appropriate payload to the login mutation.
  * Redirects to the dashboard on success, otherwise logs the error.
  */
-async function handleLogin() {
-  // const isEmail = identifier.value.includes('@')
-  // const payload = {
-  //   [isEmail ? 'email' : 'username']: identifier.value,
-  //   password: password.value,
-  // }
-  // await loginMutateAsync(payload)
-  // router.replace('/dashboard')
-}
+// async function handleLogin() {
+//   const isEmail = identifier.value.includes('@')
+//   const payload = {
+//     [isEmail ? 'email' : 'username']: identifier.value,
+//     password: password.value,
+//   }
+//   await loginMutateAsync(payload)
+//   router.replace(`${MENU_APP.DASHBOARD}`)
+// }
 
 /**
  * Computes the error message to display to the user.

@@ -1,3 +1,6 @@
+# Ignore auto-generated type declaration files
+src/_auto-generated*
+
 # Logs
 logs
 *.log
@@ -29,3 +32,11 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+stats.html

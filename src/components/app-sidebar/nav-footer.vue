@@ -4,7 +4,7 @@ import {
   Bell,
   ChevronsUpDown,
   CreditCard,
-  LogOut,
+  // LogOut,
   Sparkles,
   UserRoundCog,
 } from 'lucide-vue-next'
@@ -24,9 +24,9 @@ const { isMobile, open } = useSidebar()
 // const logoutMutation = useLogoutMutation()
 // const { isPending } = logoutMutation
 
-function handleLogout() {
-  // logoutMutation.mutate() // Call the mutate function to initiate logout
-}
+// function handleLogout() {
+//   logoutMutation.mutate() // Call the mutate function to initiate logout
+// }
 </script>
 
 <template>
@@ -105,10 +105,14 @@ function handleLogout() {
           </UiDropdownMenuGroup>
 
           <UiDropdownMenuSeparator />
-          <UiDropdownMenuItem @click="handleLogout">
+          <!-- <UiDropdownMenuItem
+            :disabled="isPending"
+            :loading="isPending"
+            @click="handleLogout"
+          >
             <LogOut />
             Log out
-          </UiDropdownMenuItem>
+          </UiDropdownMenuItem> -->
         </UiDropdownMenuContent>
       </UiDropdownMenu>
     </UiSidebarMenuItem>

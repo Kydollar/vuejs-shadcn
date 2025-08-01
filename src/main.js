@@ -9,6 +9,7 @@ import './assets/main.css'
 function bootstrap() {
   const app = createApp(App)
 
+  // Setup plugins
   setupPlugins(app, router)
 
   app.use(router)
