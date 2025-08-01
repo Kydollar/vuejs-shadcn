@@ -10,8 +10,20 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior() {
-    return { left: 0, top: 0, behavior: 'smooth' }
+  scrollBehavior(to, from, savedPosition) {
+    // Jika ada savedPosition (browser back/forward), gunakan itu
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    // Jika navigasi dalam app (halaman dengan sidebar), jangan auto-scroll
+    // Biarkan masing-masing komponen mengatur scroll sendiri
+    if (to.path.startsWith('/app/') && from.path.startsWith('/app/')) {
+      return false
+    }
+
+    // Untuk navigasi lain, scroll ke top
+    return { top: 0, behavior: 'smooth' }
   },
 })
 

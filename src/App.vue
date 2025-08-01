@@ -5,9 +5,7 @@ import Loading from '@/components/loading.vue'
 <template>
   <Suspense>
     <template #default>
-      <RouterView v-slot="{ Component, route }">
-        <component :is="Component" :key="route.fullPath" />
-      </RouterView>
+      <RouterView />
     </template>
     <template #fallback>
       <Loading />
