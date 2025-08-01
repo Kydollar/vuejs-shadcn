@@ -17,7 +17,7 @@ import { useI18n } from 'vue-i18n'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { useERPDashboardStore } from '@/stores/erp-dashboard'
+import { useERPDashboardStore } from '@/stores/example/erp-dashboard'
 
 useI18n()
 const dashboardStore = useERPDashboardStore()

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import dataService from '@/data/dataService'
+import dataService from '@/data/example/dataService'
 
 export const useFactoriesStore = defineStore('factories', () => {
   const factories = ref([])
@@ -35,7 +35,7 @@ export const useFactoriesStore = defineStore('factories', () => {
     active: activeFactories.value.length,
     totalCapacity: factories.value.reduce((sum, f) => sum + f.capacity, 0),
     totalProduction: factories.value.reduce((sum, f) => sum + (f.totalProduction || 0), 0),
-    averageRating: factories.value.length > 0 
+    averageRating: factories.value.length > 0
       ? (factories.value.reduce((sum, f) => sum + (f.rating || 0), 0) / factories.value.length).toFixed(1)
       : 0,
     averageOnTime: factories.value.length > 0

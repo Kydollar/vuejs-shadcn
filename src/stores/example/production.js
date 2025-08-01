@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { productionApi } from '@/services/erp-api'
+import { productionApi } from '@/services/example/erp-api'
 
 export const useProductionStore = defineStore('production', () => {
   const productionEntries = ref([])

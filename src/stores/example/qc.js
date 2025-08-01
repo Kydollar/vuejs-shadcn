@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { qcApi } from '@/services/erp-api'
+import { qcApi } from '@/services/example/erp-api'
 
 export const useQCStore = defineStore('qc', () => {
   const inspections = ref([])

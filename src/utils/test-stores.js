@@ -1,10 +1,12 @@
 // Test halaman untuk menguji semua stores dengan storeToRefs
 import { storeToRefs } from 'pinia'
-import { useBuyersStore } from '@/stores/buyers'
-import { useDecorationsStore } from '@/stores/decorations'
-import { useFactoriesStore } from '@/stores/factories'
-import { useOrdersStore } from '@/stores/orders'
-import { useProductsStore } from '@/stores/products'
+
+// example stores
+import { useBuyersStore } from '@/stores/example/buyers'
+import { useDecorationsStore } from '@/stores/example/decorations'
+import { useFactoriesStore } from '@/stores/example/factories'
+import { useOrdersStore } from '@/stores/example/orders'
+import { useProductsStore } from '@/stores/example/products'
 
 // Test reactive stores
 export function testStoresReactivity() {

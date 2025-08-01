@@ -2,7 +2,6 @@
  * Application routes
  */
 export const MENU_APP = Object.freeze({
-  DASHBOARD: '/app/dashboard',
   TASKS: '/app/tasks',
   APPS: '/app/apps',
   USERS: {
@@ -11,21 +10,35 @@ export const MENU_APP = Object.freeze({
   },
   PROFILE: '/app/profile',
   SETTINGS: '/app/settings',
-
-  // ERP Routes (matching auto-generated routes)
+  // ERP System Routes (matching auto-generated routes)
   ERP: {
-    BUYERS: '/app/Buyers',
-    FACTORIES: '/app/Factories',
-    PRODUCTS: '/app/Products',
-    ORDERS: '/app/Orders',
-    ORDER_RECAP: '/app/order-recap',
-    PRODUCTION: '/app/Production',
-    PRODUCTION_REPORTS: '/app/production-reports',
-    PROCESS_FLOW: '/app/process-flow',
-    DECORATIONS: '/app/Decorations',
-    QC: '/app/QC',
-    FARM_OUT: '/app/FarmOut',
-    PACKING_LIST: '/app/PackingList',
-    DELIVERY_NOTE: '/app/DeliveryNote',
+    DASHBOARD: '/app/dashboard',
+    BUYERS: '/app/buyers',
+    FACTORIES: '/app/factories',
+    PRODUCTS: '/app/products',
+    ORDERS: '/app/orders',
+    PRODUCTION: '/app/production',
+    QC: '/app/qc',
+    FARM_OUT: '/app/farm-out',
+    PACKING_LIST: '/app/packing-list',
+    DELIVERY_NOTE: '/app/delivery-note',
+  },
+
+  // Example ERP System Routes (matching auto-generated routes)
+  EXAMPLE_ERP: {
+    DASHBOARD: '/app/example/dashboard',
+    BUYERS: '/app/example/Buyers',
+    FACTORIES: '/app/example/Factories',
+    PRODUCTS: '/app/example/Products',
+    ORDERS: '/app/example/Orders',
+    ORDER_RECAP: '/app/example/order-recap',
+    PRODUCTION: '/app/example/Production',
+    PRODUCTION_REPORTS: '/app/example/production-reports',
+    PROCESS_FLOW: '/app/example/process-flow',
+    DECORATIONS: '/app/example/Decorations',
+    QC: '/app/example/QC',
+    FARM_OUT: '/app/example/FarmOut',
+    PACKING_LIST: '/app/example/PackingList',
+    DELIVERY_NOTE: '/app/example/DeliveryNote',
   },
 })

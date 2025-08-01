@@ -36,11 +36,6 @@ export function useSidebar() {
       title: 'General',
       items: [
         {
-          title: 'Dashboard',
-          url: MENU_APP.DASHBOARD,
-          icon: LayoutDashboard,
-        },
-        {
           title: 'Tasks',
           url: MENU_APP.TASKS,
           icon: ListTodo,
@@ -60,9 +55,15 @@ export function useSidebar() {
         },
       ],
     },
+    // ERP Menu
     {
       title: 'ERP System',
       items: [
+        {
+          title: 'Dashboard',
+          url: MENU_APP.ERP.DASHBOARD,
+          icon: LayoutDashboard,
+        },
         {
           title: 'Buyers',
           url: MENU_APP.ERP.BUYERS,
@@ -84,29 +85,9 @@ export function useSidebar() {
           icon: ShoppingCart,
         },
         {
-          title: 'Order Recap',
-          url: MENU_APP.ERP.ORDER_RECAP,
-          icon: FileText,
-        },
-        {
-          title: 'Decorations',
-          url: MENU_APP.ERP.DECORATIONS,
-          icon: Paintbrush,
-        },
-        {
           title: 'Production',
           url: MENU_APP.ERP.PRODUCTION,
           icon: ClipboardList,
-        },
-        {
-          title: 'Production Reports',
-          url: MENU_APP.ERP.PRODUCTION_REPORTS,
-          icon: BarChart3,
-        },
-        {
-          title: 'Process Flow',
-          url: MENU_APP.ERP.PROCESS_FLOW,
-          icon: GitBranch,
         },
         {
           title: 'Quality Control',
@@ -126,6 +107,83 @@ export function useSidebar() {
         {
           title: 'Delivery Note',
           url: MENU_APP.ERP.DELIVERY_NOTE,
+          icon: Truck,
+        },
+      ],
+    },
+
+    // Example ERP Menu
+    {
+      title: 'Example ERP System',
+      items: [
+        {
+          title: 'Dashboard',
+          url: MENU_APP.EXAMPLE_ERP.DASHBOARD,
+          icon: LayoutDashboard,
+        },
+        {
+          title: 'Buyers',
+          url: MENU_APP.EXAMPLE_ERP.BUYERS,
+          icon: Building2,
+        },
+        {
+          title: 'Factories',
+          url: MENU_APP.EXAMPLE_ERP.FACTORIES,
+          icon: Factory,
+        },
+        {
+          title: 'Products',
+          url: MENU_APP.EXAMPLE_ERP.PRODUCTS,
+          icon: Package,
+        },
+        {
+          title: 'Orders',
+          url: MENU_APP.EXAMPLE_ERP.ORDERS,
+          icon: ShoppingCart,
+        },
+        {
+          title: 'Order Recap',
+          url: MENU_APP.EXAMPLE_ERP.ORDER_RECAP,
+          icon: FileText,
+        },
+        {
+          title: 'Decorations',
+          url: MENU_APP.EXAMPLE_ERP.DECORATIONS,
+          icon: Paintbrush,
+        },
+        {
+          title: 'Production',
+          url: MENU_APP.EXAMPLE_ERP.PRODUCTION,
+          icon: ClipboardList,
+        },
+        {
+          title: 'Production Reports',
+          url: MENU_APP.EXAMPLE_ERP.PRODUCTION_REPORTS,
+          icon: BarChart3,
+        },
+        {
+          title: 'Process Flow',
+          url: MENU_APP.EXAMPLE_ERP.PROCESS_FLOW,
+          icon: GitBranch,
+        },
+        {
+          title: 'Quality Control',
+          url: MENU_APP.EXAMPLE_ERP.QC,
+          icon: CheckCircle,
+        },
+        {
+          title: 'Farm Out',
+          url: MENU_APP.EXAMPLE_ERP.FARM_OUT,
+          icon: Wrench,
+        },
+        {
+          title: 'Packing List',
+          url: MENU_APP.EXAMPLE_ERP.PACKING_LIST,
+          icon: Package,
+        },
+        {
+          title: 'Delivery Note',
+          url: MENU_APP.EXAMPLE_ERP.DELIVERY_NOTE,
           icon: Truck,
         },
       ],

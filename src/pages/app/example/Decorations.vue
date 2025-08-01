@@ -24,7 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
-import { useDecorationsStore } from '@/stores/decorations'
+import { useDecorationsStore } from '@/stores/example/decorations'
 
 useI18n()
 const decorationsStore = useDecorationsStore()

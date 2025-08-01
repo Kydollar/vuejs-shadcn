@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
-import dataService from '@/data/dataService'
+import dataService from '@/data/example/dataService'
 
 export const useOrderRecapStore = defineStore('orderRecap', () => {
   const orderRecaps = ref([])

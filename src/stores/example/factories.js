@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import dataService from '@/data/dataService'
+import dataService from '@/data/example/dataService'
 
 export const useFactoriesStore = defineStore('factories', () => {
   const factories = ref([])
@@ -48,6 +48,8 @@ export const useFactoriesStore = defineStore('factories', () => {
     loading.value = true
     error.value = null
     try {
+      // Simulate network delay for better UX
+      await new Promise(resolve => setTimeout(resolve, 400))
       factories.value = dataService.getFactories()
     }
     catch (err) {
@@ -162,10 +164,14 @@ export const useFactoriesStore = defineStore('factories', () => {
     selectedFactory.value = null
   }
 
-  // Load dummy data for development
-  const loadDummyData = () => {
-    fetchFactories()
-  }
+  // // Load dummy data for development
+  // const loadDummyData = async () => {
+  //   // Prevent duplicate loading dan race condition
+  //   if (loading.value || factories.value.length > 0) {
+  //     return
+  //   }
+  //   await fetchFactories()
+  // }
 
   const refreshData = () => {
     fetchFactories()
@@ -193,7 +199,7 @@ export const useFactoriesStore = defineStore('factories', () => {
     deleteFactory,
     clearError,
     clearSelectedFactory,
-    loadDummyData,
+    // loadDummyData,
     refreshData,
   }
 })

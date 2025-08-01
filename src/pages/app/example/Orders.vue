@@ -25,8 +25,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
-import { useBuyersStore } from '@/stores/buyers'
-import { useOrdersStore } from '@/stores/orders'
+import { useBuyersStore } from '@/stores/example/buyers'
+import { useOrdersStore } from '@/stores/example/orders'
 
 const ordersStore = useOrdersStore()
 const buyersStore = useBuyersStore()
