@@ -13,7 +13,7 @@ export const useProductionStore = defineStore('production', () => {
   // Computed
   const entriesByLine = computed(() => {
     const grouped = {}
-    productionEntries.value.forEach(entry => {
+    productionEntries.value.forEach((entry) => {
       if (!grouped[entry.line]) {
         grouped[entry.line] = []
       }
@@ -24,20 +24,20 @@ export const useProductionStore = defineStore('production', () => {
 
   const todayEntries = computed(() => {
     const today = new Date().toISOString().split('T')[0]
-    return productionEntries.value.filter(entry => 
-      entry.date === today
+    return productionEntries.value.filter(entry =>
+      entry.date === today,
     )
   })
 
   const totalProducedToday = computed(() => {
-    return todayEntries.value.reduce((total, entry) => 
-      total + (entry.actualProduction || 0), 0
-    )
+    return todayEntries.value.reduce((total, entry) =>
+      total + (entry.actualProduction || 0), 0)
   })
 
   const averageEfficiency = computed(() => {
     const entries = todayEntries.value.filter(entry => entry.efficiency)
-    if (entries.length === 0) return 0
+    if (entries.length === 0)
+      return 0
     const totalEfficiency = entries.reduce((sum, entry) => sum + entry.efficiency, 0)
     return Math.round(totalEfficiency / entries.length)
   })
@@ -49,10 +49,12 @@ export const useProductionStore = defineStore('production', () => {
     try {
       const data = await productionApi.getAll(params)
       productionEntries.value = data.data || data
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch production entries'
       console.error('Error fetching production entries:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -64,11 +66,13 @@ export const useProductionStore = defineStore('production', () => {
       const data = await productionApi.getById(id)
       selectedEntry.value = data.data || data
       return selectedEntry.value
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch production entry'
       console.error('Error fetching production entry:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -81,11 +85,13 @@ export const useProductionStore = defineStore('production', () => {
       const newEntry = data.data || data
       productionEntries.value.push(newEntry)
       return newEntry
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to create production entry'
       console.error('Error creating production entry:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -104,11 +110,13 @@ export const useProductionStore = defineStore('production', () => {
         selectedEntry.value = updatedEntry
       }
       return updatedEntry
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to update production entry'
       console.error('Error updating production entry:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -122,11 +130,13 @@ export const useProductionStore = defineStore('production', () => {
       if (selectedEntry.value?.id === id) {
         selectedEntry.value = null
       }
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to delete production entry'
       console.error('Error deleting production entry:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -137,10 +147,12 @@ export const useProductionStore = defineStore('production', () => {
     try {
       const data = await productionApi.getHourlyData(params)
       hourlyData.value = data.data || data
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch hourly data'
       console.error('Error fetching hourly data:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -151,10 +163,12 @@ export const useProductionStore = defineStore('production', () => {
     try {
       const data = await productionApi.getEfficiencyReport(params)
       efficiencyReport.value = data.data || data
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch efficiency report'
       console.error('Error fetching efficiency report:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -171,7 +185,7 @@ export const useProductionStore = defineStore('production', () => {
   const loadDummyData = () => {
     const today = new Date().toISOString().split('T')[0]
     const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0]
-    
+
     productionEntries.value = [
       {
         id: 1,
@@ -186,7 +200,7 @@ export const useProductionStore = defineStore('production', () => {
         rejected: 2,
         rework: 1,
         efficiency: 94,
-        remarks: 'Good performance'
+        remarks: 'Good performance',
       },
       {
         id: 2,
@@ -201,7 +215,7 @@ export const useProductionStore = defineStore('production', () => {
         rejected: 1,
         rework: 0,
         efficiency: 102,
-        remarks: 'Exceeded target'
+        remarks: 'Exceeded target',
       },
       {
         id: 3,
@@ -216,7 +230,7 @@ export const useProductionStore = defineStore('production', () => {
         rejected: 3,
         rework: 2,
         efficiency: 89,
-        remarks: 'Some quality issues'
+        remarks: 'Some quality issues',
       },
       {
         id: 4,
@@ -231,7 +245,7 @@ export const useProductionStore = defineStore('production', () => {
         rejected: 1,
         rework: 0,
         efficiency: 103,
-        remarks: 'Excellent work'
+        remarks: 'Excellent work',
       },
       {
         id: 5,
@@ -246,8 +260,8 @@ export const useProductionStore = defineStore('production', () => {
         rejected: 4,
         rework: 2,
         efficiency: 88,
-        remarks: 'Need attention to quality'
-      }
+        remarks: 'Need attention to quality',
+      },
     ]
 
     // Generate hourly data for charts
@@ -258,7 +272,7 @@ export const useProductionStore = defineStore('production', () => {
       { hour: 11, target: 50, actual: 51, efficiency: 102 },
       { hour: 13, target: 45, actual: 43, efficiency: 96 },
       { hour: 14, target: 45, actual: 46, efficiency: 102 },
-      { hour: 15, target: 45, actual: 44, efficiency: 98 }
+      { hour: 15, target: 45, actual: 44, efficiency: 98 },
     ]
   }
 
@@ -270,13 +284,13 @@ export const useProductionStore = defineStore('production', () => {
     selectedEntry,
     hourlyData,
     efficiencyReport,
-    
+
     // Computed
     entriesByLine,
     todayEntries,
     totalProducedToday,
     averageEfficiency,
-    
+
     // Actions
     fetchProductionEntries,
     fetchEntryById,
@@ -287,6 +301,6 @@ export const useProductionStore = defineStore('production', () => {
     fetchEfficiencyReport,
     clearError,
     clearSelectedEntry,
-    loadDummyData
+    loadDummyData,
   }
 })

@@ -31,7 +31,7 @@ export const buyersApi = {
   delete: async (id) => {
     const response = await axiosInstance.delete(`/buyers/${id}`)
     return response.data
-  }
+  },
 }
 
 export const factoriesApi = {
@@ -63,7 +63,7 @@ export const factoriesApi = {
   delete: async (id) => {
     const response = await axiosInstance.delete(`/factories/${id}`)
     return response.data
-  }
+  },
 }
 
 export const productsApi = {
@@ -103,11 +103,11 @@ export const productsApi = {
     formData.append('image', file)
     const response = await axiosInstance.post(`/products/${id}/upload-image`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     })
     return response.data
-  }
+  },
 }
 
 export const ordersApi = {
@@ -147,8 +147,8 @@ export const ordersApi = {
     formData.append('graphic', file)
     const response = await axiosInstance.post(`/orders/${id}/upload-graphic`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     })
     return response.data
   },
@@ -157,5 +157,5 @@ export const ordersApi = {
   getProgress: async (id) => {
     const response = await axiosInstance.get(`/orders/${id}/progress`)
     return response.data
-  }
+  },
 }

@@ -1,3 +1,13 @@
+<script setup>
+import { CheckCircle, Plus } from 'lucide-vue-next'
+import { useI18n } from 'vue-i18n'
+
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+
+useI18n()
+</script>
+
 <template>
   <div class="space-y-6">
     <!-- Header -->
@@ -21,8 +31,12 @@
       <CardContent class="pt-6">
         <div class="text-center py-12">
           <CheckCircle class="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-          <h3 class="text-lg font-semibold mb-2">{{ $t('erp.farmOut.title') }}</h3>
-          <p class="text-muted-foreground mb-4">This feature is coming soon!</p>
+          <h3 class="text-lg font-semibold mb-2">
+            {{ $t('erp.farmOut.title') }}
+          </h3>
+          <p class="text-muted-foreground mb-4">
+            This feature is coming soon!
+          </p>
           <p class="text-sm text-muted-foreground">
             Track final output results per size and quality grade.
           </p>
@@ -31,13 +45,3 @@
     </Card>
   </div>
 </template>
-
-<script setup>
-import { CheckCircle, Plus } from 'lucide-vue-next'
-import { useI18n } from 'vue-i18n'
-
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-
-useI18n()
-</script>

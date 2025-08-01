@@ -11,26 +11,44 @@ const route = useRoute()
 const { state, isMobile } = useSidebar()
 
 function isCollapsed(menu) {
-  const pathname = route.path
-  navMain.forEach(group => {
-    group.items.forEach(item => {
-      if (item.url === pathname) {
-        return true
+  try {
+    const pathname = route.path
+    if (!navMain || !Array.isArray(navMain))
+      return false
+
+    navMain.forEach((group) => {
+      if (group?.items && Array.isArray(group.items)) {
+        group.items.forEach((item) => {
+          if (item?.url === pathname) {
+            return true
+          }
+        })
       }
     })
-  })
-  return !!menu.items?.some(item => item.url === pathname)
+    return !!menu?.items?.some(item => item?.url === pathname)
+  }
+  catch (error) {
+    console.warn('Error in isCollapsed:', error)
+    return false
+  }
 }
 
 function isActive(menu) {
-  const pathname = route.path
-  if (menu.url) {
-    if (pathname === menu.url) return true
+  try {
+    const pathname = route.path
+    if (menu?.url) {
+      if (pathname === menu.url)
+        return true
+    }
+    if (menu?.items && Array.isArray(menu.items)) {
+      return menu.items.some(isActive) // cek semua subItem, rekursif
+    }
+    return false
   }
-  if (menu.items) {
-    return menu.items.some(isActive) // cek semua subItem, rekursif
+  catch (error) {
+    console.warn('Error in isActive:', error)
+    return false
   }
-  return false
 }
 </script>
 
@@ -42,11 +60,11 @@ function isActive(menu) {
         <UiSidebarMenuItem v-if="!menu.items">
           <UiSidebarMenuButton as-child :is-active="isActive(menu)" :tooltip="menu.title">
             <RouterLink v-if="menu.url" :to="menu.url">
-              <component :is="menu.icon" />
+              <component :is="menu.icon" v-if="menu.icon" />
               <span>{{ menu.title }}</span>
             </RouterLink>
             <span v-else>
-              <component :is="menu.icon" />
+              <component :is="menu.icon" v-if="menu.icon" />
               <span>{{ menu.title }}</span>
             </span>
           </UiSidebarMenuButton>
@@ -73,7 +91,7 @@ function isActive(menu) {
             </UiSidebarMenuItem>
             <UiCollapsibleContent>
               <UiSidebarMenuSub>
-                <UiSidebarMenuSubItem v-for="subItem in menu.items" :key="subItem.title">
+                <UiSidebarMenuSubItem v-for="subItem in menu.items || []" :key="subItem.title">
                   <UiSidebarMenuSubButton as-child :is-active="isActive(subItem)">
                     <RouterLink v-if="subItem.url" :to="subItem.url">
                       <component :is="subItem.icon" v-if="subItem.icon" />
@@ -100,7 +118,7 @@ function isActive(menu) {
             <UiDropdownMenuContent align="start" side="right">
               <UiDropdownMenuLabel>{{ menu.title }}</UiDropdownMenuLabel>
               <UiDropdownMenuSeparator />
-              <UiDropdownMenuItem v-for="subItem in menu.items" :key="subItem.title" as-child>
+              <UiDropdownMenuItem v-for="subItem in menu.items || []" :key="subItem.title" as-child>
                 <RouterLink v-if="subItem.url" :to="subItem.url">
                   <component :is="subItem.icon" v-if="subItem.icon" />
                   <span>{{ subItem.title }}</span>

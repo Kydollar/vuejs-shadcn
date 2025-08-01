@@ -31,7 +31,7 @@ export const decorationsApi = {
   delete: async (id) => {
     const response = await axiosInstance.delete(`/decorations/${id}`)
     return response.data
-  }
+  },
 }
 
 export const productionApi = {
@@ -75,7 +75,7 @@ export const productionApi = {
   getEfficiencyReport: async (params = {}) => {
     const response = await axiosInstance.get('/production/efficiency', { params })
     return response.data
-  }
+  },
 }
 
 export const qcApi = {
@@ -113,7 +113,7 @@ export const qcApi = {
   getStats: async (params = {}) => {
     const response = await axiosInstance.get('/qc/stats', { params })
     return response.data
-  }
+  },
 }
 
 export const farmOutApi = {
@@ -145,7 +145,7 @@ export const farmOutApi = {
   delete: async (id) => {
     const response = await axiosInstance.delete(`/farm-out/${id}`)
     return response.data
-  }
+  },
 }
 
 export const packingListApi = {
@@ -182,10 +182,10 @@ export const packingListApi = {
   // Generate PDF packing list
   generatePDF: async (id) => {
     const response = await axiosInstance.get(`/packing-lists/${id}/pdf`, {
-      responseType: 'blob'
+      responseType: 'blob',
     })
     return response.data
-  }
+  },
 }
 
 export const deliveryNoteApi = {
@@ -222,7 +222,7 @@ export const deliveryNoteApi = {
   // Generate PDF delivery note
   generatePDF: async (id) => {
     const response = await axiosInstance.get(`/delivery-notes/${id}/pdf`, {
-      responseType: 'blob'
+      responseType: 'blob',
     })
     return response.data
   },
@@ -231,5 +231,5 @@ export const deliveryNoteApi = {
   trackShipment: async (trackingNumber) => {
     const response = await axiosInstance.get(`/delivery-notes/track/${trackingNumber}`)
     return response.data
-  }
+  },
 }

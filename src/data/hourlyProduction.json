@@ -1,0 +1,236 @@
+[
+    {
+        "id": 1,
+        "team": "AUTO 4",
+        "people": "WACKY WILLY",
+        "style": "WA2504CR11",
+        "color": "NAVY",
+        "hourlyData": {
+            "06:00-07:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "07:00-08:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "08:00-09:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "09:00-10:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "10:00-11:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "11:00-12:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "12:00-13:00": {
+                "output": 50,
+                "price": 1.40,
+                "amount": 70.00
+            },
+            "13:00-14:00": {
+                "output": 184,
+                "price": 1.40,
+                "amount": 257.60
+            },
+            "14:00-15:00": {
+                "output": 176,
+                "price": 1.40,
+                "amount": 246.40
+            },
+            "15:00-16:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "16:00-17:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "17:00-18:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            },
+            "18:00-19:00": {
+                "output": 0,
+                "price": 1.40,
+                "amount": 0
+            }
+        },
+        "total": {
+            "output": 410,
+            "amount": 574.00
+        }
+    },
+    {
+        "id": 2,
+        "team": "PRESS",
+        "people": "NAVY",
+        "style": "HQ018306A",
+        "color": "LAVENDER ROSE",
+        "hourlyData": {
+            "06:00-07:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "07:00-08:00": {
+                "output": 120,
+                "price": 0.30,
+                "amount": 36.00
+            },
+            "08:00-09:00": {
+                "output": 120,
+                "price": 0.30,
+                "amount": 36.00
+            },
+            "09:00-10:00": {
+                "output": 120,
+                "price": 0.30,
+                "amount": 36.00
+            },
+            "10:00-11:00": {
+                "output": 30,
+                "price": 0.30,
+                "amount": 9.00
+            },
+            "11:00-12:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "12:00-13:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "13:00-14:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "14:00-15:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "15:00-16:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "16:00-17:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "17:00-18:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            },
+            "18:00-19:00": {
+                "output": 0,
+                "price": 0.30,
+                "amount": 0
+            }
+        },
+        "total": {
+            "output": 390,
+            "amount": 117.00
+        }
+    },
+    {
+        "id": 3,
+        "team": "ROTARY",
+        "people": "CHARCOAL",
+        "style": "KRFCR117870",
+        "color": "CHARCOAL",
+        "hourlyData": {
+            "06:00-07:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "07:00-08:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "08:00-09:00": {
+                "output": 45,
+                "price": 1.20,
+                "amount": 54.00
+            },
+            "09:00-10:00": {
+                "output": 55,
+                "price": 1.20,
+                "amount": 66.00
+            },
+            "10:00-11:00": {
+                "output": 75,
+                "price": 1.20,
+                "amount": 90.00
+            },
+            "11:00-12:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "12:00-13:00": {
+                "output": 61,
+                "price": 1.20,
+                "amount": 73.20
+            },
+            "13:00-14:00": {
+                "output": 73,
+                "price": 1.20,
+                "amount": 87.60
+            },
+            "14:00-15:00": {
+                "output": 71,
+                "price": 1.20,
+                "amount": 85.20
+            },
+            "15:00-16:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "16:00-17:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "17:00-18:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            },
+            "18:00-19:00": {
+                "output": 0,
+                "price": 1.20,
+                "amount": 0
+            }
+        },
+        "total": {
+            "output": 380,
+            "amount": 456.00
+        }
+    }
+]

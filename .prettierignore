@@ -6,3 +6,4 @@ coverage
 build
 *.md
 *d.ts
+**/data/**.json

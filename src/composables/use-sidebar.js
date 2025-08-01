@@ -1,5 +1,6 @@
 import {
   BadgeHelp,
+  BarChart3,
   BellDot,
   Boxes,
   Bug,
@@ -8,6 +9,8 @@ import {
   ClipboardList,
   CreditCard,
   Factory,
+  FileText,
+  GitBranch,
   LayoutDashboard,
   ListTodo,
   Package,
@@ -81,6 +84,11 @@ export function useSidebar() {
           icon: ShoppingCart,
         },
         {
+          title: 'Order Recap',
+          url: MENU_APP.ERP.ORDER_RECAP,
+          icon: FileText,
+        },
+        {
           title: 'Decorations',
           url: MENU_APP.ERP.DECORATIONS,
           icon: Paintbrush,
@@ -89,6 +97,16 @@ export function useSidebar() {
           title: 'Production',
           url: MENU_APP.ERP.PRODUCTION,
           icon: ClipboardList,
+        },
+        {
+          title: 'Production Reports',
+          url: MENU_APP.ERP.PRODUCTION_REPORTS,
+          icon: BarChart3,
+        },
+        {
+          title: 'Process Flow',
+          url: MENU_APP.ERP.PROCESS_FLOW,
+          icon: GitBranch,
         },
         {
           title: 'Quality Control',

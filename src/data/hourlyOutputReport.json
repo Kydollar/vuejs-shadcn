@@ -1,0 +1,178 @@
+[
+    {
+        "id": 1,
+        "date": "2024-07-01",
+        "shift": "day",
+        "dailyOutput": 10470,
+        "target": 11000,
+        "dailyAmount": 3211.66,
+        "monthlyAmount": 3211.66,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 2,
+        "date": "2024-07-01",
+        "shift": "night",
+        "dailyOutput": 11435,
+        "target": 11000,
+        "dailyAmount": 2595.55,
+        "monthlyAmount": 2595.55,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 3,
+        "date": "2024-07-02",
+        "shift": "day",
+        "dailyOutput": 12307,
+        "target": 11000,
+        "dailyAmount": 3650.66,
+        "monthlyAmount": 6862.32,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 4,
+        "date": "2024-07-02",
+        "shift": "night",
+        "dailyOutput": 11943,
+        "target": 11000,
+        "dailyAmount": 5334.75,
+        "monthlyAmount": 7930.30,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 5,
+        "date": "2024-07-03",
+        "shift": "day",
+        "dailyOutput": 14233,
+        "target": 13000,
+        "dailyAmount": 4929.60,
+        "monthlyAmount": 11791.92,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 6,
+        "date": "2024-07-03",
+        "shift": "night",
+        "dailyOutput": 8655,
+        "target": 13000,
+        "dailyAmount": 3396.21,
+        "monthlyAmount": 11326.51,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 7,
+        "date": "2024-07-04",
+        "shift": "day",
+        "dailyOutput": 6767,
+        "target": 7000,
+        "dailyAmount": 3472.57,
+        "monthlyAmount": 15264.49,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 8,
+        "date": "2024-07-04",
+        "shift": "night",
+        "dailyOutput": 10211,
+        "target": 7000,
+        "dailyAmount": 3380.14,
+        "monthlyAmount": 14706.65,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 9,
+        "date": "2024-07-05",
+        "shift": "day",
+        "dailyOutput": 7600,
+        "target": 8000,
+        "dailyAmount": 3529.73,
+        "monthlyAmount": 18794.22,
+        "workingHour": 8,
+        "remarks": "$"
+    },
+    {
+        "id": 10,
+        "date": "2024-07-05",
+        "shift": "night",
+        "dailyOutput": 6518,
+        "target": 8000,
+        "dailyAmount": 3027.09,
+        "monthlyAmount": 17733.74,
+        "workingHour": 7,
+        "remarks": "$"
+    },
+    {
+        "id": 11,
+        "date": "2024-07-06",
+        "shift": "day",
+        "dailyOutput": 13704,
+        "target": 14000,
+        "dailyAmount": 4536.37,
+        "monthlyAmount": 23330.59,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 12,
+        "date": "2024-07-06",
+        "shift": "night",
+        "dailyOutput": 8156,
+        "target": 14000,
+        "dailyAmount": 3908.30,
+        "monthlyAmount": 21642.04,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 13,
+        "date": "2024-07-07",
+        "shift": "day",
+        "dailyOutput": 12071,
+        "target": 12000,
+        "dailyAmount": 3393.42,
+        "monthlyAmount": 26724.01,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 14,
+        "date": "2024-07-07",
+        "shift": "night",
+        "dailyOutput": 5089,
+        "target": 12000,
+        "dailyAmount": 918.68,
+        "monthlyAmount": 22560.72,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 15,
+        "date": "2024-07-08",
+        "shift": "day",
+        "dailyOutput": 5941,
+        "target": 6000,
+        "dailyAmount": 1671.89,
+        "monthlyAmount": 28395.90,
+        "workingHour": 11,
+        "remarks": "$"
+    },
+    {
+        "id": 16,
+        "date": "2024-07-08",
+        "shift": "night",
+        "dailyOutput": 6479,
+        "target": 6000,
+        "dailyAmount": 1172.87,
+        "monthlyAmount": 23733.59,
+        "workingHour": 7,
+        "remarks": "$"
+    }
+]

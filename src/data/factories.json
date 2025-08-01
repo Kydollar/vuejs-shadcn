@@ -1,0 +1,139 @@
+[
+    {
+        "id": 1,
+        "factoryName": "Prima Garment Manufacturing",
+        "location": "Bandung, West Java",
+        "contactPerson": "Budi Santoso",
+        "email": "budi@primagarment.com",
+        "phone": "+62 22 1234 5678",
+        "address": "Jl. Industri Raya No. 45, Bandung 40123",
+        "capacity": 50000,
+        "specialization": [
+            "T-Shirts",
+            "Polo Shirts",
+            "Casual Wear"
+        ],
+        "certifications": [
+            "ISO 9001",
+            "WRAP",
+            "OEKO-TEX"
+        ],
+        "status": "active",
+        "rating": 4.8,
+        "createdAt": "2024-01-10T08:00:00Z",
+        "updatedAt": "2024-07-28T15:30:00Z",
+        "totalProduction": 125000,
+        "onTimeDelivery": 96.5,
+        "qualityScore": 4.7,
+        "notes": "Premium quality factory with excellent track record"
+    },
+    {
+        "id": 2,
+        "factoryName": "Textile Innovation Hub",
+        "location": "Surabaya, East Java",
+        "contactPerson": "Sari Wijaya",
+        "email": "sari@texinnovation.com",
+        "phone": "+62 31 9876 5432",
+        "address": "Kawasan Industri Surabaya, Blok A-15",
+        "capacity": 75000,
+        "specialization": [
+            "Formal Shirts",
+            "Blouses",
+            "Dresses"
+        ],
+        "certifications": [
+            "ISO 14001",
+            "GOTS",
+            "SA8000"
+        ],
+        "status": "active",
+        "rating": 4.6,
+        "createdAt": "2024-02-15T09:30:00Z",
+        "updatedAt": "2024-07-30T10:45:00Z",
+        "totalProduction": 89000,
+        "onTimeDelivery": 94.2,
+        "qualityScore": 4.5,
+        "notes": "Sustainable manufacturing with eco-friendly processes"
+    },
+    {
+        "id": 3,
+        "factoryName": "Metro Fashion Works",
+        "location": "Jakarta, DKI Jakarta",
+        "contactPerson": "Andi Kurniawan",
+        "email": "andi@metrofashion.co.id",
+        "phone": "+62 21 5555 6666",
+        "address": "Jl. Gatot Subroto Kav. 88, Jakarta 12930",
+        "capacity": 35000,
+        "specialization": [
+            "Jeans",
+            "Casual Pants",
+            "Shorts"
+        ],
+        "certifications": [
+            "ISO 9001",
+            "BSCI"
+        ],
+        "status": "active",
+        "rating": 4.4,
+        "createdAt": "2024-03-05T11:15:00Z",
+        "updatedAt": "2024-07-25T14:20:00Z",
+        "totalProduction": 67000,
+        "onTimeDelivery": 92.8,
+        "qualityScore": 4.3,
+        "notes": "Specialized in denim and casual wear production"
+    },
+    {
+        "id": 4,
+        "factoryName": "Green Textile Solutions",
+        "location": "Yogyakarta, DIY",
+        "contactPerson": "Maya Indrawati",
+        "email": "maya@greentextile.com",
+        "phone": "+62 274 7777 8888",
+        "address": "Jl. Ring Road Utara KM 8, Yogyakarta 55584",
+        "capacity": 25000,
+        "specialization": [
+            "Organic Cotton",
+            "Bamboo Fiber",
+            "Eco-Friendly Wear"
+        ],
+        "certifications": [
+            "GOTS",
+            "OCS",
+            "Cradle to Cradle"
+        ],
+        "status": "maintenance",
+        "rating": 4.9,
+        "createdAt": "2024-04-20T07:45:00Z",
+        "updatedAt": "2024-07-15T16:00:00Z",
+        "totalProduction": 32000,
+        "onTimeDelivery": 98.1,
+        "qualityScore": 4.8,
+        "notes": "Under scheduled maintenance - resuming operations next month"
+    },
+    {
+        "id": 5,
+        "factoryName": "Express Garment Co.",
+        "location": "Semarang, Central Java",
+        "contactPerson": "Rudi Hartono",
+        "email": "rudi@expressgarment.com",
+        "phone": "+62 24 3333 4444",
+        "address": "Jl. Pandanaran 125, Semarang 50241",
+        "capacity": 40000,
+        "specialization": [
+            "Uniforms",
+            "Workwear",
+            "Corporate Clothing"
+        ],
+        "certifications": [
+            "ISO 9001"
+        ],
+        "status": "active",
+        "rating": 4.2,
+        "createdAt": "2024-05-08T12:30:00Z",
+        "updatedAt": "2024-07-22T11:10:00Z",
+        "totalProduction": 28000,
+        "onTimeDelivery": 89.5,
+        "qualityScore": 4.1,
+        "notes": "Fast turnaround times for urgent orders"
+    }
+]

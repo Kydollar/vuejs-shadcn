@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { buyersApi } from '@/services/api'
+import dataService from '@/data/dataService'
 
 export const useBuyersStore = defineStore('buyers', () => {
   const buyers = ref([])
@@ -9,28 +9,48 @@ export const useBuyersStore = defineStore('buyers', () => {
   const selectedBuyer = ref(null)
 
   // Computed
-  const activeBuyers = computed(() => 
-    buyers.value.filter(buyer => buyer.status === 'active')
+  const activeBuyers = computed(() =>
+    buyers.value.filter(buyer => buyer.status === 'active'),
+  )
+
+  const inactiveBuyers = computed(() =>
+    buyers.value.filter(buyer => buyer.status === 'inactive'),
   )
 
   const buyerOptions = computed(() =>
     activeBuyers.value.map(buyer => ({
       value: buyer.id,
-      label: buyer.buyerName
-    }))
+      label: buyer.buyerName,
+    })),
   )
 
+  const uniqueCountries = computed(() =>
+    [...new Set(buyers.value.map(buyer => buyer.country))].sort(),
+  )
+
+  const statistics = computed(() => ({
+    total: buyers.value.length,
+    active: activeBuyers.value.length,
+    inactive: inactiveBuyers.value.length,
+    countries: uniqueCountries.value.length,
+    totalValue: buyers.value.reduce((sum, b) => sum + (b.totalValue || 0), 0),
+    totalOrders: buyers.value.reduce((sum, b) => sum + (b.totalOrders || 0), 0),
+  }))
+
   // Actions
-  const fetchBuyers = async (params = {}) => {
+  const fetchBuyers = async (_params = {}) => {
     loading.value = true
     error.value = null
     try {
-      const data = await buyersApi.getAll(params)
-      buyers.value = data.data || data
-    } catch (err) {
-      error.value = err.response?.data?.message || 'Failed to fetch buyers'
+      // Reduced loading delay to prevent blank screens on fast navigation
+      await new Promise(resolve => setTimeout(resolve, 400))
+      buyers.value = dataService.getBuyers()
+    }
+    catch (err) {
+      error.value = 'Failed to fetch buyers'
       console.error('Error fetching buyers:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -39,14 +59,21 @@ export const useBuyersStore = defineStore('buyers', () => {
     loading.value = true
     error.value = null
     try {
-      const data = await buyersApi.getById(id)
-      selectedBuyer.value = data.data || data
-      return selectedBuyer.value
-    } catch (err) {
-      error.value = err.response?.data?.message || 'Failed to fetch buyer'
+      const buyer = dataService.getById('buyers', id)
+      if (buyer) {
+        selectedBuyer.value = buyer
+        return buyer
+      }
+      else {
+        throw new Error('Buyer not found')
+      }
+    }
+    catch (err) {
+      error.value = 'Failed to fetch buyer'
       console.error('Error fetching buyer:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -55,15 +82,19 @@ export const useBuyersStore = defineStore('buyers', () => {
     loading.value = true
     error.value = null
     try {
-      const data = await buyersApi.create(buyerData)
-      const newBuyer = data.data || data
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 500))
+      const newBuyer = dataService.createBuyer(buyerData)
+      // Immediately update the reactive array
       buyers.value.push(newBuyer)
       return newBuyer
-    } catch (err) {
-      error.value = err.response?.data?.message || 'Failed to create buyer'
+    }
+    catch (err) {
+      error.value = 'Failed to create buyer'
       console.error('Error creating buyer:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -72,21 +103,30 @@ export const useBuyersStore = defineStore('buyers', () => {
     loading.value = true
     error.value = null
     try {
-      const data = await buyersApi.update(id, buyerData)
-      const updatedBuyer = data.data || data
-      const index = buyers.value.findIndex(buyer => buyer.id === id)
-      if (index !== -1) {
-        buyers.value[index] = updatedBuyer
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 500))
+      const updatedBuyer = dataService.updateBuyer(id, buyerData)
+      if (updatedBuyer) {
+        const index = buyers.value.findIndex(buyer => buyer.id === id)
+        if (index !== -1) {
+          // Update the reactive array immediately
+          buyers.value[index] = updatedBuyer
+        }
+        if (selectedBuyer.value?.id === id) {
+          selectedBuyer.value = updatedBuyer
+        }
+        return updatedBuyer
       }
-      if (selectedBuyer.value?.id === id) {
-        selectedBuyer.value = updatedBuyer
+      else {
+        throw new Error('Buyer not found')
       }
-      return updatedBuyer
-    } catch (err) {
-      error.value = err.response?.data?.message || 'Failed to update buyer'
+    }
+    catch (err) {
+      error.value = 'Failed to update buyer'
       console.error('Error updating buyer:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -95,18 +135,32 @@ export const useBuyersStore = defineStore('buyers', () => {
     loading.value = true
     error.value = null
     try {
-      await buyersApi.delete(id)
-      buyers.value = buyers.value.filter(buyer => buyer.id !== id)
-      if (selectedBuyer.value?.id === id) {
-        selectedBuyer.value = null
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 500))
+      const success = dataService.deleteBuyer(id)
+      if (success) {
+        // Immediately update the reactive array
+        buyers.value = buyers.value.filter(buyer => buyer.id !== id)
+        if (selectedBuyer.value?.id === id) {
+          selectedBuyer.value = null
+        }
       }
-    } catch (err) {
-      error.value = err.response?.data?.message || 'Failed to delete buyer'
+      else {
+        throw new Error('Buyer not found')
+      }
+    }
+    catch (err) {
+      error.value = 'Failed to delete buyer'
       console.error('Error deleting buyer:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
+  }
+
+  const searchBuyers = (query) => {
+    return dataService.searchBuyers(query)
   }
 
   const clearError = () => {
@@ -117,54 +171,18 @@ export const useBuyersStore = defineStore('buyers', () => {
     selectedBuyer.value = null
   }
 
-  // Load dummy data for development
-  const loadDummyData = () => {
-    buyers.value = [
-      {
-        id: 1,
-        buyerName: 'Global Fashion Co.',
-        contactPerson: 'John Smith',
-        email: 'john.smith@globalfashion.com',
-        phone: '+1-555-0123',
-        address: '123 Fashion Ave, New York, NY 10001',
-        country: 'United States',
-        status: 'active',
-        createdAt: '2024-01-15T08:00:00Z'
-      },
-      {
-        id: 2,
-        buyerName: 'European Brands Ltd.',
-        contactPerson: 'Maria Garcia',
-        email: 'maria.garcia@europeanbrands.eu',
-        phone: '+34-91-123-4567',
-        address: 'Calle Mayor 45, Madrid, Spain',
-        country: 'Spain',
-        status: 'active',
-        createdAt: '2024-01-20T10:30:00Z'
-      },
-      {
-        id: 3,
-        buyerName: 'Asian Style House',
-        contactPerson: 'Tanaka Hiroshi',
-        email: 'tanaka@asianstyle.jp',
-        phone: '+81-3-1234-5678',
-        address: '1-2-3 Shibuya, Tokyo, Japan',
-        country: 'Japan',
-        status: 'active',
-        createdAt: '2024-02-01T14:15:00Z'
-      },
-      {
-        id: 4,
-        buyerName: 'Premium Wear Inc.',
-        contactPerson: 'Sarah Johnson',
-        email: 'sarah.j@premiumwear.com',
-        phone: '+1-555-0456',
-        address: '456 Premium St, Los Angeles, CA 90210',
-        country: 'United States',
-        status: 'inactive',
-        createdAt: '2024-01-10T09:45:00Z'
-      }
-    ]
+  // // Load dummy data for development
+  // const loadDummyData = async () => {
+  //   // Prevent duplicate loading dan race condition
+  //   if (loading.value || buyers.value.length > 0) {
+  //     return
+  //   }
+  //   await fetchBuyers()
+  // }
+
+  // Refresh data
+  const refreshData = () => {
+    fetchBuyers()
   }
 
   return {
@@ -173,19 +191,24 @@ export const useBuyersStore = defineStore('buyers', () => {
     loading,
     error,
     selectedBuyer,
-    
+
     // Computed
     activeBuyers,
+    inactiveBuyers,
     buyerOptions,
-    
+    uniqueCountries,
+    statistics,
+
     // Actions
     fetchBuyers,
     fetchBuyerById,
     createBuyer,
     updateBuyer,
     deleteBuyer,
+    searchBuyers,
     clearError,
     clearSelectedBuyer,
-    loadDummyData
+    // loadDummyData,
+    refreshData,
   }
 })

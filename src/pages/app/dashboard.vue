@@ -1,3 +1,83 @@
+<script setup>
+import {
+  Activity,
+  AlertCircle,
+  AlertTriangle,
+  CheckCircle,
+  Factory,
+  Info,
+  RefreshCw,
+  ShoppingCart,
+  Truck,
+  Users,
+} from 'lucide-vue-next'
+import { computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { useERPDashboardStore } from '@/stores/erp-dashboard'
+
+useI18n()
+const dashboardStore = useERPDashboardStore()
+
+const loading = computed(() => dashboardStore.loading)
+
+function getIcon(iconName) {
+  const icons = {
+    ShoppingCart,
+    Users,
+    Activity,
+    CheckCircle,
+    Factory,
+    Truck,
+  }
+  return icons[iconName] || Activity
+}
+
+function getStatusVariant(status) {
+  const variants = {
+    pending: 'secondary',
+    inProduction: 'default',
+    qcCheck: 'outline',
+    completed: 'success',
+    shipped: 'success',
+  }
+  return variants[status] || 'secondary'
+}
+
+function getAlertClass(type) {
+  const classes = {
+    warning: 'bg-yellow-50 text-yellow-800 border border-yellow-200',
+    info: 'bg-blue-50 text-blue-800 border border-blue-200',
+    error: 'bg-red-50 text-red-800 border border-red-200',
+  }
+  return classes[type] || classes.info
+}
+
+function getAlertIcon(type) {
+  const icons = {
+    warning: AlertTriangle,
+    info: Info,
+    error: AlertCircle,
+  }
+  return icons[type] || Info
+}
+
+function formatTime(timestamp) {
+  return new Date(timestamp).toLocaleTimeString()
+}
+
+async function refreshDashboard() {
+  await dashboardStore.refreshDashboard()
+}
+
+onMounted(async () => {
+  await dashboardStore.initializeDashboard()
+})
+</script>
+
 <template>
   <div class="space-y-6">
     <!-- Header -->
@@ -10,7 +90,7 @@
           {{ $t('dashboard.welcome') }}
         </p>
       </div>
-      <Button @click="refreshDashboard" :disabled="loading" variant="outline">
+      <Button :disabled="loading" variant="outline" @click="refreshDashboard">
         <RefreshCw :class="{ 'animate-spin': loading }" class="mr-2 h-4 w-4" />
         {{ $t('common.refresh') }}
       </Button>
@@ -26,7 +106,9 @@
           <component :is="getIcon(widget.icon)" class="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div class="text-2xl font-bold">{{ widget.value }}</div>
+          <div class="text-2xl font-bold">
+            {{ widget.value }}
+          </div>
           <p class="text-xs text-muted-foreground">
             <span :class="widget.trend === 'up' ? 'text-green-600' : 'text-red-600'">
               {{ widget.change }}
@@ -76,8 +158,8 @@
         </CardHeader>
         <CardContent>
           <div class="space-y-4">
-            <div 
-              v-for="order in dashboardStore.recentOrders" 
+            <div
+              v-for="order in dashboardStore.recentOrders"
               :key="order.id"
               class="flex items-center justify-between"
             >
@@ -160,8 +242,8 @@
       </CardHeader>
       <CardContent>
         <div class="space-y-2">
-          <div 
-            v-for="alert in dashboardStore.dashboardData.alerts" 
+          <div
+            v-for="alert in dashboardStore.dashboardData.alerts"
             :key="alert.id"
             class="flex items-center space-x-2 p-2 rounded-md"
             :class="getAlertClass(alert.type)"
@@ -177,83 +259,3 @@
     </Card>
   </div>
 </template>
-
-<script setup>
-import { 
-  Activity,
-  AlertCircle,
-  AlertTriangle, 
-  CheckCircle, 
-  Factory, 
-  Info,
-  RefreshCw, 
-  ShoppingCart, 
-  Truck,
-  Users
-} from 'lucide-vue-next'
-import { computed, onMounted } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { useERPDashboardStore } from '@/stores/erp-dashboard'
-
-useI18n()
-const dashboardStore = useERPDashboardStore()
-
-const loading = computed(() => dashboardStore.loading)
-
-function getIcon(iconName) {
-  const icons = {
-    ShoppingCart,
-    Users,
-    Activity,
-    CheckCircle,
-    Factory,
-    Truck
-  }
-  return icons[iconName] || Activity
-}
-
-function getStatusVariant(status) {
-  const variants = {
-    pending: 'secondary',
-    inProduction: 'default',
-    qcCheck: 'outline',
-    completed: 'success',
-    shipped: 'success'
-  }
-  return variants[status] || 'secondary'
-}
-
-function getAlertClass(type) {
-  const classes = {
-    warning: 'bg-yellow-50 text-yellow-800 border border-yellow-200',
-    info: 'bg-blue-50 text-blue-800 border border-blue-200',
-    error: 'bg-red-50 text-red-800 border border-red-200'
-  }
-  return classes[type] || classes.info
-}
-
-function getAlertIcon(type) {
-  const icons = {
-    warning: AlertTriangle,
-    info: Info,
-    error: AlertCircle
-  }
-  return icons[type] || Info
-}
-
-function formatTime(timestamp) {
-  return new Date(timestamp).toLocaleTimeString()
-}
-
-async function refreshDashboard() {
-  await dashboardStore.refreshDashboard()
-}
-
-onMounted(async () => {
-  await dashboardStore.initializeDashboard()
-})
-</script>

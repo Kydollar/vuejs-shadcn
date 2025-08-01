@@ -10,39 +10,40 @@ export const useQCStore = defineStore('qc', () => {
   const qcStats = ref(null)
 
   // Computed
-  const passedInspections = computed(() => 
-    inspections.value.filter(inspection => inspection.qcStatus === 'passed')
+  const passedInspections = computed(() =>
+    inspections.value.filter(inspection => inspection.qcStatus === 'passed'),
   )
 
-  const failedInspections = computed(() => 
-    inspections.value.filter(inspection => inspection.qcStatus === 'failed')
+  const failedInspections = computed(() =>
+    inspections.value.filter(inspection => inspection.qcStatus === 'failed'),
   )
 
-  const reworkInspections = computed(() => 
-    inspections.value.filter(inspection => inspection.qcStatus === 'rework')
+  const reworkInspections = computed(() =>
+    inspections.value.filter(inspection => inspection.qcStatus === 'rework'),
   )
 
   const todayInspections = computed(() => {
     const today = new Date().toISOString().split('T')[0]
-    return inspections.value.filter(inspection => 
-      inspection.inspectionDate === today
+    return inspections.value.filter(inspection =>
+      inspection.inspectionDate === today,
     )
   })
 
   const qualityRate = computed(() => {
-    if (inspections.value.length === 0) return 0
-    const totalPassed = passedInspections.value.reduce((sum, inspection) => 
+    if (inspections.value.length === 0)
+      return 0
+    const totalPassed = passedInspections.value.reduce((sum, inspection) =>
       sum + inspection.passedQty, 0)
-    const totalInspected = inspections.value.reduce((sum, inspection) => 
+    const totalInspected = inspections.value.reduce((sum, inspection) =>
       sum + inspection.sampleSize, 0)
     return totalInspected > 0 ? Math.round((totalPassed / totalInspected) * 100) : 0
   })
 
   const rejectionReasons = computed(() => {
     const reasons = {}
-    inspections.value.forEach(inspection => {
+    inspections.value.forEach((inspection) => {
       if (inspection.rejectionReasons && inspection.rejectionReasons.length > 0) {
-        inspection.rejectionReasons.forEach(reason => {
+        inspection.rejectionReasons.forEach((reason) => {
           reasons[reason] = (reasons[reason] || 0) + 1
         })
       }
@@ -57,10 +58,12 @@ export const useQCStore = defineStore('qc', () => {
     try {
       const data = await qcApi.getAll(params)
       inspections.value = data.data || data
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch QC inspections'
       console.error('Error fetching QC inspections:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -72,11 +75,13 @@ export const useQCStore = defineStore('qc', () => {
       const data = await qcApi.getById(id)
       selectedInspection.value = data.data || data
       return selectedInspection.value
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch QC inspection'
       console.error('Error fetching QC inspection:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -89,11 +94,13 @@ export const useQCStore = defineStore('qc', () => {
       const newInspection = data.data || data
       inspections.value.push(newInspection)
       return newInspection
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to create QC inspection'
       console.error('Error creating QC inspection:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -112,11 +119,13 @@ export const useQCStore = defineStore('qc', () => {
         selectedInspection.value = updatedInspection
       }
       return updatedInspection
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to update QC inspection'
       console.error('Error updating QC inspection:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -130,11 +139,13 @@ export const useQCStore = defineStore('qc', () => {
       if (selectedInspection.value?.id === id) {
         selectedInspection.value = null
       }
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to delete QC inspection'
       console.error('Error deleting QC inspection:', err)
       throw err
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -145,10 +156,12 @@ export const useQCStore = defineStore('qc', () => {
     try {
       const data = await qcApi.getStats(params)
       qcStats.value = data.data || data
-    } catch (err) {
+    }
+    catch (err) {
       error.value = err.response?.data?.message || 'Failed to fetch QC statistics'
       console.error('Error fetching QC statistics:', err)
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -165,7 +178,7 @@ export const useQCStore = defineStore('qc', () => {
   const loadDummyData = () => {
     const today = new Date().toISOString().split('T')[0]
     const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0]
-    
+
     inspections.value = [
       {
         id: 1,
@@ -177,7 +190,7 @@ export const useQCStore = defineStore('qc', () => {
         rejectedQty: 5,
         rejectionReasons: ['stitchingDefect', 'colorIssue'],
         qcStatus: 'passed',
-        notes: 'Minor defects found, within acceptable range'
+        notes: 'Minor defects found, within acceptable range',
       },
       {
         id: 2,
@@ -189,7 +202,7 @@ export const useQCStore = defineStore('qc', () => {
         rejectedQty: 10,
         rejectionReasons: ['sizeIssue', 'fabricDefect'],
         qcStatus: 'rework',
-        notes: 'Size inconsistency detected, requires rework'
+        notes: 'Size inconsistency detected, requires rework',
       },
       {
         id: 3,
@@ -201,7 +214,7 @@ export const useQCStore = defineStore('qc', () => {
         rejectedQty: 2,
         rejectionReasons: ['decorationDefect'],
         qcStatus: 'passed',
-        notes: 'Excellent quality, minor decoration issues'
+        notes: 'Excellent quality, minor decoration issues',
       },
       {
         id: 4,
@@ -213,7 +226,7 @@ export const useQCStore = defineStore('qc', () => {
         rejectedQty: 15,
         rejectionReasons: ['stitchingDefect', 'sizeIssue', 'colorIssue'],
         qcStatus: 'failed',
-        notes: 'Multiple quality issues, production adjustment needed'
+        notes: 'Multiple quality issues, production adjustment needed',
       },
       {
         id: 5,
@@ -225,8 +238,8 @@ export const useQCStore = defineStore('qc', () => {
         rejectedQty: 2,
         rejectionReasons: ['other'],
         qcStatus: 'passed',
-        notes: 'High quality standard maintained'
-      }
+        notes: 'High quality standard maintained',
+      },
     ]
 
     qcStats.value = {
@@ -235,8 +248,8 @@ export const useQCStore = defineStore('qc', () => {
       commonDefects: rejectionReasons.value,
       inspectionTrend: [
         { date: yesterday, passed: 193, failed: 17, rework: 10 },
-        { date: today, passed: 223, failed: 15, rework: 10 }
-      ]
+        { date: today, passed: 223, failed: 15, rework: 10 },
+      ],
     }
   }
 
@@ -247,7 +260,7 @@ export const useQCStore = defineStore('qc', () => {
     error,
     selectedInspection,
     qcStats,
-    
+
     // Computed
     passedInspections,
     failedInspections,
@@ -255,7 +268,7 @@ export const useQCStore = defineStore('qc', () => {
     todayInspections,
     qualityRate,
     rejectionReasons,
-    
+
     // Actions
     fetchInspections,
     fetchInspectionById,
@@ -265,6 +278,6 @@ export const useQCStore = defineStore('qc', () => {
     fetchQCStats,
     clearError,
     clearSelectedInspection,
-    loadDummyData
+    loadDummyData,
   }
 })
