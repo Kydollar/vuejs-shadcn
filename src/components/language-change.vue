@@ -6,7 +6,8 @@ const { locale } = useI18n()
 
 // Function to change language and persist to localStorage
 function changeLanguage(newLocale) {
-  if (locale.value === newLocale) return
+  if (locale.value === newLocale)
+    return
 
   locale.value = newLocale
   localStorage.setItem('language', newLocale)

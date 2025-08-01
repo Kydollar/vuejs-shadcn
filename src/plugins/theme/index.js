@@ -7,8 +7,8 @@ export function setupTheme() {
 
   const theme = localStorage.getItem('theme') || themeStore.theme
   const radius = localStorage.getItem('radius') || themeStore.radius
-  const vueuseColorScheme =
-    localStorage.getItem('vueuse-color-scheme') || themeStore.vueuseColorScheme
+  const vueuseColorScheme
+    = localStorage.getItem('vueuse-color-scheme') || themeStore.vueuseColorScheme
 
   // Set theme class di html
   document.documentElement.classList.add(vueuseColorScheme)
