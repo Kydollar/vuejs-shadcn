@@ -14,9 +14,7 @@ const errorMsg = ref('')
 <template>
   <form>
     <UiCardHeader>
-      <UiCardTitle class="text-2xl">
-        Sign Up
-      </UiCardTitle>
+      <UiCardTitle class="text-2xl"> Sign Up </UiCardTitle>
       <UiCardDescription>
         Enter your username, email, and password to create an account. Already have an account?
         <UiButton
@@ -35,23 +33,17 @@ const errorMsg = ref('')
       </div>
 
       <div class="grid gap-2">
-        <UiLabel for="username">
-          Username
-        </UiLabel>
+        <UiLabel for="username"> Username </UiLabel>
         <UiInput id="username" v-model="username" required placeholder="your username" />
       </div>
 
       <div class="grid gap-2">
-        <UiLabel for="email">
-          Email
-        </UiLabel>
+        <UiLabel for="email"> Email </UiLabel>
         <UiInput id="email" v-model="email" type="email" required placeholder="your@email.com" />
       </div>
 
       <div class="grid gap-2">
-        <UiLabel for="password">
-          Password
-        </UiLabel>
+        <UiLabel for="password"> Password </UiLabel>
         <UiInput
           id="password"
           v-model="password"
@@ -62,9 +54,7 @@ const errorMsg = ref('')
       </div>
 
       <div class="grid gap-2">
-        <UiLabel for="confirm-password">
-          Confirm Password
-        </UiLabel>
+        <UiLabel for="confirm-password"> Confirm Password </UiLabel>
         <UiInput
           id="confirm-password"
           v-model="confirmPassword"

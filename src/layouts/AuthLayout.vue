@@ -16,6 +16,7 @@ const logo = computed(() => {
           <img :src="logo" />
           <span>VUEJS SHADCN</span>
         </h1>
+        <LanguageChange />
         <ToggleMode />
       </div>
       <UiCard>

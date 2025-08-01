@@ -44,7 +44,7 @@ function toggleSidebar() {
   return isMobile.value ? setOpenMobile(!openMobile.value) : setOpen(!open.value)
 }
 
-useEventListener('keydown', (event) => {
+useEventListener('keydown', event => {
   if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
     event.preventDefault()
     toggleSidebar()
@@ -77,7 +77,7 @@ provideSidebarContext({
       :class="
         cn(
           'group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full',
-          props.class,
+          props.class
         )
       "
       v-bind="$attrs"

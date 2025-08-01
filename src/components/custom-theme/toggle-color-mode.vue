@@ -14,9 +14,7 @@ function setColorMode(value) {
 
 <template>
   <div class="space-y-1.5 pt-6">
-    <UiLabel class="text-xs">
-      Color Mode
-    </UiLabel>
+    <UiLabel class="text-xs"> Color Mode </UiLabel>
 
     <div class="grid grid-cols-3 gap-2 py-1.5">
       <UiButton

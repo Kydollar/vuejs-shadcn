@@ -8,7 +8,7 @@ const env = {
   API_TIMEOUT: Number.parseInt(import.meta.env.VITE_API_TIMEOUT, 10) || 10000,
 
   // App Configuration
-  APP_NAME: import.meta.env.VITE_APP_NAME || 'Inys ERP System',
+  APP_NAME: import.meta.env.VITE_APP_NAME || 'InysDev',
   APP_VERSION: import.meta.env.VITE_APP_VERSION || '1.0.0',
 
   // Environment

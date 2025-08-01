@@ -8,7 +8,7 @@ export function setupNProgress(router) {
     className: 'custom-color-progress',
   })
 
-  router.beforeEach((to) => {
+  router.beforeEach(to => {
     nprogress.start()
     if (import.meta.env.DEV) {
       to.meta.__navigationStart = performance.now()
@@ -16,7 +16,7 @@ export function setupNProgress(router) {
     return true
   })
 
-  router.afterEach((to) => {
+  router.afterEach(to => {
     nprogress.done()
     if (import.meta.env.DEV && to.meta.__navigationStart) {
       const duration = performance.now() - to.meta.__navigationStart

@@ -12,8 +12,8 @@ const { state, isMobile } = useSidebar()
 
 function isCollapsed(menu) {
   const pathname = route.path
-  navMain.forEach((group) => {
-    group.items.forEach((item) => {
+  navMain.forEach(group => {
+    group.items.forEach(item => {
       if (item.url === pathname) {
         return true
       }
@@ -25,8 +25,7 @@ function isCollapsed(menu) {
 function isActive(menu) {
   const pathname = route.path
   if (menu.url) {
-    if (pathname === menu.url)
-      return true
+    if (pathname === menu.url) return true
   }
   if (menu.items) {
     return menu.items.some(isActive) // cek semua subItem, rekursif

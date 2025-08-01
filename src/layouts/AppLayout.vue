@@ -22,6 +22,7 @@ const defaultOpen = useCookies(['sidebar:state'])
         <UiSeparator orientation="vertical" class="h-6" />
         <CommandMenuPanel />
         <div class="ml-auto flex items-center space-x-4">
+          <LanguageChange />
           <ToggleMode />
           <ThemePopover />
         </div>
