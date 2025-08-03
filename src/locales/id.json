@@ -44,6 +44,7 @@
   },
   "erp": {
     "buyers": {
+      "name": "Pembeli",
       "title": "Manajemen Pembeli",
       "subtitle": "Kelola informasi dan hubungan pembeli",
       "addBuyer": "Tambah Pembeli Baru",
@@ -63,15 +64,19 @@
       "address": "Alamat",
       "country": "Negara",
       "status": "Status",
-      "active": "Aktif",
-      "inactive": "Tidak Aktif",
       "createdAt": "Dibuat Pada",
+      "updatedAt": "Diperbarui Pada",
+      "notes": "Catatan",
       "buyerNamePlaceholder": "Masukkan nama pembeli",
       "contactPersonPlaceholder": "Masukkan kontak person",
       "emailPlaceholder": "Masukkan alamat email",
       "phonePlaceholder": "Masukkan nomor telepon",
       "addressPlaceholder": "Masukkan alamat lengkap",
-      "countryPlaceholder": "Masukkan negara",
+      "countryPlaceholder": "Pilih negara",
+      "searchCountryPlaceholder": "Cari negara...",
+      "noCountryFound": "Tidak ada negara ditemukan",
+      "loadingCountries": "Memuat negara...",
+      "loadMoreCountries": "Muat lebih banyak negara",
       "notesPlaceholder": "Masukkan catatan atau komentar tambahan",
       "stats": {
         "total": "Total Pembeli",
@@ -411,7 +416,11 @@
     "create": "Buat",
     "update": "Perbarui",
     "active": "Aktif",
-    "inactive": "Tidak Aktif"
+    "inactive": "Tidak Aktif",
+    "notProvided": "Tidak disediakan",
+    "noNotesAdded": "Tidak ada catatan",
+    "notAvailable": "Tidak tersedia",
+    "loadMore": "Muat lebih banyak {count}"
   },
   "validation": {
     "required": "Field ini wajib diisi",

@@ -1,0 +1,35 @@
+<script setup>
+import { ArrowDownAZ, ArrowDownZA, SlidersHorizontal } from 'lucide-vue-next'
+
+const emits = defineEmits(['update:sort'])
+
+const sort = defineModel({ default: 'asc' })
+
+watch(sort, (newValue) => {
+  emits('update:sort', newValue)
+})
+</script>
+
+<template>
+  <UiSelect v-model:model-value="sort">
+    <UiSelectTrigger class="w-16">
+      <UiSelectValue>
+        <SlidersHorizontal :size="16" />
+      </UiSelectValue>
+    </UiSelectTrigger>
+    <UiSelectContent align="end">
+      <UiSelectItem value="asc">
+        <div class="flex items-center gap-4">
+          <ArrowDownAZ :size="16" />
+          <span>Ascending</span>
+        </div>
+      </UiSelectItem>
+      <UiSelectItem value="desc">
+        <div class="flex items-center gap-4">
+          <ArrowDownZA :size="16" />
+          <span>Descending</span>
+        </div>
+      </UiSelectItem>
+    </UiSelectContent>
+  </UiSelect>
+</template>

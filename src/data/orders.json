@@ -1,0 +1,26 @@
+[
+    {
+        "order_id": 1,
+        "orderNumber": "ORD-2024-001",
+        "buyerId": 1,
+        "buyer": "WALMART",
+        "factoryId": 1,
+        "factory": "PT SESHIN AEO WOMEN",
+        "styleNumber": "2910",
+        "shipmentDate": "2025-08-15",
+        "totalOrderedQuantity": 2500,
+        "status": "In Progress"
+    },
+    {
+        "order_id": 2,
+        "orderNumber": "ORD-2024-002",
+        "buyerId": 1,
+        "buyer": "WALMART",
+        "factoryId": 1,
+        "factory": "PT SESHIN AEO WOMEN",
+        "styleNumber": "2911",
+        "shipmentDate": "2025-08-15",
+        "totalOrderedQuantity": 3000,
+        "status": "In Progress"
+    }
+]

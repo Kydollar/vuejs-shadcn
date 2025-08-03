@@ -1,0 +1,86 @@
+<script setup>
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronsLeft,
+  ChevronsRight,
+} from 'lucide-vue-next'
+
+const props = defineProps({
+  table: Object,
+})
+</script>
+
+<template>
+  <div class="flex items-center justify-between px-2 py-2 bg-background">
+    <div class="flex-1" />
+    <div class="flex items-center space-x-6 lg:space-x-8">
+      <div class="flex items-center space-x-2">
+        <p class="hidden text-sm font-medium line-clamp-1 md:block">
+          Rows per page
+        </p>
+        <UiSelect
+          :model-value="`${props.table.getState().pagination.pageSize}`"
+          @update:model-value="(value) => props.table.setPageSize(Number(value))"
+        >
+          <UiSelectTrigger class="h-8 w-[70px]">
+            <UiSelectValue :placeholder="`${props.table.getState().pagination.pageSize}`" />
+          </UiSelectTrigger>
+          <UiSelectContent side="top">
+            <UiSelectItem
+              v-for="pageSize in [10, 20, 30, 40, 50]"
+              :key="pageSize"
+              :value="`${pageSize}`"
+            >
+              {{ pageSize }}
+            </UiSelectItem>
+          </UiSelectContent>
+        </UiSelect>
+      </div>
+
+      <div class="flex w-[100px] items-center justify-center text-sm font-medium">
+        Page {{ props.table.getState().pagination.pageIndex + 1 }} of
+        {{ props.table.getPageCount() }}
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <UiButton
+          variant="outline"
+          class="hidden size-8 p-0 lg:flex"
+          :disabled="!props.table.getCanPreviousPage()"
+          @click="props.table.setPageIndex(0)"
+        >
+          <span class="sr-only">Go to first page</span>
+          <ChevronsLeft class="size-4" />
+        </UiButton>
+        <UiButton
+          variant="outline"
+          class="size-8 p-0"
+          :disabled="!props.table.getCanPreviousPage()"
+          @click="props.table.previousPage()"
+        >
+          <span class="sr-only">Go to previous page</span>
+          <ChevronLeftIcon class="size-4" />
+        </UiButton>
+        <UiButton
+          variant="outline"
+          class="size-8 p-0"
+          :disabled="!props.table.getCanNextPage()"
+          @click="props.table.nextPage()"
+        >
+          <span class="sr-only">Go to next page</span>
+          <ChevronRightIcon class="size-4" />
+        </UiButton>
+        <UiButton
+          variant="outline"
+          class="hidden size-8 p-0 lg:flex"
+          :disabled="!props.table.getCanNextPage()"
+          @click="props.table.setPageIndex(props.table.getPageCount() - 1)"
+        >
+          <span class="sr-only">Go to last page</span>
+          <ChevronsRight class="size-4" />
+        </UiButton>
+      </div>
+    </div>
+  </div>
+</template>

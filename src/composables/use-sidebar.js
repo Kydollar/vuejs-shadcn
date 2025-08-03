@@ -57,32 +57,42 @@ export function useSidebar() {
     },
     // ERP Menu
     {
+      title: 'Master Data',
+      items: [
+        {
+          title: 'Buyers Management',
+          url: MENU_APP.ERP.MASTER_DATA.BUYERS,
+          icon: Building2,
+        },
+        {
+          title: 'Factories Management',
+          url: MENU_APP.ERP.MASTER_DATA.FACTORIES,
+          icon: Factory,
+        },
+        {
+          title: 'Styles/Products Management',
+          url: MENU_APP.ERP.MASTER_DATA.PRODUCTS,
+          icon: Package,
+        },
+      ],
+    },
+    {
+      title: 'Orders Management',
+      items: [
+        {
+          title: 'Order List',
+          url: MENU_APP.ERP.ORDERS,
+          icon: Building2,
+        },
+      ],
+    },
+    {
       title: 'ERP System',
       items: [
         {
           title: 'Dashboard',
           url: MENU_APP.ERP.DASHBOARD,
           icon: LayoutDashboard,
-        },
-        {
-          title: 'Buyers',
-          url: MENU_APP.ERP.BUYERS,
-          icon: Building2,
-        },
-        {
-          title: 'Factories',
-          url: MENU_APP.ERP.FACTORIES,
-          icon: Factory,
-        },
-        {
-          title: 'Products',
-          url: MENU_APP.ERP.PRODUCTS,
-          icon: Package,
-        },
-        {
-          title: 'Orders',
-          url: MENU_APP.ERP.ORDERS,
-          icon: ShoppingCart,
         },
         {
           title: 'Production',

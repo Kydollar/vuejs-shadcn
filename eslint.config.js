@@ -15,7 +15,7 @@ export default antfu({
     '**/build/**',
     '**/*.md', // Ignore all Markdown files
     '**/*d.ts', // Ignore all TypeScript declaration files
-    '**/data/**.json', // Ignore JSON files in data directory
+    '**/data/**/*.json', // Ignore JSON files in data directory
   ],
 
   // Vue.js specific settings

@@ -13,9 +13,11 @@ export const MENU_APP = Object.freeze({
   // ERP System Routes (matching auto-generated routes)
   ERP: {
     DASHBOARD: '/app/dashboard',
-    BUYERS: '/app/buyers',
-    FACTORIES: '/app/factories',
-    PRODUCTS: '/app/products',
+    MASTER_DATA: {
+      BUYERS: '/app/master-data/buyers-management',
+      FACTORIES: '/app/master-data/factories-management',
+      PRODUCTS: '/app/master-data/products-management',
+    },
     ORDERS: '/app/orders',
     PRODUCTION: '/app/production',
     QC: '/app/qc',

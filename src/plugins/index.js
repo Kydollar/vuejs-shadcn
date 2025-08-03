@@ -1,3 +1,4 @@
+import { setupAutoAnimate } from '@/plugins/auto-animate'
 import { setupI18n } from '@/plugins/i18n'
 import { setupNProgress } from '@/plugins/nprogress'
 import { setupPinia } from '@/plugins/pinia'
@@ -10,4 +11,5 @@ export function setupPlugins(app, router) {
   setupPinia(app)
   setupTheme()
   setupNProgress(router)
+  setupAutoAnimate(app)
 }
