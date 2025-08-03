@@ -13,11 +13,7 @@ const props = defineProps({
 
 <template>
   <main>
-    <BasicHeader
-      :title="props.title"
-      :description="props.description"
-      :sticky="props.sticky"
-    >
+    <BasicHeader :title="props.title" :description="props.description" :sticky="props.sticky">
       <template #actions>
         <slot name="actions" />
       </template>

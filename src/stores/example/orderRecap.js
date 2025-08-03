@@ -36,9 +36,12 @@ export const useOrderRecapStore = defineStore('orderRecap', () => {
     totalOrders: orderRecaps.value.length,
     totalQuantity: orderRecaps.value.reduce((sum, r) => sum + (r.orderQuantity || 0), 0),
     totalAmount: orderRecaps.value.reduce((sum, r) => sum + (r.amount || 0), 0),
-    averagePrice: orderRecaps.value.length > 0
-      ? (orderRecaps.value.reduce((sum, r) => sum + (r.price || 0), 0) / orderRecaps.value.length).toFixed(3)
-      : 0,
+    averagePrice:
+      orderRecaps.value.length > 0
+        ? (
+            orderRecaps.value.reduce((sum, r) => sum + (r.price || 0), 0) / orderRecaps.value.length
+          ).toFixed(3)
+        : 0,
     buyers: [...new Set(orderRecaps.value.map(r => r.buyer))].length,
     factories: [...new Set(orderRecaps.value.map(r => r.factory))].length,
   }))

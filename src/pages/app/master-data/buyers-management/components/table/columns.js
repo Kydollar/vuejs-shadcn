@@ -34,9 +34,7 @@ export const columns = [
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Status' }),
 
     cell: ({ row }) => {
-      const status = statuses.find(
-        status => status.value === row.getValue('status'),
-      )
+      const status = statuses.find(status => status.value === row.getValue('status'))
 
       if (!status)
         return null
@@ -54,9 +52,7 @@ export const columns = [
     accessorKey: 'priority',
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Priority' }),
     cell: ({ row }) => {
-      const priority = priorities.find(
-        priority => priority.value === row.getValue('priority'),
-      )
+      const priority = priorities.find(priority => priority.value === row.getValue('priority'))
 
       if (!priority)
         return null

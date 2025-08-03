@@ -55,10 +55,12 @@ const listRef = ref(null)
 
 // Computed
 const countryOptions = computed(() => {
-  const allCountries = Object.entries(countries).map(([_code, country]) => ({
-    value: country.name,
-    label: country.name,
-  })).sort((a, b) => a.label.localeCompare(b.label))
+  const allCountries = Object.entries(countries)
+    .map(([_code, country]) => ({
+      value: country.name,
+      label: country.name,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label))
 
   // Find default country (current modelValue or defaultCountry prop)
   const defaultCountry = props.modelValue || props.defaultCountry
@@ -137,14 +139,11 @@ function handleScroll(event) {
         variant="outline"
         role="combobox"
         :aria-expanded="isOpen"
-        :class="cn(
-          'w-full justify-between',
-          !modelValue && 'text-muted-foreground',
-        )"
+        :class="cn('w-full justify-between', !modelValue && 'text-muted-foreground')"
       >
         {{
           modelValue
-            ? countryOptions.find((country) => country.value === modelValue)?.label
+            ? countryOptions.find(country => country.value === modelValue)?.label
             : placeholder
         }}
         <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -158,11 +157,7 @@ function handleScroll(event) {
           class="h-9"
           @input="resetPagination"
         />
-        <UiCommandList
-          ref="listRef"
-          class="max-h-60 overflow-auto"
-          @scroll="handleScroll"
-        >
+        <UiCommandList ref="listRef" class="max-h-60 overflow-auto" @scroll="handleScroll">
           <UiCommandEmpty v-if="filteredOptions.length === 0">
             {{ emptyMessage }}
           </UiCommandEmpty>
@@ -176,10 +171,9 @@ function handleScroll(event) {
               >
                 {{ option.label }}
                 <Check
-                  :class="cn(
-                    'ml-auto h-4 w-4',
-                    option.value === modelValue ? 'opacity-100' : 'opacity-0',
-                  )"
+                  :class="
+                    cn('ml-auto h-4 w-4', option.value === modelValue ? 'opacity-100' : 'opacity-0')
+                  "
                 />
               </UiCommandItem>
             </transition-group>
@@ -254,7 +248,8 @@ function handleScroll(event) {
 
 /* Loading skeleton animation */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

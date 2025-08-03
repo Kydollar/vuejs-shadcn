@@ -29,8 +29,8 @@ export const useFarmOutStore = defineStore('farmOut', () => {
       totalReceived: 490,
       totalApproved: 475,
       totalRejected: 15,
-      unitPrice: 12.50,
-      totalValue: 6250.00,
+      unitPrice: 12.5,
+      totalValue: 6250.0,
       sentDate: '2024-01-15T08:00:00Z',
       expectedDate: '2024-01-25T17:00:00Z',
       receivedDate: '2024-01-24T14:30:00Z',
@@ -69,7 +69,7 @@ export const useFarmOutStore = defineStore('farmOut', () => {
       totalApproved: 335,
       totalRejected: 15,
       unitPrice: 18.75,
-      totalValue: 6562.50,
+      totalValue: 6562.5,
       sentDate: '2024-01-20T09:30:00Z',
       expectedDate: '2024-02-05T17:00:00Z',
       receivedDate: null,
@@ -104,7 +104,7 @@ export const useFarmOutStore = defineStore('farmOut', () => {
       totalApproved: 243,
       totalRejected: 30,
       unitPrice: 8.25,
-      totalValue: 2310.00,
+      totalValue: 2310.0,
       sentDate: '2024-02-01T10:15:00Z',
       expectedDate: '2024-02-12T17:00:00Z',
       receivedDate: '2024-02-13T16:45:00Z',
@@ -142,8 +142,8 @@ export const useFarmOutStore = defineStore('farmOut', () => {
       totalReceived: 0,
       totalApproved: 0,
       totalRejected: 0,
-      unitPrice: 35.00,
-      totalValue: 9450.00,
+      unitPrice: 35.0,
+      totalValue: 9450.0,
       sentDate: '2024-02-10T11:00:00Z',
       expectedDate: '2024-03-01T17:00:00Z',
       receivedDate: null,
@@ -177,8 +177,8 @@ export const useFarmOutStore = defineStore('farmOut', () => {
       totalReceived: 234,
       totalApproved: 224,
       totalRejected: 10,
-      unitPrice: 28.00,
-      totalValue: 6720.00,
+      unitPrice: 28.0,
+      totalValue: 6720.0,
       sentDate: '2024-01-25T14:20:00Z',
       expectedDate: '2024-02-08T17:00:00Z',
       receivedDate: '2024-02-07T13:15:00Z',
@@ -233,17 +233,20 @@ export const useFarmOutStore = defineStore('farmOut', () => {
     const completed = farmOuts.value.filter(f => f.status === 'completed' && f.totalReceived > 0)
     if (completed.length === 0)
       return 0
-    const totalApprovalRate = completed.reduce((sum, farmOut) =>
-      sum + ((farmOut.totalApproved / farmOut.totalReceived) * 100), 0)
+    const totalApprovalRate = completed.reduce(
+      (sum, farmOut) => sum + (farmOut.totalApproved / farmOut.totalReceived) * 100,
+      0,
+    )
     return Math.round(totalApprovalRate / completed.length)
   })
 
   const overdueJobs = computed(() => {
     const now = new Date()
-    return farmOuts.value.filter(farmOut =>
-      farmOut.status !== 'completed'
-      && farmOut.status !== 'cancelled'
-      && new Date(farmOut.expectedDate) < now,
+    return farmOuts.value.filter(
+      farmOut =>
+        farmOut.status !== 'completed'
+        && farmOut.status !== 'cancelled'
+        && new Date(farmOut.expectedDate) < now,
     )
   })
 

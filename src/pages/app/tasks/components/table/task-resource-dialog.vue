@@ -1,19 +1,19 @@
 <script setup>
 import TaskForm from './task-form.vue'
 
-const props = defineProps(
-  {
-    task: {
-      type: Object,
-      required: true,
-    },
+const props = defineProps({
+  task: {
+    type: Object,
+    required: true,
   },
-)
+})
 defineEmits(['close'])
 
 const task = computed(() => props.task)
-const title = computed(() => task.value?.id ? `Edit Task` : 'New Task')
-const description = computed(() => task.value?.id ? `Edit task ${task.value.id}` : 'Create new task')
+const title = computed(() => (task.value?.id ? `Edit Task` : 'New Task'))
+const description = computed(() =>
+  task.value?.id ? `Edit task ${task.value.id}` : 'Create new task',
+)
 </script>
 
 <template>
@@ -30,6 +30,4 @@ const description = computed(() => task.value?.id ? `Edit task ${task.value.id}`
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

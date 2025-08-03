@@ -1,8 +1,8 @@
 <script setup>
-import { useForwardPropsEmits } from "reka-ui";
-import { DrawerContent, DrawerPortal } from "vaul-vue";
-import { cn } from "@/lib/utils";
-import DrawerOverlay from "./DrawerOverlay.vue";
+import { useForwardPropsEmits } from 'reka-ui'
+import { DrawerContent, DrawerPortal } from 'vaul-vue'
+import { cn } from '@/lib/utils'
+import DrawerOverlay from './DrawerOverlay.vue'
 
 const props = defineProps({
   forceMount: { type: Boolean, required: false },
@@ -10,17 +10,17 @@ const props = defineProps({
   asChild: { type: Boolean, required: false },
   as: { type: null, required: false },
   class: { type: null, required: false },
-});
+})
 const emits = defineEmits([
-  "escapeKeyDown",
-  "pointerDownOutside",
-  "focusOutside",
-  "interactOutside",
-  "openAutoFocus",
-  "closeAutoFocus",
-]);
+  'escapeKeyDown',
+  'pointerDownOutside',
+  'focusOutside',
+  'interactOutside',
+  'openAutoFocus',
+  'closeAutoFocus',
+])
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>

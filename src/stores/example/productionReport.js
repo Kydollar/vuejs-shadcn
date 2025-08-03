@@ -30,19 +30,37 @@ export const useProductionReportStore = defineStore('productionReport', () => {
       totalOutput: reports.reduce((sum, r) => sum + (r.dailyOutput || 0), 0),
       totalAmount: reports.reduce((sum, r) => sum + (r.dailyAmount || 0), 0),
       totalTarget: reports.reduce((sum, r) => sum + (r.target || 0), 0),
-      averageOutput: reports.length > 0 ? (reports.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / reports.length).toFixed(0) : 0,
-      efficiencyRate: reports.length > 0
-        ? ((reports.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / reports.reduce((sum, r) => sum + (r.target || 0), 1)) * 100).toFixed(1)
-        : 0,
+      averageOutput:
+        reports.length > 0
+          ? (reports.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / reports.length).toFixed(0)
+          : 0,
+      efficiencyRate:
+        reports.length > 0
+          ? (
+              (reports.reduce((sum, r) => sum + (r.dailyOutput || 0), 0)
+                / reports.reduce((sum, r) => sum + (r.target || 0), 1))
+              * 100
+            ).toFixed(1)
+          : 0,
       dayShift: {
         totalOutput: dayShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0),
         totalAmount: dayShifts.reduce((sum, r) => sum + (r.dailyAmount || 0), 0),
-        averageOutput: dayShifts.length > 0 ? (dayShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / dayShifts.length).toFixed(0) : 0,
+        averageOutput:
+          dayShifts.length > 0
+            ? (
+                dayShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / dayShifts.length
+              ).toFixed(0)
+            : 0,
       },
       nightShift: {
         totalOutput: nightShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0),
         totalAmount: nightShifts.reduce((sum, r) => sum + (r.dailyAmount || 0), 0),
-        averageOutput: nightShifts.length > 0 ? (nightShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / nightShifts.length).toFixed(0) : 0,
+        averageOutput:
+          nightShifts.length > 0
+            ? (
+                nightShifts.reduce((sum, r) => sum + (r.dailyOutput || 0), 0) / nightShifts.length
+              ).toFixed(0)
+            : 0,
       },
     }
   })
@@ -68,9 +86,12 @@ export const useProductionReportStore = defineStore('productionReport', () => {
       teams: [...new Set(productions.map(p => p.team))],
       styles: [...new Set(productions.map(p => p.style))],
       colors: [...new Set(productions.map(p => p.color))],
-      averageTeamOutput: productions.length > 0
-        ? (productions.reduce((sum, p) => sum + (p.total?.output || 0), 0) / productions.length).toFixed(0)
-        : 0,
+      averageTeamOutput:
+        productions.length > 0
+          ? (
+              productions.reduce((sum, p) => sum + (p.total?.output || 0), 0) / productions.length
+            ).toFixed(0)
+          : 0,
     }
   })
 
@@ -108,10 +129,7 @@ export const useProductionReportStore = defineStore('productionReport', () => {
   }
 
   const fetchAllReports = async () => {
-    await Promise.all([
-      fetchHourlyOutputReports(),
-      fetchHourlyProductionReports(),
-    ])
+    await Promise.all([fetchHourlyOutputReports(), fetchHourlyProductionReports()])
   }
 
   const createHourlyOutputReport = async (reportData) => {
@@ -207,8 +225,8 @@ export const useProductionReportStore = defineStore('productionReport', () => {
   }
 
   const getOutputByDateRange = (startDate, endDate) => {
-    return hourlyOutputReports.value.filter(report =>
-      report.date >= startDate && report.date <= endDate,
+    return hourlyOutputReports.value.filter(
+      report => report.date >= startDate && report.date <= endDate,
     )
   }
 

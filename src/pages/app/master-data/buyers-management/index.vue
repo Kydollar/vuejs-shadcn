@@ -8,11 +8,7 @@ import TaskImport from './components/table/task-import.vue'
 </script>
 
 <template>
-  <Page
-    title="Tasks"
-    description="Tasks description"
-    sticky
-  >
+  <Page title="Tasks" description="Tasks description" sticky>
     <template #actions>
       <TaskImport />
       <TaskCreate />
@@ -23,5 +19,4 @@ import TaskImport from './components/table/task-import.vue'
   </Page>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

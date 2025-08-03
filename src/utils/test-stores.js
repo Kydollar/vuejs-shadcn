@@ -18,11 +18,19 @@ export function testStoresReactivity() {
 
   // Test factories store
   const factoriesStore = useFactoriesStore()
-  const { factories, loading: factoriesLoading, statistics: factoriesStats } = storeToRefs(factoriesStore)
+  const {
+    factories,
+    loading: factoriesLoading,
+    statistics: factoriesStats,
+  } = storeToRefs(factoriesStore)
 
   // Test products store
   const productsStore = useProductsStore()
-  const { products, loading: productsLoading, statistics: productsStats } = storeToRefs(productsStore)
+  const {
+    products,
+    loading: productsLoading,
+    statistics: productsStats,
+  } = storeToRefs(productsStore)
 
   // Test orders store
   const ordersStore = useOrdersStore()

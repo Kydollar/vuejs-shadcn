@@ -17,12 +17,31 @@ import { useI18n } from 'vue-i18n'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { useDecorationsStore } from '@/stores/example/decorations'
 
@@ -78,12 +97,13 @@ const filteredDecorations = computed(() => {
   // Search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(decoration =>
-      decoration.decorationType.toLowerCase().includes(query)
-      || decoration.designCode.toLowerCase().includes(query)
-      || decoration.technique.toLowerCase().includes(query)
-      || decoration.category?.toLowerCase().includes(query)
-      || decoration.description?.toLowerCase().includes(query),
+    filtered = filtered.filter(
+      decoration =>
+        decoration.decorationType.toLowerCase().includes(query)
+        || decoration.designCode.toLowerCase().includes(query)
+        || decoration.technique.toLowerCase().includes(query)
+        || decoration.category?.toLowerCase().includes(query)
+        || decoration.description?.toLowerCase().includes(query),
     )
   }
 
@@ -103,19 +123,27 @@ const filteredDecorations = computed(() => {
 // Methods
 function getComplexityVariant(complexity) {
   switch (complexity) {
-    case 'Low': return 'secondary'
-    case 'Medium': return 'default'
-    case 'High': return 'destructive'
-    default: return 'secondary'
+    case 'Low':
+      return 'secondary'
+    case 'Medium':
+      return 'default'
+    case 'High':
+      return 'destructive'
+    default:
+      return 'secondary'
   }
 }
 
 function getStatusVariant(status) {
   switch (status) {
-    case 'active': return 'default'
-    case 'low_demand': return 'secondary'
-    case 'discontinued': return 'destructive'
-    default: return 'secondary'
+    case 'active':
+      return 'default'
+    case 'low_demand':
+      return 'secondary'
+    case 'discontinued':
+      return 'destructive'
+    default:
+      return 'secondary'
   }
 }
 
@@ -300,7 +328,9 @@ onMounted(() => {
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
             <div class="relative">
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Search
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              />
               <Input
                 v-model="searchQuery"
                 :placeholder="$t('erp.decorations.search')"
@@ -316,7 +346,11 @@ onMounted(() => {
               <SelectItem value="all">
                 {{ $t('common.all') }}
               </SelectItem>
-              <SelectItem v-for="type in Object.keys(decorationsByTechnique)" :key="type" :value="type">
+              <SelectItem
+                v-for="type in Object.keys(decorationsByTechnique)"
+                :key="type"
+                :value="type"
+              >
                 {{ type }}
               </SelectItem>
             </SelectContent>
@@ -692,73 +726,99 @@ onMounted(() => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.description') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.description')
+              }}</Label>
               <p>{{ selectedDecoration.description }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.category') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.category')
+              }}</Label>
               <p>{{ selectedDecoration.category }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-3 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.complexity') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.complexity')
+              }}</Label>
               <Badge :variant="getComplexityVariant(selectedDecoration.complexity)">
                 {{ $t(`erp.decorations.${selectedDecoration.complexity.toLowerCase()}`) }}
               </Badge>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.placement') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.placement')
+              }}</Label>
               <p>{{ selectedDecoration.placement }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.size') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.size')
+              }}</Label>
               <p>{{ selectedDecoration.size }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.costPerUnit') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.costPerUnit')
+              }}</Label>
               <p class="text-lg font-semibold">
                 ${{ selectedDecoration.costPerUnit?.toFixed(2) }}
               </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.minOrderQty') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.minOrderQty')
+              }}</Label>
               <p>{{ selectedDecoration.minOrderQty }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-3 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.setupTime') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.setupTime')
+              }}</Label>
               <p>{{ selectedDecoration.setupTime }} min</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.productionTime') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.productionTime')
+              }}</Label>
               <p>{{ selectedDecoration.productionTime }} min</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.maxColors') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.maxColors')
+              }}</Label>
               <p>{{ selectedDecoration.maxColors }}</p>
             </div>
           </div>
 
           <div v-if="selectedDecoration.threadType" class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.threadType') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.threadType')
+              }}</Label>
               <p>{{ selectedDecoration.threadType }}</p>
             </div>
             <div v-if="selectedDecoration.stitchCount">
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.stitchCount') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.decorations.stitchCount')
+              }}</Label>
               <p>{{ selectedDecoration.stitchCount?.toLocaleString() }}</p>
             </div>
           </div>
 
           <div v-if="selectedDecoration.colors && selectedDecoration.colors.length > 0">
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.colors') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.decorations.colors')
+            }}</Label>
             <div class="flex flex-wrap gap-2 mt-2">
               <Badge v-for="color in selectedDecoration.colors" :key="color" variant="outline">
                 {{ color }}
@@ -767,7 +827,9 @@ onMounted(() => {
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.decorations.status') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.decorations.status')
+            }}</Label>
             <Badge :variant="getStatusVariant(selectedDecoration.status)">
               {{ $t(`erp.decorations.${selectedDecoration.status}`) }}
             </Badge>

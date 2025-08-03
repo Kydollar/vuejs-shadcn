@@ -11,7 +11,11 @@ const props = defineProps({
 
 function handleRemove() {
   toast(`The following task has been deleted:`, {
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(props.task, null, 2))),
+    description: h(
+      'pre',
+      { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
+      h('code', { class: 'text-white' }, JSON.stringify(props.task, null, 2)),
+    ),
   })
 }
 </script>
@@ -19,9 +23,7 @@ function handleRemove() {
 <template>
   <div>
     <UiDialogTitle>
-      <UiDialogTitle>
-        Delete this task: {{ task.id }} ?
-      </UiDialogTitle>
+      <UiDialogTitle> Delete this task: {{ task.id }} ? </UiDialogTitle>
       <UiDialogDescription class="mt-2 font-medium">
         You are about to delete a task with the ID {{ task.id }}.This action cannot be undone.
       </UiDialogDescription>
@@ -42,6 +44,4 @@ function handleRemove() {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

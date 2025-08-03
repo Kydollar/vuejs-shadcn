@@ -71,11 +71,7 @@ function onSubmit(values) {
       }"
       @submit="onSubmit"
     >
-      <div
-        :class="cn(
-          'flex items-center ',
-        )"
-      >
+      <div :class="cn('flex items-center ')">
         <UiButton type="submit" class="w-full">
           Invite
           <Send />
@@ -100,7 +96,8 @@ function onSubmit(values) {
           </div>
         </DialogTitle>
         <DialogDescription>
-          Invite new user to join your team by sending them an email invitation. Assign a role to define their access level.
+          Invite new user to join your team by sending them an email invitation. Assign a role to
+          define their access level.
         </DialogDescription>
       </DialogHeader>
       <GridForm />
@@ -123,7 +120,8 @@ function onSubmit(values) {
           </div>
         </DrawerTitle>
         <DrawerDescription>
-          Invite new user to join your team by sending them an email invitation. Assign a role to define their access level.
+          Invite new user to join your team by sending them an email invitation. Assign a role to
+          define their access level.
         </DrawerDescription>
       </DrawerHeader>
 
@@ -140,5 +138,4 @@ function onSubmit(values) {
   </Drawer>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

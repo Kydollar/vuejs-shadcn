@@ -1,254 +1,164 @@
 [
-    {
-        "id": 1,
-        "productCode": "TSH-001",
-        "productName": "Premium Cotton T-Shirt",
-        "category": "T-Shirts",
-        "description": "High-quality 100% cotton t-shirt with modern fit",
-        "material": "100% Cotton",
-        "colors": [
-            "White",
-            "Black",
-            "Navy",
-            "Grey",
-            "Red"
-        ],
-        "sizes": [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "price": 25.99,
-        "cost": 12.50,
-        "stock": 2500,
-        "minOrder": 100,
-        "leadTime": 14,
-        "status": "active",
-        "createdAt": "2024-01-20T10:00:00Z",
-        "updatedAt": "2024-07-28T14:30:00Z",
-        "totalSold": 15000,
-        "rating": 4.7,
-        "images": [
-            "tshirt-001-white.jpg",
-            "tshirt-001-black.jpg"
-        ],
-        "specifications": {
-            "weight": 180,
-            "fit": "Regular",
-            "neckline": "Crew neck",
-            "care": "Machine wash cold"
-        }
-    },
-    {
-        "id": 2,
-        "productCode": "POL-002",
-        "productName": "Business Polo Shirt",
-        "category": "Polo Shirts",
-        "description": "Professional polo shirt perfect for business casual",
-        "material": "65% Cotton, 35% Polyester",
-        "colors": [
-            "White",
-            "Light Blue",
-            "Navy",
-            "Charcoal"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "price": 35.99,
-        "cost": 18.75,
-        "stock": 1800,
-        "minOrder": 50,
-        "leadTime": 10,
-        "status": "active",
-        "createdAt": "2024-02-10T09:15:00Z",
-        "updatedAt": "2024-07-30T11:20:00Z",
-        "totalSold": 8500,
-        "rating": 4.6,
-        "images": [
-            "polo-002-white.jpg",
-            "polo-002-navy.jpg"
-        ],
-        "specifications": {
-            "weight": 200,
-            "fit": "Slim fit",
-            "collar": "Ribbed collar",
-            "care": "Machine wash warm"
-        }
-    },
-    {
-        "id": 3,
-        "productCode": "JNS-003",
-        "productName": "Classic Denim Jeans",
-        "category": "Jeans",
-        "description": "Timeless straight-cut denim jeans",
-        "material": "98% Cotton, 2% Elastane",
-        "colors": [
-            "Indigo",
-            "Dark Blue",
-            "Light Blue",
-            "Black"
-        ],
-        "sizes": [
-            "28",
-            "30",
-            "32",
-            "34",
-            "36",
-            "38",
-            "40"
-        ],
-        "price": 79.99,
-        "cost": 35.50,
-        "stock": 1200,
-        "minOrder": 25,
-        "leadTime": 21,
-        "status": "limited",
-        "createdAt": "2024-03-15T14:45:00Z",
-        "updatedAt": "2024-07-25T16:10:00Z",
-        "totalSold": 6200,
-        "rating": 4.8,
-        "images": [
-            "jeans-003-indigo.jpg",
-            "jeans-003-black.jpg"
-        ],
-        "specifications": {
-            "weight": 14,
-            "fit": "Straight",
-            "rise": "Mid-rise",
-            "care": "Wash inside out"
-        }
-    },
-    {
-        "id": 4,
-        "productCode": "DRS-004",
-        "productName": "Elegant Summer Dress",
-        "category": "Dresses",
-        "description": "Flowing summer dress with floral pattern",
-        "material": "100% Viscose",
-        "colors": [
-            "Floral Blue",
-            "Floral Pink",
-            "Solid Navy",
-            "Solid Black"
-        ],
-        "sizes": [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "price": 89.99,
-        "cost": 42.00,
-        "stock": 800,
-        "minOrder": 20,
-        "leadTime": 18,
-        "status": "active",
-        "createdAt": "2024-04-05T11:30:00Z",
-        "updatedAt": "2024-07-28T13:45:00Z",
-        "totalSold": 3400,
-        "rating": 4.9,
-        "images": [
-            "dress-004-floral.jpg",
-            "dress-004-navy.jpg"
-        ],
-        "specifications": {
-            "length": "Midi",
-            "fit": "A-line",
-            "sleeves": "Short sleeve",
-            "care": "Hand wash recommended"
-        }
-    },
-    {
-        "id": 5,
-        "productCode": "SHT-005",
-        "productName": "Formal Button Shirt",
-        "category": "Shirts",
-        "description": "Crisp formal shirt for professional occasions",
-        "material": "100% Cotton",
-        "colors": [
-            "White",
-            "Light Blue",
-            "Light Pink",
-            "Lavender"
-        ],
-        "sizes": [
-            "14.5",
-            "15",
-            "15.5",
-            "16",
-            "16.5",
-            "17",
-            "17.5"
-        ],
-        "price": 59.99,
-        "cost": 28.50,
-        "stock": 1500,
-        "minOrder": 30,
-        "leadTime": 12,
-        "status": "active",
-        "createdAt": "2024-05-12T08:20:00Z",
-        "updatedAt": "2024-07-29T10:15:00Z",
-        "totalSold": 4800,
-        "rating": 4.5,
-        "images": [
-            "shirt-005-white.jpg",
-            "shirt-005-blue.jpg"
-        ],
-        "specifications": {
-            "weight": 120,
-            "fit": "Regular",
-            "collar": "Spread collar",
-            "care": "Iron while damp"
-        }
-    },
-    {
-        "id": 6,
-        "productCode": "ECO-006",
-        "productName": "Eco-Friendly Hoodie",
-        "category": "Hoodies",
-        "description": "Sustainable hoodie made from recycled materials",
-        "material": "80% Organic Cotton, 20% Recycled Polyester",
-        "colors": [
-            "Forest Green",
-            "Ocean Blue",
-            "Earth Brown",
-            "Stone Grey"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "price": 69.99,
-        "cost": 32.75,
-        "stock": 600,
-        "minOrder": 15,
-        "leadTime": 25,
-        "status": "limited",
-        "createdAt": "2024-06-01T15:10:00Z",
-        "updatedAt": "2024-07-30T17:30:00Z",
-        "totalSold": 1200,
-        "rating": 4.8,
-        "images": [
-            "hoodie-006-green.jpg",
-            "hoodie-006-blue.jpg"
-        ],
-        "specifications": {
-            "weight": 320,
-            "fit": "Relaxed",
-            "hood": "Drawstring hood",
-            "care": "Cold wash only"
-        }
+  {
+    "id": 1,
+    "productCode": "TSH-001",
+    "productName": "Premium Cotton T-Shirt",
+    "category": "T-Shirts",
+    "description": "High-quality 100% cotton t-shirt with modern fit",
+    "material": "100% Cotton",
+    "colors": ["White", "Black", "Navy", "Grey", "Red"],
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "price": 25.99,
+    "cost": 12.5,
+    "stock": 2500,
+    "minOrder": 100,
+    "leadTime": 14,
+    "status": "active",
+    "createdAt": "2024-01-20T10:00:00Z",
+    "updatedAt": "2024-07-28T14:30:00Z",
+    "totalSold": 15000,
+    "rating": 4.7,
+    "images": ["tshirt-001-white.jpg", "tshirt-001-black.jpg"],
+    "specifications": {
+      "weight": 180,
+      "fit": "Regular",
+      "neckline": "Crew neck",
+      "care": "Machine wash cold"
     }
+  },
+  {
+    "id": 2,
+    "productCode": "POL-002",
+    "productName": "Business Polo Shirt",
+    "category": "Polo Shirts",
+    "description": "Professional polo shirt perfect for business casual",
+    "material": "65% Cotton, 35% Polyester",
+    "colors": ["White", "Light Blue", "Navy", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "price": 35.99,
+    "cost": 18.75,
+    "stock": 1800,
+    "minOrder": 50,
+    "leadTime": 10,
+    "status": "active",
+    "createdAt": "2024-02-10T09:15:00Z",
+    "updatedAt": "2024-07-30T11:20:00Z",
+    "totalSold": 8500,
+    "rating": 4.6,
+    "images": ["polo-002-white.jpg", "polo-002-navy.jpg"],
+    "specifications": {
+      "weight": 200,
+      "fit": "Slim fit",
+      "collar": "Ribbed collar",
+      "care": "Machine wash warm"
+    }
+  },
+  {
+    "id": 3,
+    "productCode": "JNS-003",
+    "productName": "Classic Denim Jeans",
+    "category": "Jeans",
+    "description": "Timeless straight-cut denim jeans",
+    "material": "98% Cotton, 2% Elastane",
+    "colors": ["Indigo", "Dark Blue", "Light Blue", "Black"],
+    "sizes": ["28", "30", "32", "34", "36", "38", "40"],
+    "price": 79.99,
+    "cost": 35.5,
+    "stock": 1200,
+    "minOrder": 25,
+    "leadTime": 21,
+    "status": "limited",
+    "createdAt": "2024-03-15T14:45:00Z",
+    "updatedAt": "2024-07-25T16:10:00Z",
+    "totalSold": 6200,
+    "rating": 4.8,
+    "images": ["jeans-003-indigo.jpg", "jeans-003-black.jpg"],
+    "specifications": {
+      "weight": 14,
+      "fit": "Straight",
+      "rise": "Mid-rise",
+      "care": "Wash inside out"
+    }
+  },
+  {
+    "id": 4,
+    "productCode": "DRS-004",
+    "productName": "Elegant Summer Dress",
+    "category": "Dresses",
+    "description": "Flowing summer dress with floral pattern",
+    "material": "100% Viscose",
+    "colors": ["Floral Blue", "Floral Pink", "Solid Navy", "Solid Black"],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "price": 89.99,
+    "cost": 42.0,
+    "stock": 800,
+    "minOrder": 20,
+    "leadTime": 18,
+    "status": "active",
+    "createdAt": "2024-04-05T11:30:00Z",
+    "updatedAt": "2024-07-28T13:45:00Z",
+    "totalSold": 3400,
+    "rating": 4.9,
+    "images": ["dress-004-floral.jpg", "dress-004-navy.jpg"],
+    "specifications": {
+      "length": "Midi",
+      "fit": "A-line",
+      "sleeves": "Short sleeve",
+      "care": "Hand wash recommended"
+    }
+  },
+  {
+    "id": 5,
+    "productCode": "SHT-005",
+    "productName": "Formal Button Shirt",
+    "category": "Shirts",
+    "description": "Crisp formal shirt for professional occasions",
+    "material": "100% Cotton",
+    "colors": ["White", "Light Blue", "Light Pink", "Lavender"],
+    "sizes": ["14.5", "15", "15.5", "16", "16.5", "17", "17.5"],
+    "price": 59.99,
+    "cost": 28.5,
+    "stock": 1500,
+    "minOrder": 30,
+    "leadTime": 12,
+    "status": "active",
+    "createdAt": "2024-05-12T08:20:00Z",
+    "updatedAt": "2024-07-29T10:15:00Z",
+    "totalSold": 4800,
+    "rating": 4.5,
+    "images": ["shirt-005-white.jpg", "shirt-005-blue.jpg"],
+    "specifications": {
+      "weight": 120,
+      "fit": "Regular",
+      "collar": "Spread collar",
+      "care": "Iron while damp"
+    }
+  },
+  {
+    "id": 6,
+    "productCode": "ECO-006",
+    "productName": "Eco-Friendly Hoodie",
+    "category": "Hoodies",
+    "description": "Sustainable hoodie made from recycled materials",
+    "material": "80% Organic Cotton, 20% Recycled Polyester",
+    "colors": ["Forest Green", "Ocean Blue", "Earth Brown", "Stone Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "price": 69.99,
+    "cost": 32.75,
+    "stock": 600,
+    "minOrder": 15,
+    "leadTime": 25,
+    "status": "limited",
+    "createdAt": "2024-06-01T15:10:00Z",
+    "updatedAt": "2024-07-30T17:30:00Z",
+    "totalSold": 1200,
+    "rating": 4.8,
+    "images": ["hoodie-006-green.jpg", "hoodie-006-blue.jpg"],
+    "specifications": {
+      "weight": 320,
+      "fit": "Relaxed",
+      "hood": "Drawstring hood",
+      "care": "Cold wash only"
+    }
+  }
 ]

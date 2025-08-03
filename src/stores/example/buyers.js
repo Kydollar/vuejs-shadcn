@@ -9,13 +9,9 @@ export const useBuyersStore = defineStore('buyers', () => {
   const selectedBuyer = ref(null)
 
   // Computed
-  const activeBuyers = computed(() =>
-    buyers.value.filter(buyer => buyer.status === 'active'),
-  )
+  const activeBuyers = computed(() => buyers.value.filter(buyer => buyer.status === 'active'))
 
-  const inactiveBuyers = computed(() =>
-    buyers.value.filter(buyer => buyer.status === 'inactive'),
-  )
+  const inactiveBuyers = computed(() => buyers.value.filter(buyer => buyer.status === 'inactive'))
 
   const buyerOptions = computed(() =>
     activeBuyers.value.map(buyer => ({

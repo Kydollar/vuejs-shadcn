@@ -57,7 +57,9 @@ const password = ref('emilyspass')
 <template>
   <form @submit.prevent="handleLogin">
     <UiCardHeader>
-      <UiCardTitle class="text-2xl"> Login </UiCardTitle>
+      <UiCardTitle class="text-2xl">
+        Login
+      </UiCardTitle>
       <UiCardDescription>
         Enter your email or username and password below to log into your account. Not have an
         account?
@@ -77,7 +79,9 @@ const password = ref('emilyspass')
       </div>
 
       <div class="grid gap-2">
-        <UiLabel for="identifier"> Email or Username </UiLabel>
+        <UiLabel for="identifier">
+          Email or Username
+        </UiLabel>
         <UiInput
           id="identifier"
           v-model="identifier"
@@ -88,7 +92,9 @@ const password = ref('emilyspass')
 
       <div class="grid gap-2">
         <div class="flex items-center justify-between">
-          <UiLabel for="password"> Password </UiLabel>
+          <UiLabel for="password">
+            Password
+          </UiLabel>
           <ToForgotPasswordLink />
         </div>
         <UiInput

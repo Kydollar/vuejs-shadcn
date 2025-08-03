@@ -1,20 +1,20 @@
 <script setup>
-import { reactiveOmit } from "@vueuse/core";
-import { ChevronLeft } from "lucide-vue-next";
-import { CalendarPrev, useForwardProps } from "reka-ui";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from '@/components/ui/button';
+import { reactiveOmit } from '@vueuse/core'
+import { ChevronLeft } from 'lucide-vue-next'
+import { CalendarPrev, useForwardProps } from 'reka-ui'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const props = defineProps({
   prevPage: { type: Function, required: false },
   asChild: { type: Boolean, required: false },
   as: { type: null, required: false },
   class: { type: null, required: false },
-});
+})
 
-const delegatedProps = reactiveOmit(props, "class");
+const delegatedProps = reactiveOmit(props, 'class')
 
-const forwardedProps = useForwardProps(delegatedProps);
+const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>

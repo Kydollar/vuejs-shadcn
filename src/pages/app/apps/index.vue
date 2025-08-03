@@ -28,9 +28,7 @@ watch(searchTerm, (newValue) => {
 
 watch(sort, (newValue) => {
   appList.value = [...apps].sort((a, b) => {
-    return newValue === 'asc'
-      ? a.name.localeCompare(b.name)
-      : b.name.localeCompare(a.name)
+    return newValue === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
   })
 })
 
@@ -44,11 +42,7 @@ watch(appType, (newValue) => {
 </script>
 
 <template>
-  <Page
-    title="Apps"
-    description="Apps description"
-    sticky
-  >
+  <Page title="Apps" description="Apps description" sticky>
     <div class="flex items-end justify-between sm:items-center">
       <div class="flex flex-col gap-4 sm:flex-row">
         <UiInput
@@ -62,11 +56,7 @@ watch(appType, (newValue) => {
             <UiSelectValue>{{ appType }}</UiSelectValue>
           </UiSelectTrigger>
           <UiSelectContent>
-            <UiSelectItem
-              v-for="type in appTypes"
-              :key="type"
-              :value="type"
-            >
+            <UiSelectItem v-for="type in appTypes" :key="type" :value="type">
               {{ type }}
             </UiSelectItem>
           </UiSelectContent>
@@ -77,17 +67,12 @@ watch(appType, (newValue) => {
     </div>
 
     <main class="grid grid-cols-1 gap-4 mt-2 lg:grid-cols-3">
-      <AppCard
-        v-for="(app, index) in appList"
-        :key="index"
-        :app="app"
-      />
+      <AppCard v-for="(app, index) in appList" :key="index" :app="app" />
     </main>
   </Page>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
 
 <route lang="yaml">
 meta:

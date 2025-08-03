@@ -20,7 +20,8 @@ export const callTypes = [
   {
     label: 'Suspended',
     value: 'suspended',
-    style: 'bg-destructive/10 dark:bg-destructive/50 text-destructive dark:text-primary border-destructive/10',
+    style:
+      'bg-destructive/10 dark:bg-destructive/50 text-destructive dark:text-primary border-destructive/10',
   },
 ]
 

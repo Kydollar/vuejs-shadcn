@@ -2,14 +2,12 @@
 import { Ellipsis } from 'lucide-vue-next'
 import { defineAsyncComponent } from 'vue'
 
-const props = defineProps(
-  {
-    row: {
-      type: Object,
-      required: true,
-    },
+const props = defineProps({
+  row: {
+    type: Object,
+    required: true,
   },
-)
+})
 const user = computed(() => props.row.original)
 const isOpen = ref(false)
 
@@ -30,10 +28,7 @@ function handleSelect(command) {
   <UiDialog v-model:open="isOpen">
     <UiDropdownMenu>
       <UiDropdownMenuTrigger as-child>
-        <UiButton
-          variant="ghost"
-          class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
-        >
+        <UiButton variant="ghost" class="flex h-8 w-8 p-0 data-[state=open]:bg-muted">
           <Ellipsis class="size-4" />
           <span class="sr-only">Open menu</span>
         </UiButton>

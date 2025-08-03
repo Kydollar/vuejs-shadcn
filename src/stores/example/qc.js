@@ -24,18 +24,20 @@ export const useQCStore = defineStore('qc', () => {
 
   const todayInspections = computed(() => {
     const today = new Date().toISOString().split('T')[0]
-    return inspections.value.filter(inspection =>
-      inspection.inspectionDate === today,
-    )
+    return inspections.value.filter(inspection => inspection.inspectionDate === today)
   })
 
   const qualityRate = computed(() => {
     if (inspections.value.length === 0)
       return 0
-    const totalPassed = passedInspections.value.reduce((sum, inspection) =>
-      sum + inspection.passedQty, 0)
-    const totalInspected = inspections.value.reduce((sum, inspection) =>
-      sum + inspection.sampleSize, 0)
+    const totalPassed = passedInspections.value.reduce(
+      (sum, inspection) => sum + inspection.passedQty,
+      0,
+    )
+    const totalInspected = inspections.value.reduce(
+      (sum, inspection) => sum + inspection.sampleSize,
+      0,
+    )
     return totalInspected > 0 ? Math.round((totalPassed / totalInspected) * 100) : 0
   })
 

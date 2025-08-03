@@ -1,106 +1,82 @@
 [
-    {
-        "id": 1,
-        "styleCode": "SW626-918",
-        "styleName": "Fresh Ivory Rhinestone Top",
-        "bodyColor": "FRESH IVORY",
-        "artwork": {
-            "type": "RHINESTONE 2MM",
-            "placement": "Front chest area",
-            "details": "ER503 JET black rhinestones",
-            "pattern": "Scattered design"
-        },
-        "price": 0.33,
-        "currency": "USD",
-        "category": "Women's Tops",
-        "season": "All Season",
-        "sizes": [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "status": "active",
-        "createdAt": "2024-01-15T08:00:00Z",
-        "updatedAt": "2024-07-30T10:00:00Z"
+  {
+    "id": 1,
+    "styleCode": "SW626-918",
+    "styleName": "Fresh Ivory Rhinestone Top",
+    "bodyColor": "FRESH IVORY",
+    "artwork": {
+      "type": "RHINESTONE 2MM",
+      "placement": "Front chest area",
+      "details": "ER503 JET black rhinestones",
+      "pattern": "Scattered design"
     },
-    {
-        "id": 2,
-        "styleCode": "SW626-910",
-        "styleName": "Frost Pink Studded Blouse",
-        "bodyColor": "FROST PINK",
-        "artwork": {
-            "type": "METAL STUDS 2MM",
-            "placement": "Collar and cuffs",
-            "details": "Silver tone nail head studs",
-            "pattern": "Linear arrangement"
-        },
-        "price": 0.26,
-        "currency": "USD",
-        "category": "Women's Blouses",
-        "season": "Spring/Summer",
-        "sizes": [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "status": "active",
-        "createdAt": "2024-01-15T08:00:00Z",
-        "updatedAt": "2024-07-25T14:30:00Z"
+    "price": 0.33,
+    "currency": "USD",
+    "category": "Women's Tops",
+    "season": "All Season",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "status": "active",
+    "createdAt": "2024-01-15T08:00:00Z",
+    "updatedAt": "2024-07-30T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "styleCode": "SW626-910",
+    "styleName": "Frost Pink Studded Blouse",
+    "bodyColor": "FROST PINK",
+    "artwork": {
+      "type": "METAL STUDS 2MM",
+      "placement": "Collar and cuffs",
+      "details": "Silver tone nail head studs",
+      "pattern": "Linear arrangement"
     },
-    {
-        "id": 3,
-        "styleCode": "SW626-1325",
-        "styleName": "Green Smoke Crystal Dress",
-        "bodyColor": "GREEN SMOKE",
-        "artwork": {
-            "type": "CRYSTAL RHINESTONES 2MM",
-            "placement": "Bodice and sleeves",
-            "details": "Black diamond crystals",
-            "pattern": "Gradient fade design"
-        },
-        "price": 0.29,
-        "currency": "USD",
-        "category": "Women's Dresses",
-        "season": "Fall/Winter",
-        "sizes": [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "status": "active",
-        "createdAt": "2024-01-20T09:15:00Z",
-        "updatedAt": "2024-07-28T16:20:00Z"
+    "price": 0.26,
+    "currency": "USD",
+    "category": "Women's Blouses",
+    "season": "Spring/Summer",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "status": "active",
+    "createdAt": "2024-01-15T08:00:00Z",
+    "updatedAt": "2024-07-25T14:30:00Z"
+  },
+  {
+    "id": 3,
+    "styleCode": "SW626-1325",
+    "styleName": "Green Smoke Crystal Dress",
+    "bodyColor": "GREEN SMOKE",
+    "artwork": {
+      "type": "CRYSTAL RHINESTONES 2MM",
+      "placement": "Bodice and sleeves",
+      "details": "Black diamond crystals",
+      "pattern": "Gradient fade design"
     },
-    {
-        "id": 4,
-        "styleCode": "WN838-STUD",
-        "styleName": "Brilliant Red Studded Jacket",
-        "bodyColor": "BRILLIANT RED",
-        "artwork": {
-            "type": "DECORATIVE STUDS",
-            "placement": "Lapels and pockets",
-            "details": "2MM silver cone studs",
-            "pattern": "Geometric layout"
-        },
-        "price": 0.31,
-        "currency": "USD",
-        "category": "Women's Outerwear",
-        "season": "All Season",
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "status": "active",
-        "createdAt": "2024-02-01T11:30:00Z",
-        "updatedAt": "2024-07-29T13:45:00Z"
-    }
+    "price": 0.29,
+    "currency": "USD",
+    "category": "Women's Dresses",
+    "season": "Fall/Winter",
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "status": "active",
+    "createdAt": "2024-01-20T09:15:00Z",
+    "updatedAt": "2024-07-28T16:20:00Z"
+  },
+  {
+    "id": 4,
+    "styleCode": "WN838-STUD",
+    "styleName": "Brilliant Red Studded Jacket",
+    "bodyColor": "BRILLIANT RED",
+    "artwork": {
+      "type": "DECORATIVE STUDS",
+      "placement": "Lapels and pockets",
+      "details": "2MM silver cone studs",
+      "pattern": "Geometric layout"
+    },
+    "price": 0.31,
+    "currency": "USD",
+    "category": "Women's Outerwear",
+    "season": "All Season",
+    "sizes": ["S", "M", "L", "XL"],
+    "status": "active",
+    "createdAt": "2024-02-01T11:30:00Z",
+    "updatedAt": "2024-07-29T13:45:00Z"
+  }
 ]

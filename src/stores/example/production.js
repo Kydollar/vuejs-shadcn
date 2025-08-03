@@ -24,14 +24,11 @@ export const useProductionStore = defineStore('production', () => {
 
   const todayEntries = computed(() => {
     const today = new Date().toISOString().split('T')[0]
-    return productionEntries.value.filter(entry =>
-      entry.date === today,
-    )
+    return productionEntries.value.filter(entry => entry.date === today)
   })
 
   const totalProducedToday = computed(() => {
-    return todayEntries.value.reduce((total, entry) =>
-      total + (entry.actualProduction || 0), 0)
+    return todayEntries.value.reduce((total, entry) => total + (entry.actualProduction || 0), 0)
   })
 
   const averageEfficiency = computed(() => {

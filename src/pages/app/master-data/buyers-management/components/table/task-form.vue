@@ -8,24 +8,32 @@ import { FormField } from '@/components/ui/form'
 
 import { labels, priorities, statuses } from '../data/data'
 
-const props = defineProps([
-  'task',
-])
+const props = defineProps(['task'])
 const emits = defineEmits(['close'])
 
-const formSchema = toTypedSchema(z.object({
-  title: z.string().min(2).max(50).default(props.task?.title ?? ''),
-  status: z.string().default(props.task?.status ?? ''),
-  label: z.string().default(props.task?.label ?? ''),
-  priority: z.string().default(props.task?.priority ?? ''),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    title: z
+      .string()
+      .min(2)
+      .max(50)
+      .default(props.task?.title ?? ''),
+    status: z.string().default(props.task?.status ?? ''),
+    label: z.string().default(props.task?.label ?? ''),
+    priority: z.string().default(props.task?.priority ?? ''),
+  }),
+)
 
 const { isFieldDirty, handleSubmit } = useForm({
   validationSchema: formSchema,
 })
 const onSubmit = handleSubmit((values) => {
   toast('You submitted the following values:', {
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    description: h(
+      'pre',
+      { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
+      h('code', { class: 'text-white' }, JSON.stringify(values, null, 2)),
+    ),
   })
   emits('close')
 })
@@ -54,7 +62,11 @@ const onSubmit = handleSubmit((values) => {
               </UiSelectTrigger>
               <UiSelectContent>
                 <UiSelectGroup>
-                  <UiSelectItem v-for="status in statuses" :key="status.value" :value="status.value">
+                  <UiSelectItem
+                    v-for="status in statuses"
+                    :key="status.value"
+                    :value="status.value"
+                  >
                     <div class="flex items-center gap-2">
                       <component :is="status.icon" class="size-4 shrink-0" />
                       {{ status.label }}
@@ -72,12 +84,10 @@ const onSubmit = handleSubmit((values) => {
         <UiFormItem>
           <UiFormLabel>label</UiFormLabel>
           <UiFormControl>
-            <UiRadioGroup
-              class="flex flex-col space-y-1"
-              v-bind="componentField"
-            >
+            <UiRadioGroup class="flex flex-col space-y-1" v-bind="componentField">
               <UiFormItem
-                v-for="label in labels" :key="label.value"
+                v-for="label in labels"
+                :key="label.value"
                 class="flex items-center space-y-0 gap-x-3"
               >
                 <UiFormControl>
@@ -97,12 +107,10 @@ const onSubmit = handleSubmit((values) => {
         <UiFormItem>
           <UiFormLabel>priority</UiFormLabel>
           <UiFormControl>
-            <UiRadioGroup
-              class="flex flex-col space-y-1"
-              v-bind="componentField"
-            >
+            <UiRadioGroup class="flex flex-col space-y-1" v-bind="componentField">
               <UiFormItem
-                v-for="priority in priorities" :key="priority.value"
+                v-for="priority in priorities"
+                :key="priority.value"
                 class="flex items-center space-y-0 gap-x-3"
               >
                 <UiFormControl>
@@ -126,6 +134,4 @@ const onSubmit = handleSubmit((values) => {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

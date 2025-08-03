@@ -17,12 +17,31 @@ import { computed, onMounted, ref } from 'vue'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { useFactoriesStore } from '@/stores/example/factories'
 
@@ -55,7 +74,8 @@ const formData = ref({
 })
 
 // Store getters (reactive)
-const { factories, loading, selectedFactory, activeFactories, factoryCapacityUtilization } = storeToRefs(factoriesStore)
+const { factories, loading, selectedFactory, activeFactories, factoryCapacityUtilization }
+  = storeToRefs(factoriesStore)
 
 // Computed
 const uniqueLocations = computed(() => {
@@ -79,14 +99,17 @@ const filteredFactories = computed(() => {
     filtered = filtered.filter((factory) => {
       const searchInSpecialization = Array.isArray(factory?.specialization)
         ? factory.specialization.some(spec => spec.toLowerCase().includes(query))
-        : (typeof factory?.specialization === 'string' && factory.specialization.toLowerCase().includes(query))
+        : typeof factory?.specialization === 'string'
+          && factory.specialization.toLowerCase().includes(query)
 
-      return factory?.factoryName?.toLowerCase().includes(query)
+      return (
+        factory?.factoryName?.toLowerCase().includes(query)
         || factory?.factoryCode?.toLowerCase().includes(query)
         || factory?.location?.toLowerCase().includes(query)
         || factory?.managerName?.toLowerCase().includes(query)
         || factory?.contactPerson?.toLowerCase().includes(query)
         || searchInSpecialization
+      )
     })
   }
 
@@ -114,10 +137,14 @@ function formatDate(dateString) {
 
 function getStatusVariant(status) {
   switch (status) {
-    case 'active': return 'default'
-    case 'maintenance': return 'secondary'
-    case 'inactive': return 'destructive'
-    default: return 'secondary'
+    case 'active':
+      return 'default'
+    case 'maintenance':
+      return 'secondary'
+    case 'inactive':
+      return 'destructive'
+    default:
+      return 'secondary'
   }
 }
 
@@ -173,7 +200,10 @@ async function saveFactory() {
       ...formData.value,
       // Convert specialization string to array
       specialization: formData.value.specialization
-        ? formData.value.specialization.split(',').map(s => s.trim()).filter(s => s)
+        ? formData.value.specialization
+            .split(',')
+            .map(s => s.trim())
+            .filter(s => s)
         : [],
     }
 
@@ -322,7 +352,9 @@ onMounted(async () => {
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
             <div class="relative">
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Search
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              />
               <Input
                 v-model="searchQuery"
                 :placeholder="$t('erp.factories.search')"
@@ -446,10 +478,15 @@ onMounted(async () => {
                 <TableCell>
                   <div>
                     <div class="font-medium">
-                      {{ (factory?.currentLoad || 0).toLocaleString() }} / {{ (factory.capacity || 0).toLocaleString() }}
+                      {{ (factory?.currentLoad || 0).toLocaleString() }} /
+                      {{ (factory.capacity || 0).toLocaleString() }}
                     </div>
                     <div class="text-sm text-muted-foreground">
-                      {{ factory?.capacity > 0 ? Math.round(((factory?.currentLoad || 0) / factory?.capacity) * 100) : 0 }}% utilized
+                      {{
+                        factory?.capacity > 0
+                          ? Math.round(((factory?.currentLoad || 0) / factory?.capacity) * 100)
+                          : 0
+                      }}% utilized
                     </div>
                   </div>
                 </TableCell>
@@ -602,7 +639,8 @@ onMounted(async () => {
               :placeholder="$t('erp.factories.specializationPlaceholder')"
             />
             <p class="text-xs text-muted-foreground">
-              Separate multiple specializations with commas (e.g., T-Shirts, Polo Shirts, Casual Wear)
+              Separate multiple specializations with commas (e.g., T-Shirts, Polo Shirts, Casual
+              Wear)
             </p>
           </div>
 
@@ -628,11 +666,7 @@ onMounted(async () => {
             </div>
             <div class="space-y-2">
               <Label for="establishedDate">{{ $t('erp.factories.establishedDate') }}</Label>
-              <Input
-                id="establishedDate"
-                v-model="formData.establishedDate"
-                type="date"
-              />
+              <Input id="establishedDate" v-model="formData.establishedDate" type="date" />
             </div>
           </div>
 
@@ -659,13 +693,17 @@ onMounted(async () => {
         <div v-if="selectedFactory" class="space-y-6">
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.factoryName') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.factoryName')
+              }}</Label>
               <p class="font-semibold">
                 {{ selectedFactory.factoryName }}
               </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.factoryCode') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.factoryCode')
+              }}</Label>
               <p :class="{ 'text-muted-foreground': !selectedFactory?.factoryCode }">
                 {{ selectedFactory.factoryCode || 'N/A' }}
               </p>
@@ -674,11 +712,15 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.location') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.location')
+              }}</Label>
               <p>{{ selectedFactory.location }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.managerName') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.managerName')
+              }}</Label>
               <p :class="{ 'text-muted-foreground italic': !selectedFactory.managerName }">
                 {{ selectedFactory.managerName || 'Not specified' }}
               </p>
@@ -686,17 +728,23 @@ onMounted(async () => {
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.address') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.factories.address')
+            }}</Label>
             <p>{{ selectedFactory.address }}</p>
           </div>
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.email') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.email')
+              }}</Label>
               <p>{{ selectedFactory.email }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.managerPhone') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.managerPhone')
+              }}</Label>
               <p :class="{ 'text-muted-foreground italic': !selectedFactory.managerPhone }">
                 {{ selectedFactory.managerPhone || 'No phone number' }}
               </p>
@@ -705,26 +753,37 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.capacity') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.capacity')
+              }}</Label>
               <p>{{ selectedFactory.capacity?.toLocaleString() }} units</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.currentLoad') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.currentLoad')
+              }}</Label>
               <p>
                 {{ (selectedFactory.currentLoad || 0).toLocaleString() }} units
                 <span v-if="selectedFactory.capacity > 0">
-                  ({{ Math.round(((selectedFactory.currentLoad || 0) / selectedFactory.capacity) * 100) }}%)
+                  ({{
+                    Math.round(
+                      ((selectedFactory.currentLoad || 0) / selectedFactory.capacity) * 100,
+                    )
+                  }}%)
                 </span>
-                <span v-else>
-                  (N/A)
-                </span>
+                <span v-else> (N/A) </span>
               </p>
             </div>
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.specialization') }}</Label>
-            <div v-if="Array.isArray(selectedFactory.specialization)" class="flex flex-wrap gap-2 mt-1">
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.factories.specialization')
+            }}</Label>
+            <div
+              v-if="Array.isArray(selectedFactory.specialization)"
+              class="flex flex-wrap gap-2 mt-1"
+            >
               <Badge v-for="spec in selectedFactory.specialization" :key="spec" variant="outline">
                 {{ spec }}
               </Badge>
@@ -735,7 +794,9 @@ onMounted(async () => {
           </div>
 
           <div v-if="selectedFactory.certifications?.length" class="space-y-2">
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.certifications') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.factories.certifications')
+            }}</Label>
             <div class="flex flex-wrap gap-2">
               <Badge v-for="cert in selectedFactory.certifications" :key="cert" variant="secondary">
                 {{ cert }}
@@ -745,13 +806,17 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.status') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.status')
+              }}</Label>
               <Badge :variant="getStatusVariant(selectedFactory.status)">
                 {{ $t(`erp.factories.${selectedFactory.status}`) }}
               </Badge>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.factories.establishedDate') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.factories.establishedDate')
+              }}</Label>
               <p>{{ formatDate(selectedFactory.establishedDate) }}</p>
             </div>
           </div>

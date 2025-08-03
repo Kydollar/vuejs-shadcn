@@ -23,7 +23,11 @@ function onSubmit() {
   }
 
   toast('You submitted the following values:', {
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(file.value, null, 2))),
+    description: h(
+      'pre',
+      { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
+      h('code', { class: 'text-white' }, JSON.stringify(file.value, null, 2)),
+    ),
   })
   isOpen.value = false
 }
@@ -41,9 +45,7 @@ function onSubmit() {
     <UiDialogContent>
       <UiDialogHeader>
         <UiDialogTitle>Import Tasks</UiDialogTitle>
-        <UiDialogDescription>
-          Import tasks quickly from a CSV file.
-        </UiDialogDescription>
+        <UiDialogDescription> Import tasks quickly from a CSV file. </UiDialogDescription>
       </UiDialogHeader>
 
       <div class="grid w-full max-w-sm items-center gap-1.5">
@@ -64,6 +66,4 @@ function onSubmit() {
   </UiDialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

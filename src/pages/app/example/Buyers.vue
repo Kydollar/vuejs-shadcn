@@ -17,12 +17,31 @@ import { computed, onMounted, ref } from 'vue'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { useBuyersStore } from '@/stores/example/buyers'
 
@@ -51,7 +70,8 @@ const formData = ref({
 })
 
 // Store getters (reactive)
-const { buyers, loading, selectedBuyer, activeBuyers, inactiveBuyers, uniqueCountries } = storeToRefs(buyersStore)
+const { buyers, loading, selectedBuyer, activeBuyers, inactiveBuyers, uniqueCountries }
+  = storeToRefs(buyersStore)
 
 // Computed
 const filteredBuyers = computed(() => {
@@ -65,11 +85,12 @@ const filteredBuyers = computed(() => {
   // Search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(buyer =>
-      buyer?.buyerName?.toLowerCase().includes(query)
-      || buyer?.contactPerson?.toLowerCase().includes(query)
-      || buyer?.email?.toLowerCase().includes(query)
-      || buyer?.country?.toLowerCase().includes(query),
+    filtered = filtered.filter(
+      buyer =>
+        buyer?.buyerName?.toLowerCase().includes(query)
+        || buyer?.contactPerson?.toLowerCase().includes(query)
+        || buyer?.email?.toLowerCase().includes(query)
+        || buyer?.country?.toLowerCase().includes(query),
     )
   }
 
@@ -269,7 +290,9 @@ onMounted(async () => {
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
             <div class="relative">
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Search
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              />
               <Input
                 v-model="searchQuery"
                 :placeholder="$t('erp.buyers.search')"
@@ -550,40 +573,54 @@ onMounted(async () => {
         <div v-if="selectedBuyer" class="space-y-6">
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.buyerName') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.buyerName')
+              }}</Label>
               <p class="font-semibold">
                 {{ selectedBuyer.buyerName }}
               </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.contactPerson') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.contactPerson')
+              }}</Label>
               <p>{{ selectedBuyer.contactPerson }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.email') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.email')
+              }}</Label>
               <p>{{ selectedBuyer.email }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.phone') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.phone')
+              }}</Label>
               <p>{{ selectedBuyer.phone }}</p>
             </div>
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.address') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.buyers.address')
+            }}</Label>
             <p>{{ selectedBuyer.address }}</p>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.country') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.country')
+              }}</Label>
               <p>{{ selectedBuyer.country }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.status') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.status')
+              }}</Label>
               <Badge :variant="selectedBuyer.status === 'active' ? 'default' : 'secondary'">
                 {{ $t(`common.${selectedBuyer.status}`) }}
               </Badge>
@@ -592,11 +629,15 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.createdAt') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.createdAt')
+              }}</Label>
               <p>{{ formatDate(selectedBuyer.createdAt) }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.updatedAt') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.buyers.updatedAt')
+              }}</Label>
               <p>{{ formatDate(selectedBuyer.updatedAt) }}</p>
             </div>
           </div>
@@ -630,7 +671,9 @@ onMounted(async () => {
           </div>
 
           <div v-if="selectedBuyer.notes">
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.buyers.notes') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.buyers.notes')
+            }}</Label>
             <p class="mt-1 p-3 bg-muted/30 rounded-md">
               {{ selectedBuyer.notes }}
             </p>

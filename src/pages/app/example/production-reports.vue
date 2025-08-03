@@ -6,7 +6,13 @@ import { useI18n } from 'vue-i18n'
 
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useProductionReportStore } from '@/stores/example/productionReport'
 
@@ -286,7 +292,11 @@ onMounted(async () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="report in filteredOutputReports" :key="report.id" class="border-b hover:bg-muted/50">
+                  <tr
+                    v-for="report in filteredOutputReports"
+                    :key="report.id"
+                    class="border-b hover:bg-muted/50"
+                  >
                     <td class="p-2">
                       {{ formatDate(report.date) }}
                     </td>
@@ -302,7 +312,13 @@ onMounted(async () => {
                       {{ formatNumber(report.target) }}
                     </td>
                     <td class="p-2">
-                      <Badge :variant="getEfficiencyVariant(calculateEfficiency(report.dailyOutput, report.target))">
+                      <Badge
+                        :variant="
+                          getEfficiencyVariant(
+                            calculateEfficiency(report.dailyOutput, report.target),
+                          )
+                        "
+                      >
                         {{ calculateEfficiency(report.dailyOutput, report.target) }}%
                       </Badge>
                     </td>
@@ -328,7 +344,9 @@ onMounted(async () => {
             <CardContent class="space-y-2">
               <div class="flex justify-between">
                 <span>Total Output:</span>
-                <span class="font-bold">{{ formatNumber(outputStatistics.dayShift.totalOutput) }}</span>
+                <span class="font-bold">{{
+                  formatNumber(outputStatistics.dayShift.totalOutput)
+                }}</span>
               </div>
               <div class="flex justify-between">
                 <span>Average Output:</span>
@@ -336,7 +354,9 @@ onMounted(async () => {
               </div>
               <div class="flex justify-between">
                 <span>Total Amount:</span>
-                <span class="font-bold">{{ formatCurrency(outputStatistics.dayShift.totalAmount) }}</span>
+                <span class="font-bold">{{
+                  formatCurrency(outputStatistics.dayShift.totalAmount)
+                }}</span>
               </div>
             </CardContent>
           </Card>
@@ -347,7 +367,9 @@ onMounted(async () => {
             <CardContent class="space-y-2">
               <div class="flex justify-between">
                 <span>Total Output:</span>
-                <span class="font-bold">{{ formatNumber(outputStatistics.nightShift.totalOutput) }}</span>
+                <span class="font-bold">{{
+                  formatNumber(outputStatistics.nightShift.totalOutput)
+                }}</span>
               </div>
               <div class="flex justify-between">
                 <span>Average Output:</span>
@@ -355,7 +377,9 @@ onMounted(async () => {
               </div>
               <div class="flex justify-between">
                 <span>Total Amount:</span>
-                <span class="font-bold">{{ formatCurrency(outputStatistics.nightShift.totalAmount) }}</span>
+                <span class="font-bold">{{
+                  formatCurrency(outputStatistics.nightShift.totalAmount)
+                }}</span>
               </div>
             </CardContent>
           </Card>
@@ -419,7 +443,11 @@ onMounted(async () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="production in filteredProductionReports" :key="production.id" class="border-b hover:bg-muted/50">
+                  <tr
+                    v-for="production in filteredProductionReports"
+                    :key="production.id"
+                    class="border-b hover:bg-muted/50"
+                  >
                     <td class="p-2 font-medium">
                       {{ production.team }}
                     </td>
@@ -456,7 +484,11 @@ onMounted(async () => {
               <CardTitle>{{ team }} Team Performance</CardTitle>
             </CardHeader>
             <CardContent>
-              <div v-for="production in productionByTeam[team]" :key="production.id" class="space-y-3">
+              <div
+                v-for="production in productionByTeam[team]"
+                :key="production.id"
+                class="space-y-3"
+              >
                 <div class="flex justify-between items-center">
                   <div>
                     <p class="font-medium">
@@ -507,7 +539,11 @@ onMounted(async () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="hour in hourlyBreakdown" :key="hour.hour" class="border-b hover:bg-muted/50">
+                  <tr
+                    v-for="hour in hourlyBreakdown"
+                    :key="hour.hour"
+                    class="border-b hover:bg-muted/50"
+                  >
                     <td class="p-2 font-medium">
                       {{ hour.hour }}
                     </td>

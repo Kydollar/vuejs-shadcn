@@ -19,14 +19,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-const props = defineProps([
-  'rows',
-  'columns',
-  'loading',
-  'sort',
-  'page',
-  'pageSize',
-])
+const props = defineProps(['rows', 'columns', 'loading', 'sort', 'page', 'pageSize'])
 
 const emit = defineEmits(['update:page', 'update:sort', 'update:search'])
 
@@ -56,11 +49,7 @@ watch(searchInput, v => emit('update:search', v))
 <template>
   <div class="space-y-4">
     <!-- Search -->
-    <Input
-      v-model="searchInput"
-      placeholder="Search..."
-      class="w-full max-w-sm"
-    />
+    <Input v-model="searchInput" placeholder="Search..." class="w-full max-w-sm" />
 
     <!-- Table -->
     <Table>
@@ -81,14 +70,8 @@ watch(searchInput, v => emit('update:search', v))
       </TableHeader>
 
       <TableBody>
-        <TableRow
-          v-for="row in table.getRowModel().rows"
-          :key="row.id"
-        >
-          <TableCell
-            v-for="cell in row.getVisibleCells()"
-            :key="cell.id"
-          >
+        <TableRow v-for="row in table.getRowModel().rows" :key="row.id">
+          <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
             <slot name="cell" :cell="cell">
               {{ cell.getValue() }}
             </slot>

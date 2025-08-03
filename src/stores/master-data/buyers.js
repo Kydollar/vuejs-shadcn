@@ -214,9 +214,8 @@ export const useBuyersStore = defineStore('buyers', () => {
     selectedBuyer.value = buyer
   }
 
-  const isAllSelected = computed(() =>
-    buyers.value.length > 0
-    && buyers.value.every(b => selectedIds.value.includes(b.id)),
+  const isAllSelected = computed(
+    () => buyers.value.length > 0 && buyers.value.every(b => selectedIds.value.includes(b.id)),
   )
 
   function toggleSelectAll() {

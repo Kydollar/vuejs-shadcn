@@ -19,12 +19,31 @@ import { useI18n } from 'vue-i18n'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { useProductsStore } from '@/stores/master-data/products'
 
@@ -72,7 +91,8 @@ const colorInput = ref('')
 const sizeInput = ref('')
 
 // Store getters (reactive)
-const { products, loading, selectedProduct, activeProducts, uniqueCategories, lowStockProducts } = storeToRefs(productsStore)
+const { products, loading, selectedProduct, activeProducts, uniqueCategories, lowStockProducts }
+  = storeToRefs(productsStore)
 
 // Computed
 const filteredProducts = computed(() => {
@@ -86,12 +106,13 @@ const filteredProducts = computed(() => {
   // Search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(product =>
-      product?.productName?.toLowerCase().includes(query)
-      || product?.productCode?.toLowerCase().includes(query)
-      || product?.category?.toLowerCase().includes(query)
-      || product?.material?.toLowerCase().includes(query)
-      || product?.supplier?.toLowerCase().includes(query),
+    filtered = filtered.filter(
+      product =>
+        product?.productName?.toLowerCase().includes(query)
+        || product?.productCode?.toLowerCase().includes(query)
+        || product?.category?.toLowerCase().includes(query)
+        || product?.material?.toLowerCase().includes(query)
+        || product?.supplier?.toLowerCase().includes(query),
     )
   }
 
@@ -180,11 +201,16 @@ function getProductStatus(product) {
 
 function getStatusVariant(status) {
   switch (status) {
-    case 'active': return 'default'
-    case 'low_stock': return 'secondary'
-    case 'out_of_stock': return 'destructive'
-    case 'limited': return 'outline'
-    default: return 'secondary'
+    case 'active':
+      return 'default'
+    case 'low_stock':
+      return 'secondary'
+    case 'out_of_stock':
+      return 'destructive'
+    case 'limited':
+      return 'outline'
+    default:
+      return 'secondary'
   }
 }
 
@@ -440,7 +466,9 @@ onMounted(async () => {
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
             <div class="relative">
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Search
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              />
               <Input
                 v-model="searchQuery"
                 :placeholder="$t('erp.products.search')"
@@ -917,39 +945,65 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.description') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.description')
+              }}</Label>
               <p>{{ selectedProduct.description }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.material') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.material')
+              }}</Label>
               <p>{{ selectedProduct.material }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-3 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.color') }}</Label>
-              <p>{{ Array.isArray(selectedProduct.colors) ? selectedProduct.colors.join(', ') : selectedProduct.color || 'N/A' }}</p>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.color')
+              }}</Label>
+              <p>
+                {{
+                  Array.isArray(selectedProduct.colors)
+                    ? selectedProduct.colors.join(', ')
+                    : selectedProduct.color || 'N/A'
+                }}
+              </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.size') }}</Label>
-              <p>{{ Array.isArray(selectedProduct.sizes) ? selectedProduct.sizes.join(', ') : selectedProduct.size || 'N/A' }}</p>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.size')
+              }}</Label>
+              <p>
+                {{
+                  Array.isArray(selectedProduct.sizes)
+                    ? selectedProduct.sizes.join(', ')
+                    : selectedProduct.size || 'N/A'
+                }}
+              </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.unit') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.unit')
+              }}</Label>
               <p>pieces</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.unitPrice') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.unitPrice')
+              }}</Label>
               <p class="text-lg font-semibold">
                 ${{ selectedProduct.price?.toFixed(2) }}
               </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.costPrice') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.costPrice')
+              }}</Label>
               <p>${{ selectedProduct.cost?.toFixed(2) }}</p>
             </div>
           </div>
@@ -976,28 +1030,40 @@ onMounted(async () => {
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.stockQuantity') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.stockQuantity')
+              }}</Label>
               <p>{{ selectedProduct.stock }} pieces</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.minStockLevel') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.minStockLevel')
+              }}</Label>
               <p>{{ selectedProduct.minOrder }} pieces</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-6">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.weight') }}</Label>
-              <p>{{ formatWeight(selectedProduct.specifications?.weight, selectedProduct.category) }}</p>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.weight')
+              }}</Label>
+              <p>
+                {{ formatWeight(selectedProduct.specifications?.weight, selectedProduct.category) }}
+              </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.dimensions') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.products.dimensions')
+              }}</Label>
               <p>{{ selectedProduct.specifications?.dimensions || 'N/A' }}</p>
             </div>
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.supplier') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.products.supplier')
+            }}</Label>
             <p>{{ selectedProduct.supplier || 'N/A' }}</p>
           </div>
 
@@ -1019,7 +1085,11 @@ onMounted(async () => {
           <div v-if="selectedProduct.specifications">
             <Label class="text-sm font-medium text-muted-foreground">Specifications</Label>
             <div class="grid grid-cols-2 gap-4 mt-2">
-              <div v-for="(value, key) in selectedProduct.specifications" :key="key" class="flex justify-between">
+              <div
+                v-for="(value, key) in selectedProduct.specifications"
+                :key="key"
+                class="flex justify-between"
+              >
                 <span class="text-sm text-muted-foreground capitalize">{{ key.replace(/([A-Z])/g, ' $1') }}:</span>
                 <span class="text-sm font-medium">
                   {{ key === 'weight' ? formatWeight(value, selectedProduct.category) : value }}
@@ -1029,7 +1099,9 @@ onMounted(async () => {
           </div>
 
           <div>
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.products.status') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.products.status')
+            }}</Label>
             <Badge :variant="getStatusVariant(getProductStatus(selectedProduct))">
               {{ $t(`erp.products.${getProductStatus(selectedProduct)}`) }}
             </Badge>

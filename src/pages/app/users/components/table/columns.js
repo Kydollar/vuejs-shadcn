@@ -12,7 +12,7 @@ export const columns = [
   {
     accessorKey: 'username',
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'username' }),
-    cell: ({ row }) => h('div', { }, row.getValue('username')),
+    cell: ({ row }) => h('div', {}, row.getValue('username')),
     enableSorting: false,
     enableHiding: false,
     enableResizing: true,
@@ -21,7 +21,7 @@ export const columns = [
   {
     accessorKey: 'email',
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Email' }),
-    cell: ({ row }) => h('div', { }, row.getValue('email')),
+    cell: ({ row }) => h('div', {}, row.getValue('email')),
     enableSorting: false,
     enableResizing: true,
   },
@@ -29,7 +29,7 @@ export const columns = [
   {
     accessorKey: 'phoneNumber',
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'PhoneNumber' }),
-    cell: ({ row }) => h('div', { }, row.getValue('phoneNumber')),
+    cell: ({ row }) => h('div', {}, row.getValue('phoneNumber')),
     enableSorting: false,
     enableResizing: true,
   },
@@ -44,7 +44,11 @@ export const columns = [
       if (!callType)
         return null
 
-      return h(Badge, { class: `${callType.style || ''}`, variant: 'outline' }, () => callType.label)
+      return h(
+        Badge,
+        { class: `${callType.style || ''}`, variant: 'outline' },
+        () => callType.label,
+      )
     },
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
@@ -56,9 +60,7 @@ export const columns = [
     accessorKey: 'role',
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Role' }),
     cell: ({ row }) => {
-      const priority = userTypes.find(
-        priority => priority.value === row.getValue('role'),
-      )
+      const priority = userTypes.find(priority => priority.value === row.getValue('role'))
 
       if (!priority)
         return null

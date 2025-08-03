@@ -32,10 +32,7 @@ function filterFunction(list, term) {
 
         <template v-if="selectedValues.size > 0">
           <UiSeparator orientation="vertical" class="h-4 mx-2" />
-          <UiBadge
-            variant="secondary"
-            class="px-1 font-normal rounded-sm lg:hidden"
-          >
+          <UiBadge variant="secondary" class="px-1 font-normal rounded-sm lg:hidden">
             {{ selectedValues.size }}
           </UiBadge>
           <div class="hidden space-x-1 lg:flex">
@@ -71,29 +68,37 @@ function filterFunction(list, term) {
               v-for="option in props.options"
               :key="option.value"
               :value="option"
-              @select="(e) => {
-                const isSelected = selectedValues.has(option.value)
-                if (isSelected) {
-                  selectedValues.delete(option.value)
+              @select="
+                e => {
+                  const isSelected = selectedValues.has(option.value)
+                  if (isSelected) {
+                    selectedValues.delete(option.value)
+                  }
+                  else {
+                    selectedValues.add(option.value)
+                  }
+                  const filterValues = Array.from(selectedValues)
+                  props.column?.setFilterValue(filterValues.length ? filterValues : undefined)
                 }
-                else {
-                  selectedValues.add(option.value)
-                }
-                const filterValues = Array.from(selectedValues)
-                props.column?.setFilterValue(filterValues.length ? filterValues : undefined)
-              }"
+              "
             >
               <div
-                :class="cn(
-                  'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
-                  selectedValues.has(option.value)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'opacity-50 [&_svg]:invisible',
-                )"
+                :class="
+                  cn(
+                    'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
+                    selectedValues.has(option.value)
+                      ? 'bg-primary text-primary-foreground'
+                      : 'opacity-50 [&_svg]:invisible',
+                  )
+                "
               >
                 <Check class="h-4 w-4" />
               </div>
-              <component :is="option.icon" v-if="option.icon" class="size-4 mr-2 text-muted-foreground" />
+              <component
+                :is="option.icon"
+                v-if="option.icon"
+                class="size-4 mr-2 text-muted-foreground"
+              />
               <span>{{ option.label }}</span>
               <span
                 v-if="facets?.get(option.value)"

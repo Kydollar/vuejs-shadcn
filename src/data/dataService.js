@@ -122,11 +122,12 @@ class DataService {
 
     if (query) {
       const q = query.toLowerCase()
-      result = result.filter(b =>
-        b.buyerName.toLowerCase().includes(q)
-        || b.contactPerson.toLowerCase().includes(q)
-        || b.email.toLowerCase().includes(q)
-        || b.country.toLowerCase().includes(q),
+      result = result.filter(
+        b =>
+          b.buyerName.toLowerCase().includes(q)
+          || b.contactPerson.toLowerCase().includes(q)
+          || b.email.toLowerCase().includes(q)
+          || b.country.toLowerCase().includes(q),
       )
     }
 

@@ -15,14 +15,13 @@ export default {
 </script>
 
 <template>
-  <div v-if="props.column.getCanSort()" :class="cn('flex items-center space-x-2', $attrs.class ?? '')">
+  <div
+    v-if="props.column.getCanSort()"
+    :class="cn('flex items-center space-x-2', $attrs.class ?? '')"
+  >
     <UiDropdownMenu>
       <UiDropdownMenuTrigger as-child>
-        <UiButton
-          variant="ghost"
-          size="sm"
-          class="-ml-3 h-8 data-[state=open]:bg-accent"
-        >
+        <UiButton variant="ghost" size="sm" class="-ml-3 h-8 data-[state=open]:bg-accent">
           <span>{{ props.title }}</span>
           <ArrowDown v-if="props.column.getIsSorted() === 'desc'" class="size-4 ml-2" />
           <ArrowUp v-else-if="props.column.getIsSorted() === 'asc'" class="size-4 ml-2" />

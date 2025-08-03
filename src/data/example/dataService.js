@@ -104,11 +104,12 @@ class DataService {
 
   searchBuyers(query) {
     const searchTerm = query.toLowerCase()
-    return this.data.buyers.filter(buyer =>
-      buyer.buyerName.toLowerCase().includes(searchTerm)
-      || buyer.contactPerson.toLowerCase().includes(searchTerm)
-      || buyer.email.toLowerCase().includes(searchTerm)
-      || buyer.country.toLowerCase().includes(searchTerm),
+    return this.data.buyers.filter(
+      buyer =>
+        buyer.buyerName.toLowerCase().includes(searchTerm)
+        || buyer.contactPerson.toLowerCase().includes(searchTerm)
+        || buyer.email.toLowerCase().includes(searchTerm)
+        || buyer.country.toLowerCase().includes(searchTerm),
     )
   }
 
@@ -277,7 +278,8 @@ class DataService {
       totalOrders: recaps.length,
       totalQuantity: recaps.reduce((sum, r) => sum + r.orderQuantity, 0),
       totalAmount: recaps.reduce((sum, r) => sum + r.amount, 0),
-      averagePrice: recaps.length > 0 ? recaps.reduce((sum, r) => sum + r.price, 0) / recaps.length : 0,
+      averagePrice:
+        recaps.length > 0 ? recaps.reduce((sum, r) => sum + r.price, 0) / recaps.length : 0,
       buyers: [...new Set(recaps.map(r => r.buyer))].length,
       factories: [...new Set(recaps.map(r => r.factory))].length,
     }
@@ -298,8 +300,8 @@ class DataService {
   }
 
   getHourlyOutputByDateRange(startDate, endDate) {
-    return this.data.hourlyOutputReport.filter(report =>
-      report.date >= startDate && report.date <= endDate,
+    return this.data.hourlyOutputReport.filter(
+      report => report.date >= startDate && report.date <= endDate,
     )
   }
 
@@ -323,16 +325,25 @@ class DataService {
     return {
       totalOutput: reports.reduce((sum, r) => sum + r.dailyOutput, 0),
       totalAmount: reports.reduce((sum, r) => sum + r.dailyAmount, 0),
-      averageOutput: reports.length > 0 ? reports.reduce((sum, r) => sum + r.dailyOutput, 0) / reports.length : 0,
+      averageOutput:
+        reports.length > 0
+          ? reports.reduce((sum, r) => sum + r.dailyOutput, 0) / reports.length
+          : 0,
       dayShift: {
         totalOutput: dayShifts.reduce((sum, r) => sum + r.dailyOutput, 0),
         totalAmount: dayShifts.reduce((sum, r) => sum + r.dailyAmount, 0),
-        averageOutput: dayShifts.length > 0 ? dayShifts.reduce((sum, r) => sum + r.dailyOutput, 0) / dayShifts.length : 0,
+        averageOutput:
+          dayShifts.length > 0
+            ? dayShifts.reduce((sum, r) => sum + r.dailyOutput, 0) / dayShifts.length
+            : 0,
       },
       nightShift: {
         totalOutput: nightShifts.reduce((sum, r) => sum + r.dailyOutput, 0),
         totalAmount: nightShifts.reduce((sum, r) => sum + r.dailyAmount, 0),
-        averageOutput: nightShifts.length > 0 ? nightShifts.reduce((sum, r) => sum + r.dailyOutput, 0) / nightShifts.length : 0,
+        averageOutput:
+          nightShifts.length > 0
+            ? nightShifts.reduce((sum, r) => sum + r.dailyOutput, 0) / nightShifts.length
+            : 0,
       },
     }
   }

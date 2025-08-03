@@ -20,17 +20,13 @@ export const useOrdersStore = defineStore('orders', () => {
     return grouped
   })
 
-  const pendingOrders = computed(() =>
-    orders.value.filter(order => order.status === 'pending'),
-  )
+  const pendingOrders = computed(() => orders.value.filter(order => order.status === 'pending'))
 
   const inProductionOrders = computed(() =>
     orders.value.filter(order => order.status === 'inProduction'),
   )
 
-  const completedOrders = computed(() =>
-    orders.value.filter(order => order.status === 'completed'),
-  )
+  const completedOrders = computed(() => orders.value.filter(order => order.status === 'completed'))
 
   const statistics = computed(() => ({
     total: orders.value.length,
@@ -38,9 +34,12 @@ export const useOrdersStore = defineStore('orders', () => {
     inProduction: inProductionOrders.value.length,
     completed: completedOrders.value.length,
     totalValue: orders.value.reduce((sum, o) => sum + (o.totalAmount || 0), 0),
-    averageOrderValue: orders.value.length > 0
-      ? (orders.value.reduce((sum, o) => sum + (o.totalAmount || 0), 0) / orders.value.length).toFixed(2)
-      : 0,
+    averageOrderValue:
+      orders.value.length > 0
+        ? (
+            orders.value.reduce((sum, o) => sum + (o.totalAmount || 0), 0) / orders.value.length
+          ).toFixed(2)
+        : 0,
   }))
 
   const orderOptions = computed(() =>
@@ -87,15 +86,16 @@ export const useOrdersStore = defineStore('orders', () => {
     const factory = factories.find(f => f.id === order.factoryId)
 
     // Process items with product info
-    const processedItems = order.items?.map((item) => {
-      const product = products.find(p => p.id === item.productId)
-      return {
-        ...item,
-        productCode: product?.productCode || 'N/A',
-        productName: product?.productName || 'Unknown Product',
-        category: product?.category || 'N/A',
-      }
-    }) || []
+    const processedItems
+      = order.items?.map((item) => {
+        const product = products.find(p => p.id === item.productId)
+        return {
+          ...item,
+          productCode: product?.productCode || 'N/A',
+          productName: product?.productName || 'Unknown Product',
+          category: product?.category || 'N/A',
+        }
+      }) || []
 
     // Get primary product for display
     const primaryProduct = processedItems[0]
@@ -125,9 +125,10 @@ export const useOrdersStore = defineStore('orders', () => {
 
       // Additional computed fields
       itemCount: processedItems.length,
-      averageUnitPrice: processedItems.length > 0
-        ? (order.totalAmount / processedItems.reduce((sum, item) => sum + (item.quantity || 0), 0))
-        : 0,
+      averageUnitPrice:
+        processedItems.length > 0
+          ? order.totalAmount / processedItems.reduce((sum, item) => sum + (item.quantity || 0), 0)
+          : 0,
     }
   }
 
@@ -294,19 +295,38 @@ export const useOrdersStore = defineStore('orders', () => {
       const progressData = {
         orderId: id,
         currentStage: order?.status || 'pending',
-        progress: order?.status === 'completed'
-          ? 100
-          : order?.status === 'shipped'
-            ? 90
-            : order?.status === 'qcCheck'
-              ? 75
-              : order?.status === 'in_production' ? 50 : 25,
+        progress:
+          order?.status === 'completed'
+            ? 100
+            : order?.status === 'shipped'
+              ? 90
+              : order?.status === 'qcCheck'
+                ? 75
+                : order?.status === 'in_production'
+                  ? 50
+                  : 25,
         stages: [
           { name: 'Order Received', completed: true, date: order?.orderDate },
-          { name: 'In Production', completed: order?.status !== 'pending', date: order?.status !== 'pending' ? '2024-02-15' : null },
-          { name: 'Quality Check', completed: ['qcCheck', 'shipped', 'completed'].includes(order?.status), date: ['qcCheck', 'shipped', 'completed'].includes(order?.status) ? '2024-02-20' : null },
-          { name: 'Shipped', completed: ['shipped', 'completed'].includes(order?.status), date: ['shipped', 'completed'].includes(order?.status) ? '2024-02-25' : null },
-          { name: 'Delivered', completed: order?.status === 'completed', date: order?.status === 'completed' ? '2024-03-01' : null },
+          {
+            name: 'In Production',
+            completed: order?.status !== 'pending',
+            date: order?.status !== 'pending' ? '2024-02-15' : null,
+          },
+          {
+            name: 'Quality Check',
+            completed: ['qcCheck', 'shipped', 'completed'].includes(order?.status),
+            date: ['qcCheck', 'shipped', 'completed'].includes(order?.status) ? '2024-02-20' : null,
+          },
+          {
+            name: 'Shipped',
+            completed: ['shipped', 'completed'].includes(order?.status),
+            date: ['shipped', 'completed'].includes(order?.status) ? '2024-02-25' : null,
+          },
+          {
+            name: 'Delivered',
+            completed: order?.status === 'completed',
+            date: order?.status === 'completed' ? '2024-03-01' : null,
+          },
         ],
       }
       return progressData

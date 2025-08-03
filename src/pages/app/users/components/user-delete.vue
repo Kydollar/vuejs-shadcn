@@ -13,7 +13,11 @@ const emits = defineEmits(['remove'])
 
 function handleRemove() {
   toast(`The following task has been deleted:`, {
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(user, null, 2))),
+    description: h(
+      'pre',
+      { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
+      h('code', { class: 'text-white' }, JSON.stringify(user, null, 2)),
+    ),
   })
 
   emits('remove')
@@ -22,9 +26,7 @@ function handleRemove() {
 
 <template>
   <div>
-    <UiDialogTitle>
-      Delete this user: {{ user.username }} ?
-    </UiDialogTitle>
+    <UiDialogTitle> Delete this user: {{ user.username }} ? </UiDialogTitle>
     <UiDialogDescription class="mt-2 font-medium">
       You are about to delete a user with the ID {{ user.id }}.This action cannot be undone.
     </UiDialogDescription>
@@ -45,6 +47,4 @@ function handleRemove() {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

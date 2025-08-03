@@ -7,10 +7,22 @@ import { useI18n } from 'vue-i18n'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useOrderRecapStore } from '@/stores/example/orderRecap'
 
@@ -64,11 +76,12 @@ const filteredOrderRecaps = computed(() => {
 
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(recap =>
-      recap.orderNumber.toLowerCase().includes(query)
-      || recap.buyer.toLowerCase().includes(query)
-      || recap.bodyColor.toLowerCase().includes(query)
-      || recap.artwork.toLowerCase().includes(query),
+    filtered = filtered.filter(
+      recap =>
+        recap.orderNumber.toLowerCase().includes(query)
+        || recap.buyer.toLowerCase().includes(query)
+        || recap.bodyColor.toLowerCase().includes(query)
+        || recap.artwork.toLowerCase().includes(query),
     )
   }
 
@@ -299,11 +312,7 @@ onMounted(async () => {
       <CardContent class="pt-6">
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
-            <Input
-              v-model="searchQuery"
-              placeholder="Search orders..."
-              class="max-w-sm"
-            >
+            <Input v-model="searchQuery" placeholder="Search orders..." class="max-w-sm">
               <template #prefix>
                 <Search class="h-4 w-4" />
               </template>
@@ -385,7 +394,11 @@ onMounted(async () => {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="recap in filteredOrderRecaps" :key="recap.id" class="border-b hover:bg-muted/50">
+              <tr
+                v-for="recap in filteredOrderRecaps"
+                :key="recap.id"
+                class="border-b hover:bg-muted/50"
+              >
                 <td class="p-2 font-medium">
                   {{ recap.orderNumber }}
                 </td>
@@ -461,38 +474,22 @@ onMounted(async () => {
           <div class="grid grid-cols-2 gap-4">
             <div class="space-y-2">
               <Label for="orderNumber">Order Number</Label>
-              <Input
-                id="orderNumber"
-                v-model="orderRecapForm.orderNumber"
-                required
-              />
+              <Input id="orderNumber" v-model="orderRecapForm.orderNumber" required />
             </div>
 
             <div class="space-y-2">
               <Label for="buyer">Buyer</Label>
-              <Input
-                id="buyer"
-                v-model="orderRecapForm.buyer"
-                required
-              />
+              <Input id="buyer" v-model="orderRecapForm.buyer" required />
             </div>
 
             <div class="space-y-2">
               <Label for="factory">Factory</Label>
-              <Input
-                id="factory"
-                v-model="orderRecapForm.factory"
-                required
-              />
+              <Input id="factory" v-model="orderRecapForm.factory" required />
             </div>
 
             <div class="space-y-2">
               <Label for="bodyColor">Body Color</Label>
-              <Input
-                id="bodyColor"
-                v-model="orderRecapForm.bodyColor"
-                required
-              />
+              <Input id="bodyColor" v-model="orderRecapForm.bodyColor" required />
             </div>
 
             <div class="space-y-2">
@@ -552,45 +549,28 @@ onMounted(async () => {
 
             <div class="space-y-2">
               <Label for="firstQC">First QC</Label>
-              <Input
-                id="firstQC"
-                v-model="orderRecapForm.firstQC"
-                placeholder="e.g., 22-May"
-              />
+              <Input id="firstQC" v-model="orderRecapForm.firstQC" placeholder="e.g., 22-May" />
             </div>
 
             <div class="space-y-2">
               <Label for="cmtFirst">CMT First</Label>
-              <Input
-                id="cmtFirst"
-                v-model="orderRecapForm.cmtFirst"
-              />
+              <Input id="cmtFirst" v-model="orderRecapForm.cmtFirst" />
             </div>
           </div>
 
           <div class="space-y-2">
             <Label for="artwork">Artwork</Label>
-            <Input
-              id="artwork"
-              v-model="orderRecapForm.artwork"
-            />
+            <Input id="artwork" v-model="orderRecapForm.artwork" />
           </div>
 
           <div class="space-y-2">
             <Label for="tech">Tech</Label>
-            <Input
-              id="tech"
-              v-model="orderRecapForm.tech"
-            />
+            <Input id="tech" v-model="orderRecapForm.tech" />
           </div>
 
           <div class="space-y-2">
             <Label for="remark">Remark</Label>
-            <Textarea
-              id="remark"
-              v-model="orderRecapForm.remark"
-              class="min-h-[80px]"
-            />
+            <Textarea id="remark" v-model="orderRecapForm.remark" class="min-h-[80px]" />
           </div>
 
           <DialogFooter>

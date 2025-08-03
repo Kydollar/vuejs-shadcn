@@ -134,9 +134,8 @@ function confirmDeleteSelected(ids) {
 }
 
 const isSelected = id => selectedIds.value.includes(id)
-const isAllSelected = computed(() =>
-  buyers.value.length > 0
-  && buyers.value.every(item => selectedIds.value.includes(item.id)),
+const isAllSelected = computed(
+  () => buyers.value.length > 0 && buyers.value.every(item => selectedIds.value.includes(item.id)),
 )
 const allChecked = computed({
   get: () => isAllSelected.value,
@@ -178,7 +177,9 @@ onMounted(() => {
       <div class="flex flex-col sm:flex-row gap-4">
         <div class="flex-1">
           <div class="relative">
-            <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Search
+              class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+            />
             <UiInput
               v-model="searchQuery"
               :placeholder="$t('erp.buyers.search')"
@@ -239,15 +240,9 @@ onMounted(() => {
           <UiTableHeader>
             <UiTableRow>
               <UiTableHead class="w-[20px]">
-                <UiCheckbox
-                  v-model="allChecked"
-                  class="mr-1"
-                />
+                <UiCheckbox v-model="allChecked" class="mr-1" />
               </UiTableHead>
-              <UiTableHead
-                class="cursor-pointer"
-                @click="toggleSort('buyerName')"
-              >
+              <UiTableHead class="cursor-pointer" @click="toggleSort('buyerName')">
                 <div class="flex items-center gap-2">
                   {{ $t('erp.buyers.table.name') }}
                   <template v-if="sortBy === 'buyerName'">
@@ -264,10 +259,7 @@ onMounted(() => {
               <UiTableHead class="text-center">
                 {{ $t('erp.buyers.table.status') }}
               </UiTableHead>
-              <UiTableHead
-                class="cursor-pointer"
-                @click="toggleSort('createdAt')"
-              >
+              <UiTableHead class="cursor-pointer" @click="toggleSort('createdAt')">
                 <div class="flex items-center gap-2">
                   {{ $t('erp.buyers.table.created') }}
                   <template v-if="sortBy === 'createdAt'">
@@ -350,7 +342,10 @@ onMounted(() => {
               </UiTableCell>
 
               <UiTableCell class="text-center">
-                <Icon :icon="`flag:${getCountryCodeByName(buyer?.country)}-4x3`" class="inline size-4 rounded-md" />
+                <Icon
+                  :icon="`flag:${getCountryCodeByName(buyer?.country)}-4x3`"
+                  class="inline size-4 rounded-md"
+                />
               </UiTableCell>
               <UiTableCell class="text-center">
                 <UiBadge :variant="buyer?.status === 'active' ? 'default' : 'secondary'">
@@ -393,14 +388,18 @@ onMounted(() => {
           <UiButton
             :disabled="loadingBuyers"
             variant="outline"
-            @click="buyersStore.loadMoreBuyers({
-              query: searchQuery,
-              status: statusFilter,
-              country: countryFilter,
-            })"
+            @click="
+              buyersStore.loadMoreBuyers({
+                query: searchQuery,
+                status: statusFilter,
+                country: countryFilter,
+              })
+            "
           >
             <Loader2 v-if="loadingBuyers" class="mr-2 h-4 w-4 animate-spin" />
-            {{ $t('common.loadMore', { count: `(${totalBuyers - currentPage * (pageSize ?? 0)})` }) }}
+            {{
+              $t('common.loadMore', { count: `(${totalBuyers - currentPage * (pageSize ?? 0)})` })
+            }}
           </UiButton>
         </div>
       </div>
@@ -428,7 +427,10 @@ onMounted(() => {
             <UiLabel class="text-sm font-medium text-muted-foreground">
               {{ $t('erp.buyers.contactPerson') }}
             </UiLabel>
-            <p class="text-sm" :class="selectedBuyer.contactPerson ? '' : 'text-muted-foreground italic'">
+            <p
+              class="text-sm"
+              :class="selectedBuyer.contactPerson ? '' : 'text-muted-foreground italic'"
+            >
               {{ selectedBuyer.contactPerson || $t('common.notProvided') }}
             </p>
           </div>

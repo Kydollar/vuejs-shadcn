@@ -25,9 +25,7 @@ export const useProductsStore = defineStore('products', () => {
   )
 
   const lowStockProducts = computed(() =>
-    products.value.filter(product =>
-      product.stock <= product.minOrder && product.stock > 0,
-    ),
+    products.value.filter(product => product.stock <= product.minOrder && product.stock > 0),
   )
 
   const statistics = computed(() => ({
@@ -36,7 +34,7 @@ export const useProductsStore = defineStore('products', () => {
     lowStock: lowStockProducts.value.length,
     categories: uniqueCategories.value.length,
     totalStock: products.value.reduce((sum, p) => sum + (p.stock || 0), 0),
-    totalValue: products.value.reduce((sum, p) => sum + ((p.stock || 0) * (p.price || 0)), 0),
+    totalValue: products.value.reduce((sum, p) => sum + (p.stock || 0) * (p.price || 0), 0),
   }))
 
   // Actions

@@ -11,10 +11,7 @@ const props = defineProps({
         <div class="flex items-center justify-center p-2 rounded-lg size-10 bg-muted">
           <component :is="props.app.logo" />
         </div>
-        <UiButton
-          :variant="props.app.connected ? 'secondary' : 'outline'"
-          size="sm"
-        >
+        <UiButton :variant="props.app.connected ? 'secondary' : 'outline'" size="sm">
           {{ props.app.connected ? 'Connected' : 'Connect' }}
         </UiButton>
       </div>
@@ -30,5 +27,4 @@ const props = defineProps({
   </UiCard>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

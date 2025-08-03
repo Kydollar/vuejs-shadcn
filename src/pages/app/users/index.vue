@@ -9,11 +9,7 @@ import UserInvite from './components/user-invite.vue'
 </script>
 
 <template>
-  <Page
-    title="Users"
-    description="Users description"
-    sticky
-  >
+  <Page title="Users" description="Users description" sticky>
     <template #actions>
       <UserInvite />
       <UserCreate />
@@ -24,5 +20,4 @@ import UserInvite from './components/user-invite.vue'
   </Page>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

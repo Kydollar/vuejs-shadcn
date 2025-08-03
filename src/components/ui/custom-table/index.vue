@@ -14,14 +14,7 @@ const props = defineProps({
   pageSize: Number,
 })
 
-const emit = defineEmits([
-  'sort',
-  'view',
-  'edit',
-  'delete',
-  'deleteSelected',
-  'loadMore',
-])
+const emit = defineEmits(['sort', 'view', 'edit', 'delete', 'deleteSelected', 'loadMore'])
 
 const selectedIds = ref([])
 
@@ -35,9 +28,8 @@ function toggleSelect(id) {
 }
 
 const isSelected = id => selectedIds.value.includes(id)
-const isAllSelected = computed(() =>
-  props.items.length > 0
-  && props.items.every(item => selectedIds.value.includes(item.id)),
+const isAllSelected = computed(
+  () => props.items.length > 0 && props.items.every(item => selectedIds.value.includes(item.id)),
 )
 
 function toggleSelectAll() {
@@ -79,9 +71,7 @@ function formatDate(dateStr) {
           <UiTableHeader>
             <UiTableRow>
               <UiTableHead class="w-[20px]">
-                <UiCheckbox
-                  v-model="allChecked"
-                />
+                <UiCheckbox v-model="allChecked" />
               </UiTableHead>
               <UiTableHead class="cursor-pointer" @click="() => emit('sort', 'buyerName')">
                 <div class="flex items-center gap-2">
@@ -189,7 +179,12 @@ function formatDate(dateStr) {
 
       <div class="flex items-center justify-between mt-4">
         <div class="flex items-center gap-2">
-          <UiButton v-if="hasMore" :disabled="loading" variant="outline" @click="() => emit('loadMore')">
+          <UiButton
+            v-if="hasMore"
+            :disabled="loading"
+            variant="outline"
+            @click="() => emit('loadMore')"
+          >
             <Loader2 v-if="loading" class="h-4 w-4 animate-spin mr-2" />
             {{ $t('common.loadMore') }}
           </UiButton>
@@ -208,7 +203,9 @@ function formatDate(dateStr) {
             @click="() => emit('loadMore')"
           >
             <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
-            {{ $t('common.loadMore', { count: `(${totalItems - currentPage * (pageSize ?? 0)})` }) }}
+            {{
+              $t('common.loadMore', { count: `(${totalItems - currentPage * (pageSize ?? 0)})` })
+            }}
           </UiButton>
         </div>
       </div>

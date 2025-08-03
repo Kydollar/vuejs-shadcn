@@ -7,10 +7,22 @@ import { useI18n } from 'vue-i18n'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useQCStore } from '@/stores/example/qc'
 
@@ -252,7 +264,11 @@ onMounted(async () => {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="inspection in inspections" :key="inspection.id" class="border-b hover:bg-muted/50">
+              <tr
+                v-for="inspection in inspections"
+                :key="inspection.id"
+                class="border-b hover:bg-muted/50"
+              >
                 <td class="p-4 font-medium">
                   {{ inspection.orderNumber }}
                 </td>
@@ -281,7 +297,12 @@ onMounted(async () => {
                     <Button variant="ghost" size="sm" @click="editInspection(inspection)">
                       <Edit class="h-4 w-4" />
                     </Button>
-                    <Button variant="ghost" size="sm" class="text-red-600 hover:text-red-700" @click="deleteInspection(inspection)">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      class="text-red-600 hover:text-red-700"
+                      @click="deleteInspection(inspection)"
+                    >
                       <Trash2 class="h-4 w-4" />
                     </Button>
                   </div>

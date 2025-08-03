@@ -1,16 +1,16 @@
 <script setup>
-import { reactiveOmit } from "@vueuse/core";
-import { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from "reka-ui";
-import { cn } from "@/lib/utils";
+import { reactiveOmit } from '@vueuse/core'
+import { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from 'reka-ui'
+import { cn } from '@/lib/utils'
 
 const props = defineProps({
   forceMount: { type: Boolean, required: false },
-  position: { type: String, required: false, default: "popper" },
+  position: { type: String, required: false, default: 'popper' },
   bodyLock: { type: Boolean, required: false },
   side: { type: null, required: false },
   sideOffset: { type: Number, required: false, default: 4 },
   sideFlip: { type: Boolean, required: false },
-  align: { type: null, required: false, default: "center" },
+  align: { type: null, required: false, default: 'center' },
   alignOffset: { type: Number, required: false },
   alignFlip: { type: Boolean, required: false },
   avoidCollisions: { type: Boolean, required: false },
@@ -28,16 +28,16 @@ const props = defineProps({
   as: { type: null, required: false },
   disableOutsidePointerEvents: { type: Boolean, required: false },
   class: { type: null, required: false },
-});
+})
 const emits = defineEmits([
-  "escapeKeyDown",
-  "pointerDownOutside",
-  "focusOutside",
-  "interactOutside",
-]);
+  'escapeKeyDown',
+  'pointerDownOutside',
+  'focusOutside',
+  'interactOutside',
+])
 
-const delegatedProps = reactiveOmit(props, "class");
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const delegatedProps = reactiveOmit(props, 'class')
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>

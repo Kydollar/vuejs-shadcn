@@ -1,10 +1,5 @@
 <script setup>
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsLeft,
-  ChevronsRight,
-} from 'lucide-vue-next'
+import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeft, ChevronsRight } from 'lucide-vue-next'
 
 const props = defineProps({
   table: Object,
@@ -21,7 +16,7 @@ const props = defineProps({
         </p>
         <UiSelect
           :model-value="`${props.table.getState().pagination.pageSize}`"
-          @update:model-value="(value) => props.table.setPageSize(Number(value))"
+          @update:model-value="value => props.table.setPageSize(Number(value))"
         >
           <UiSelectTrigger class="h-8 w-[70px]">
             <UiSelectValue :placeholder="`${props.table.getState().pagination.pageSize}`" />

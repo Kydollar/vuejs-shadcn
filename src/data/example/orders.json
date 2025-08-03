@@ -1,314 +1,238 @@
 [
-    {
-        "id": 1,
-        "orderNumber": "ORD-2024-001",
-        "buyerId": 1,
-        "factoryId": 1,
-        "orderDate": "2024-07-15T10:30:00Z",
-        "deliveryDate": "2024-08-15T00:00:00Z",
-        "status": "inProduction",
-        "priority": "high",
-        "totalAmount": 77970,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 1,
-                "quantity": 2000,
-                "unitPrice": 25.99,
-                "colors": [
-                    "White",
-                    "Black",
-                    "Navy"
-                ],
-                "sizes": [
-                    "S",
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "totalPrice": 51980
-            },
-            {
-                "productId": 2,
-                "quantity": 1500,
-                "unitPrice": 35.99,
-                "colors": [
-                    "White",
-                    "Navy"
-                ],
-                "sizes": [
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "totalPrice": 53985
-            }
-        ],
-        "shippingAddress": {
-            "street": "123 Fashion Street",
-            "city": "New York",
-            "state": "NY",
-            "country": "United States",
-            "zipCode": "10001"
-        },
-        "paymentStatus": "partial",
-        "paymentTerms": "30 days",
-        "notes": "Rush order for fall collection launch",
-        "createdAt": "2024-07-15T10:30:00Z",
-        "updatedAt": "2024-07-30T14:20:00Z"
+  {
+    "id": 1,
+    "orderNumber": "ORD-2024-001",
+    "buyerId": 1,
+    "factoryId": 1,
+    "orderDate": "2024-07-15T10:30:00Z",
+    "deliveryDate": "2024-08-15T00:00:00Z",
+    "status": "inProduction",
+    "priority": "high",
+    "totalAmount": 77970,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2000,
+        "unitPrice": 25.99,
+        "colors": ["White", "Black", "Navy"],
+        "sizes": ["S", "M", "L", "XL"],
+        "totalPrice": 51980
+      },
+      {
+        "productId": 2,
+        "quantity": 1500,
+        "unitPrice": 35.99,
+        "colors": ["White", "Navy"],
+        "sizes": ["M", "L", "XL"],
+        "totalPrice": 53985
+      }
+    ],
+    "shippingAddress": {
+      "street": "123 Fashion Street",
+      "city": "New York",
+      "state": "NY",
+      "country": "United States",
+      "zipCode": "10001"
     },
-    {
-        "id": 2,
-        "orderNumber": "ORD-2024-002",
-        "buyerId": 2,
-        "factoryId": 2,
-        "orderDate": "2024-07-20T09:15:00Z",
-        "deliveryDate": "2024-08-25T00:00:00Z",
-        "status": "completed",
-        "priority": "medium",
-        "totalAmount": 93987,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 3,
-                "quantity": 800,
-                "unitPrice": 79.99,
-                "colors": [
-                    "Indigo",
-                    "Dark Blue"
-                ],
-                "sizes": [
-                    "30",
-                    "32",
-                    "34",
-                    "36"
-                ],
-                "totalPrice": 63992
-            },
-            {
-                "productId": 5,
-                "quantity": 500,
-                "unitPrice": 59.99,
-                "colors": [
-                    "White",
-                    "Light Blue"
-                ],
-                "sizes": [
-                    "15",
-                    "15.5",
-                    "16",
-                    "16.5"
-                ],
-                "totalPrice": 29995
-            }
-        ],
-        "shippingAddress": {
-            "street": "45 Textile Road",
-            "city": "London",
-            "state": "",
-            "country": "United Kingdom",
-            "zipCode": "EC1A 1BB"
-        },
-        "paymentStatus": "paid",
-        "paymentTerms": "45 days",
-        "notes": "Sustainable collection focus",
-        "createdAt": "2024-07-20T09:15:00Z",
-        "updatedAt": "2024-07-28T11:45:00Z"
+    "paymentStatus": "partial",
+    "paymentTerms": "30 days",
+    "notes": "Rush order for fall collection launch",
+    "createdAt": "2024-07-15T10:30:00Z",
+    "updatedAt": "2024-07-30T14:20:00Z"
+  },
+  {
+    "id": 2,
+    "orderNumber": "ORD-2024-002",
+    "buyerId": 2,
+    "factoryId": 2,
+    "orderDate": "2024-07-20T09:15:00Z",
+    "deliveryDate": "2024-08-25T00:00:00Z",
+    "status": "completed",
+    "priority": "medium",
+    "totalAmount": 93987,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 3,
+        "quantity": 800,
+        "unitPrice": 79.99,
+        "colors": ["Indigo", "Dark Blue"],
+        "sizes": ["30", "32", "34", "36"],
+        "totalPrice": 63992
+      },
+      {
+        "productId": 5,
+        "quantity": 500,
+        "unitPrice": 59.99,
+        "colors": ["White", "Light Blue"],
+        "sizes": ["15", "15.5", "16", "16.5"],
+        "totalPrice": 29995
+      }
+    ],
+    "shippingAddress": {
+      "street": "45 Textile Road",
+      "city": "London",
+      "state": "",
+      "country": "United Kingdom",
+      "zipCode": "EC1A 1BB"
     },
-    {
-        "id": 3,
-        "orderNumber": "ORD-2024-003",
-        "buyerId": 3,
-        "factoryId": 1,
-        "orderDate": "2024-07-25T14:00:00Z",
-        "deliveryDate": "2024-09-01T00:00:00Z",
-        "status": "pending",
-        "priority": "low",
-        "totalAmount": 74991,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 4,
-                "quantity": 600,
-                "unitPrice": 89.99,
-                "colors": [
-                    "Floral Blue",
-                    "Floral Pink"
-                ],
-                "sizes": [
-                    "S",
-                    "M",
-                    "L"
-                ],
-                "totalPrice": 53994
-            },
-            {
-                "productId": 6,
-                "quantity": 300,
-                "unitPrice": 69.99,
-                "colors": [
-                    "Forest Green",
-                    "Ocean Blue"
-                ],
-                "sizes": [
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "totalPrice": 20997
-            }
-        ],
-        "shippingAddress": {
-            "street": "2-3-4 Business District",
-            "city": "Tokyo",
-            "state": "",
-            "country": "Japan",
-            "zipCode": "100-0001"
-        },
-        "paymentStatus": "paid",
-        "paymentTerms": "Cash on delivery",
-        "notes": "Quality inspection required before shipment",
-        "createdAt": "2024-07-25T14:00:00Z",
-        "updatedAt": "2024-07-30T16:30:00Z"
+    "paymentStatus": "paid",
+    "paymentTerms": "45 days",
+    "notes": "Sustainable collection focus",
+    "createdAt": "2024-07-20T09:15:00Z",
+    "updatedAt": "2024-07-28T11:45:00Z"
+  },
+  {
+    "id": 3,
+    "orderNumber": "ORD-2024-003",
+    "buyerId": 3,
+    "factoryId": 1,
+    "orderDate": "2024-07-25T14:00:00Z",
+    "deliveryDate": "2024-09-01T00:00:00Z",
+    "status": "pending",
+    "priority": "low",
+    "totalAmount": 74991,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 4,
+        "quantity": 600,
+        "unitPrice": 89.99,
+        "colors": ["Floral Blue", "Floral Pink"],
+        "sizes": ["S", "M", "L"],
+        "totalPrice": 53994
+      },
+      {
+        "productId": 6,
+        "quantity": 300,
+        "unitPrice": 69.99,
+        "colors": ["Forest Green", "Ocean Blue"],
+        "sizes": ["M", "L", "XL"],
+        "totalPrice": 20997
+      }
+    ],
+    "shippingAddress": {
+      "street": "2-3-4 Business District",
+      "city": "Tokyo",
+      "state": "",
+      "country": "Japan",
+      "zipCode": "100-0001"
     },
-    {
-        "id": 4,
-        "orderNumber": "ORD-2024-004",
-        "buyerId": 1,
-        "factoryId": 3,
-        "orderDate": "2024-07-28T11:00:00Z",
-        "deliveryDate": "2024-08-30T00:00:00Z",
-        "status": "qcCheck",
-        "priority": "high",
-        "totalAmount": 63992,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 3,
-                "quantity": 800,
-                "unitPrice": 79.99,
-                "colors": [
-                    "Black",
-                    "Indigo"
-                ],
-                "sizes": [
-                    "30",
-                    "32",
-                    "34",
-                    "36",
-                    "38"
-                ],
-                "totalPrice": 63992
-            }
-        ],
-        "shippingAddress": {
-            "street": "123 Fashion Street",
-            "city": "New York",
-            "state": "NY",
-            "country": "United States",
-            "zipCode": "10001"
-        },
-        "paymentStatus": "partial",
-        "paymentTerms": "30 days",
-        "notes": "Follow up order - expedited QC required",
-        "createdAt": "2024-07-28T11:00:00Z",
-        "updatedAt": "2024-08-01T09:30:00Z"
+    "paymentStatus": "paid",
+    "paymentTerms": "Cash on delivery",
+    "notes": "Quality inspection required before shipment",
+    "createdAt": "2024-07-25T14:00:00Z",
+    "updatedAt": "2024-07-30T16:30:00Z"
+  },
+  {
+    "id": 4,
+    "orderNumber": "ORD-2024-004",
+    "buyerId": 1,
+    "factoryId": 3,
+    "orderDate": "2024-07-28T11:00:00Z",
+    "deliveryDate": "2024-08-30T00:00:00Z",
+    "status": "qcCheck",
+    "priority": "high",
+    "totalAmount": 63992,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 3,
+        "quantity": 800,
+        "unitPrice": 79.99,
+        "colors": ["Black", "Indigo"],
+        "sizes": ["30", "32", "34", "36", "38"],
+        "totalPrice": 63992
+      }
+    ],
+    "shippingAddress": {
+      "street": "123 Fashion Street",
+      "city": "New York",
+      "state": "NY",
+      "country": "United States",
+      "zipCode": "10001"
     },
-    {
-        "id": 5,
-        "orderNumber": "ORD-2024-005",
-        "buyerId": 5,
-        "factoryId": 2,
-        "orderDate": "2024-07-30T15:30:00Z",
-        "deliveryDate": "2024-09-15T00:00:00Z",
-        "status": "pending",
-        "priority": "medium",
-        "totalAmount": 41994,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 1,
-                "quantity": 1000,
-                "unitPrice": 25.99,
-                "colors": [
-                    "White",
-                    "Grey"
-                ],
-                "sizes": [
-                    "S",
-                    "M",
-                    "L"
-                ],
-                "totalPrice": 25990
-            },
-            {
-                "productId": 2,
-                "quantity": 800,
-                "unitPrice": 35.99,
-                "colors": [
-                    "Navy",
-                    "Charcoal"
-                ],
-                "sizes": [
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "totalPrice": 28792
-            }
-        ],
-        "shippingAddress": {
-            "street": "Av. Paulista 1000",
-            "city": "São Paulo",
-            "state": "SP",
-            "country": "Brazil",
-            "zipCode": "01310-100"
-        },
-        "paymentStatus": "pending",
-        "paymentTerms": "60 days",
-        "notes": "First order from South American market",
-        "createdAt": "2024-07-30T15:30:00Z",
-        "updatedAt": "2024-08-01T10:15:00Z"
+    "paymentStatus": "partial",
+    "paymentTerms": "30 days",
+    "notes": "Follow up order - expedited QC required",
+    "createdAt": "2024-07-28T11:00:00Z",
+    "updatedAt": "2024-08-01T09:30:00Z"
+  },
+  {
+    "id": 5,
+    "orderNumber": "ORD-2024-005",
+    "buyerId": 5,
+    "factoryId": 2,
+    "orderDate": "2024-07-30T15:30:00Z",
+    "deliveryDate": "2024-09-15T00:00:00Z",
+    "status": "pending",
+    "priority": "medium",
+    "totalAmount": 41994,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 1000,
+        "unitPrice": 25.99,
+        "colors": ["White", "Grey"],
+        "sizes": ["S", "M", "L"],
+        "totalPrice": 25990
+      },
+      {
+        "productId": 2,
+        "quantity": 800,
+        "unitPrice": 35.99,
+        "colors": ["Navy", "Charcoal"],
+        "sizes": ["M", "L", "XL"],
+        "totalPrice": 28792
+      }
+    ],
+    "shippingAddress": {
+      "street": "Av. Paulista 1000",
+      "city": "São Paulo",
+      "state": "SP",
+      "country": "Brazil",
+      "zipCode": "01310-100"
     },
-    {
-        "id": 6,
-        "orderNumber": "ORD-2024-006",
-        "buyerId": 4,
-        "factoryId": 5,
-        "orderDate": "2024-07-18T09:00:00Z",
-        "deliveryDate": "2024-08-20T00:00:00Z",
-        "status": "shipped",
-        "priority": "low",
-        "totalAmount": 29995,
-        "currency": "USD",
-        "items": [
-            {
-                "productId": 5,
-                "quantity": 500,
-                "unitPrice": 59.99,
-                "colors": [
-                    "White",
-                    "Light Blue"
-                ],
-                "sizes": [
-                    "15",
-                    "15.5",
-                    "16"
-                ],
-                "totalPrice": 29995
-            }
-        ],
-        "shippingAddress": {
-            "street": "Dubai Fashion District",
-            "city": "Dubai",
-            "state": "",
-            "country": "United Arab Emirates",
-            "zipCode": "12345"
-        },
-        "paymentStatus": "paid",
-        "paymentTerms": "30 days",
-        "notes": "Completed order - payment issues resolved",
-        "createdAt": "2024-07-18T09:00:00Z",
-        "updatedAt": "2024-08-01T14:45:00Z"
-    }
+    "paymentStatus": "pending",
+    "paymentTerms": "60 days",
+    "notes": "First order from South American market",
+    "createdAt": "2024-07-30T15:30:00Z",
+    "updatedAt": "2024-08-01T10:15:00Z"
+  },
+  {
+    "id": 6,
+    "orderNumber": "ORD-2024-006",
+    "buyerId": 4,
+    "factoryId": 5,
+    "orderDate": "2024-07-18T09:00:00Z",
+    "deliveryDate": "2024-08-20T00:00:00Z",
+    "status": "shipped",
+    "priority": "low",
+    "totalAmount": 29995,
+    "currency": "USD",
+    "items": [
+      {
+        "productId": 5,
+        "quantity": 500,
+        "unitPrice": 59.99,
+        "colors": ["White", "Light Blue"],
+        "sizes": ["15", "15.5", "16"],
+        "totalPrice": 29995
+      }
+    ],
+    "shippingAddress": {
+      "street": "Dubai Fashion District",
+      "city": "Dubai",
+      "state": "",
+      "country": "United Arab Emirates",
+      "zipCode": "12345"
+    },
+    "paymentStatus": "paid",
+    "paymentTerms": "30 days",
+    "notes": "Completed order - payment issues resolved",
+    "createdAt": "2024-07-18T09:00:00Z",
+    "updatedAt": "2024-08-01T14:45:00Z"
+  }
 ]

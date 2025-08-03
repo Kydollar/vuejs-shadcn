@@ -152,9 +152,7 @@ onMounted(async () => {
       <Card class="col-span-3">
         <CardHeader>
           <CardTitle>Recent Orders</CardTitle>
-          <CardDescription>
-            Latest order updates
-          </CardDescription>
+          <CardDescription> Latest order updates </CardDescription>
         </CardHeader>
         <CardContent>
           <div class="space-y-4">
@@ -193,7 +191,9 @@ onMounted(async () => {
           <div class="space-y-4">
             <div class="flex justify-between items-center">
               <span class="text-sm">{{ $t('dashboard.dailyOutput') }}</span>
-              <span class="text-2xl font-bold">{{ dashboardStore.productionMetrics.dailyOutput }}</span>
+              <span class="text-2xl font-bold">{{
+                dashboardStore.productionMetrics.dailyOutput
+              }}</span>
             </div>
             <div class="flex justify-between items-center">
               <span class="text-sm">{{ $t('dashboard.productionEfficiency') }}</span>
@@ -201,7 +201,9 @@ onMounted(async () => {
             </div>
             <div class="flex justify-between items-center">
               <span class="text-sm">Active Lines</span>
-              <span class="text-2xl font-bold">{{ dashboardStore.productionMetrics.activeLines }}</span>
+              <span class="text-2xl font-bold">{{
+                dashboardStore.productionMetrics.activeLines
+              }}</span>
             </div>
           </div>
         </CardContent>
@@ -220,15 +222,21 @@ onMounted(async () => {
             </div>
             <div class="flex justify-between items-center">
               <span class="text-sm">Today's Inspections</span>
-              <span class="text-2xl font-bold">{{ dashboardStore.qualityMetrics.todayInspections }}</span>
+              <span class="text-2xl font-bold">{{
+                dashboardStore.qualityMetrics.todayInspections
+              }}</span>
             </div>
             <div class="flex justify-between items-center">
               <span class="text-sm">{{ $t('erp.qc.passed') }}</span>
-              <span class="text-2xl font-bold text-green-600">{{ dashboardStore.qualityMetrics.passedInspections }}</span>
+              <span class="text-2xl font-bold text-green-600">{{
+                dashboardStore.qualityMetrics.passedInspections
+              }}</span>
             </div>
             <div class="flex justify-between items-center">
               <span class="text-sm">{{ $t('erp.qc.failed') }}</span>
-              <span class="text-2xl font-bold text-red-600">{{ dashboardStore.qualityMetrics.failedInspections }}</span>
+              <span class="text-2xl font-bold text-red-600">{{
+                dashboardStore.qualityMetrics.failedInspections
+              }}</span>
             </div>
           </div>
         </CardContent>

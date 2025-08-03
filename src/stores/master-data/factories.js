@@ -22,7 +22,10 @@ export const useFactoriesStore = defineStore('factories', () => {
 
   const factoryCapacityUtilization = computed(() => {
     const total = factories.value.reduce((sum, factory) => sum + factory.capacity, 0)
-    const utilized = factories.value.reduce((sum, factory) => sum + (factory.totalProduction || 0), 0)
+    const utilized = factories.value.reduce(
+      (sum, factory) => sum + (factory.totalProduction || 0),
+      0,
+    )
     return total > 0 ? Math.round((utilized / total) * 100) : 0
   })
 
@@ -35,12 +38,19 @@ export const useFactoriesStore = defineStore('factories', () => {
     active: activeFactories.value.length,
     totalCapacity: factories.value.reduce((sum, f) => sum + f.capacity, 0),
     totalProduction: factories.value.reduce((sum, f) => sum + (f.totalProduction || 0), 0),
-    averageRating: factories.value.length > 0
-      ? (factories.value.reduce((sum, f) => sum + (f.rating || 0), 0) / factories.value.length).toFixed(1)
-      : 0,
-    averageOnTime: factories.value.length > 0
-      ? (factories.value.reduce((sum, f) => sum + (f.onTimeDelivery || 0), 0) / factories.value.length).toFixed(1)
-      : 0,
+    averageRating:
+      factories.value.length > 0
+        ? (
+            factories.value.reduce((sum, f) => sum + (f.rating || 0), 0) / factories.value.length
+          ).toFixed(1)
+        : 0,
+    averageOnTime:
+      factories.value.length > 0
+        ? (
+            factories.value.reduce((sum, f) => sum + (f.onTimeDelivery || 0), 0)
+            / factories.value.length
+          ).toFixed(1)
+        : 0,
   }))
 
   // Actions

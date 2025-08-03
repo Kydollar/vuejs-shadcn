@@ -1,5 +1,14 @@
 <script setup>
-import { ArrowRight, CheckCircle, Clock, FileText, Package, Printer, Settings, Truck } from 'lucide-vue-next'
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  FileText,
+  Package,
+  Printer,
+  Settings,
+  Truck,
+} from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 
 import { Badge } from '@/components/ui/badge'
@@ -205,7 +214,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.orderInput.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.orderInput.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <CheckCircle class="w-4 h-4 text-green-500" />
               <span class="text-sm">{{ step }}</span>
             </li>
@@ -222,7 +235,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.farmIn.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.farmIn.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <CheckCircle class="w-4 h-4 text-green-500" />
               <span class="text-sm">{{ step }}</span>
             </li>
@@ -239,7 +256,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.production.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.production.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <Clock class="w-4 h-4 text-blue-500" />
               <span class="text-sm">{{ step }}</span>
             </li>
@@ -256,7 +277,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.qualityControl.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.qualityControl.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <Clock class="w-4 h-4 text-gray-500" />
               <span class="text-sm">{{ step }}</span>
             </li>
@@ -273,7 +298,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.farmOut.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.farmOut.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <Clock class="w-4 h-4 text-gray-500" />
               <span class="text-sm">{{ step }}</span>
             </li>
@@ -290,7 +319,11 @@ function getStatusVariant(status) {
         </CardHeader>
         <CardContent>
           <ul class="space-y-2">
-            <li v-for="step in processDetails.printing.steps" :key="step" class="flex items-center gap-2">
+            <li
+              v-for="step in processDetails.printing.steps"
+              :key="step"
+              class="flex items-center gap-2"
+            >
               <Clock class="w-4 h-4 text-gray-500" />
               <span class="text-sm">{{ step }}</span>
             </li>

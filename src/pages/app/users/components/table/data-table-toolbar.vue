@@ -8,14 +8,12 @@ import { Input } from '@/components/ui/input'
 
 import { callTypes, userTypes } from '../data/data'
 
-const props = defineProps(
-  {
-    table: {
-      type: Object,
-      required: true,
-    },
+const props = defineProps({
+  table: {
+    type: Object,
+    required: true,
   },
-)
+})
 
 const isFiltered = computed(() => props.table.getState().columnFilters.length > 0)
 </script>
@@ -25,7 +23,7 @@ const isFiltered = computed(() => props.table.getState().columnFilters.length > 
     <div class="flex items-center flex-1 space-x-2">
       <Input
         placeholder="Filter tasks..."
-        :model-value="(table.getColumn('username')?.getFilterValue()) ?? ''"
+        :model-value="table.getColumn('username')?.getFilterValue() ?? ''"
         class="h-8 w-[150px] lg:w-[250px]"
         @input="table.getColumn('username')?.setFilterValue($event.target.value)"
       />

@@ -40,10 +40,7 @@ const isOpen = ref(false)
   <UiDialog v-model:open="isOpen">
     <UiDropdownMenu>
       <UiDropdownMenuTrigger as-child>
-        <UiButton
-          variant="ghost"
-          class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
-        >
+        <UiButton variant="ghost" class="flex h-8 w-8 p-0 data-[state=open]:bg-muted">
           <Ellipsis class="size-4" />
           <span class="sr-only">Open menu</span>
         </UiButton>
@@ -69,7 +66,11 @@ const isOpen = ref(false)
           <UiDropdownMenuSubTrigger>Labels</UiDropdownMenuSubTrigger>
           <UiDropdownMenuSubContent>
             <UiDropdownMenuRadioGroup v-model="taskLabel">
-              <UiDropdownMenuRadioItem v-for="label in labels" :key="label.value" :value="label.value">
+              <UiDropdownMenuRadioItem
+                v-for="label in labels"
+                :key="label.value"
+                :value="label.value"
+              >
                 {{ label.label }}
               </UiDropdownMenuRadioItem>
             </UiDropdownMenuRadioGroup>

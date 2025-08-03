@@ -13,10 +13,12 @@ const props = defineProps({
 
 <template>
   <header
-    :class="cn(
-      'flex flex-col md:flex-row gap-2 p-2 justify-between shadow-xs',
-      props.sticky ? 'sticky top-0 z-40 bg-background' : '',
-    )"
+    :class="
+      cn(
+        'flex flex-col md:flex-row gap-2 p-2 justify-between shadow-xs',
+        props.sticky ? 'sticky top-0 z-40 bg-background' : '',
+      )
+    "
   >
     <main>
       <h1 class="text-2xl font-bold">

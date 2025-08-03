@@ -1,298 +1,158 @@
 [
-    {
-        "id": 1,
-        "decorationType": "Embroidery",
-        "decorationName": "Premium Logo Embroidery",
-        "description": "High-quality thread embroidery for logos and designs",
-        "techniques": [
-            "Machine Embroidery",
-            "Hand Embroidery"
-        ],
-        "materials": [
-            "Polyester Thread",
-            "Cotton Thread",
-            "Metallic Thread"
-        ],
-        "colors": [
-            "Standard Colors",
-            "PMS Colors",
-            "Metallic Colors"
-        ],
-        "positions": [
-            "Left Chest",
-            "Back",
-            "Sleeve",
-            "Custom Position"
-        ],
-        "minOrder": 50,
-        "maxColors": 6,
-        "setupCost": 25.00,
-        "unitCost": 3.50,
-        "leadTime": 7,
-        "status": "active",
-        "createdAt": "2024-01-10T08:00:00Z",
-        "updatedAt": "2024-07-25T14:30:00Z",
-        "totalJobs": 145,
-        "rating": 4.8,
-        "specifications": {
-            "maxStitches": 15000,
-            "threadTypes": [
-                "Rayon",
-                "Polyester",
-                "Cotton"
-            ],
-            "densityRange": "0.4-0.6mm",
-            "hoopSizes": [
-                "4x4",
-                "5x7",
-                "6x10",
-                "8x12"
-            ]
-        }
-    },
-    {
-        "id": 2,
-        "decorationType": "Screen Printing",
-        "decorationName": "Multi-Color Screen Print",
-        "description": "Vibrant screen printing for large quantity orders",
-        "techniques": [
-            "Water-based Ink",
-            "Plastisol Ink",
-            "Discharge Printing"
-        ],
-        "materials": [
-            "Standard Inks",
-            "Specialty Inks",
-            "Eco-Friendly Inks"
-        ],
-        "colors": [
-            "Spot Colors",
-            "Process Colors",
-            "Specialty Colors"
-        ],
-        "positions": [
-            "Front",
-            "Back",
-            "Sleeve",
-            "All-Over Print"
-        ],
-        "minOrder": 100,
-        "maxColors": 8,
-        "setupCost": 35.00,
-        "unitCost": 2.25,
-        "leadTime": 5,
-        "status": "active",
-        "createdAt": "2024-02-15T10:15:00Z",
-        "updatedAt": "2024-07-28T11:20:00Z",
-        "totalJobs": 89,
-        "rating": 4.6,
-        "specifications": {
-            "meshCounts": [
-                "110",
-                "156",
-                "200",
-                "230"
-            ],
-            "inkTypes": [
-                "Water-based",
-                "Plastisol",
-                "Discharge"
-            ],
-            "cureTempRange": "320-350°F",
-            "maxPrintSize": "16x20 inches"
-        }
-    },
-    {
-        "id": 3,
-        "decorationType": "Heat Transfer",
-        "decorationName": "Vinyl Heat Transfer",
-        "description": "Durable vinyl transfers for names, numbers, and graphics",
-        "techniques": [
-            "Cut Vinyl",
-            "Printed Vinyl",
-            "Reflective Vinyl"
-        ],
-        "materials": [
-            "PVC Vinyl",
-            "PU Vinyl",
-            "Reflective Vinyl",
-            "Glitter Vinyl"
-        ],
-        "colors": [
-            "Solid Colors",
-            "Metallic",
-            "Reflective",
-            "Glitter"
-        ],
-        "positions": [
-            "Front",
-            "Back",
-            "Sleeve",
-            "Custom"
-        ],
-        "minOrder": 25,
-        "maxColors": 4,
-        "setupCost": 15.00,
-        "unitCost": 4.75,
-        "leadTime": 3,
-        "status": "active",
-        "createdAt": "2024-03-20T13:45:00Z",
-        "updatedAt": "2024-07-30T09:10:00Z",
-        "totalJobs": 67,
-        "rating": 4.7,
-        "specifications": {
-            "vinylThickness": "3-5 mil",
-            "adhesionTemp": "305-320°F",
-            "pressureTime": "10-15 seconds",
-            "washDurability": "50+ washes"
-        }
-    },
-    {
-        "id": 4,
-        "decorationType": "Digital Printing",
-        "decorationName": "Direct-to-Garment Print",
-        "description": "High-resolution digital printing for complex designs",
-        "techniques": [
-            "DTG Printing",
-            "Sublimation",
-            "Digital Transfer"
-        ],
-        "materials": [
-            "Water-based Inks",
-            "Pigment Inks",
-            "Sublimation Inks"
-        ],
-        "colors": [
-            "Full Color",
-            "CMYK",
-            "Unlimited Colors"
-        ],
-        "positions": [
-            "Front",
-            "Back",
-            "All-Over",
-            "Pocket"
-        ],
-        "minOrder": 1,
-        "maxColors": 999,
-        "setupCost": 10.00,
-        "unitCost": 8.50,
-        "leadTime": 2,
-        "status": "active",
-        "createdAt": "2024-04-10T16:20:00Z",
-        "updatedAt": "2024-07-29T15:45:00Z",
-        "totalJobs": 134,
-        "rating": 4.9,
-        "specifications": {
-            "resolution": "1440x1440 DPI",
-            "colorProfile": "sRGB",
-            "fileFormats": [
-                "PNG",
-                "TIFF",
-                "PDF"
-            ],
-            "maxPrintArea": "14x16 inches"
-        }
-    },
-    {
-        "id": 5,
-        "decorationType": "Patches",
-        "decorationName": "Custom Woven Patches",
-        "description": "Premium woven patches with merrowed borders",
-        "techniques": [
-            "Woven",
-            "Embroidered",
-            "PVC"
-        ],
-        "materials": [
-            "Polyester",
-            "Cotton",
-            "PVC",
-            "Leather"
-        ],
-        "colors": [
-            "Standard Thread",
-            "Metallic Thread",
-            "Glow-in-Dark"
-        ],
-        "positions": [
-            "Chest",
-            "Sleeve",
-            "Back",
-            "Hat"
-        ],
-        "minOrder": 100,
-        "maxColors": 8,
-        "setupCost": 45.00,
-        "unitCost": 1.85,
-        "leadTime": 10,
-        "status": "active",
-        "createdAt": "2024-05-05T11:30:00Z",
-        "updatedAt": "2024-07-27T12:15:00Z",
-        "totalJobs": 52,
-        "rating": 4.5,
-        "specifications": {
-            "patchSizes": [
-                "2x2",
-                "3x3",
-                "4x4",
-                "Custom"
-            ],
-            "borderTypes": [
-                "Merrowed",
-                "Heat Cut",
-                "Laser Cut"
-            ],
-            "backingOptions": [
-                "Iron-on",
-                "Sew-on",
-                "Velcro"
-            ],
-            "threadCount": "75% coverage minimum"
-        }
-    },
-    {
-        "id": 6,
-        "decorationType": "Laser Engraving",
-        "decorationName": "Precision Laser Engraving",
-        "description": "High-precision laser engraving for leather and denim",
-        "techniques": [
-            "CO2 Laser",
-            "Fiber Laser",
-            "UV Laser"
-        ],
-        "materials": [
-            "Leather",
-            "Denim",
-            "Canvas",
-            "Synthetic"
-        ],
-        "colors": [
-            "Natural Burn",
-            "Color Fill",
-            "Oxidation"
-        ],
-        "positions": [
-            "Label",
-            "Pocket",
-            "Back Patch",
-            "Custom"
-        ],
-        "minOrder": 50,
-        "maxColors": 1,
-        "setupCost": 20.00,
-        "unitCost": 2.95,
-        "leadTime": 4,
-        "status": "limited",
-        "createdAt": "2024-06-15T14:00:00Z",
-        "updatedAt": "2024-07-30T17:20:00Z",
-        "totalJobs": 23,
-        "rating": 4.8,
-        "specifications": {
-            "laserPower": "40-150W",
-            "precision": "±0.1mm",
-            "materialThickness": "Up to 6mm",
-            "engravingDepth": "0.1-2mm"
-        }
+  {
+    "id": 1,
+    "decorationType": "Embroidery",
+    "decorationName": "Premium Logo Embroidery",
+    "description": "High-quality thread embroidery for logos and designs",
+    "techniques": ["Machine Embroidery", "Hand Embroidery"],
+    "materials": ["Polyester Thread", "Cotton Thread", "Metallic Thread"],
+    "colors": ["Standard Colors", "PMS Colors", "Metallic Colors"],
+    "positions": ["Left Chest", "Back", "Sleeve", "Custom Position"],
+    "minOrder": 50,
+    "maxColors": 6,
+    "setupCost": 25.0,
+    "unitCost": 3.5,
+    "leadTime": 7,
+    "status": "active",
+    "createdAt": "2024-01-10T08:00:00Z",
+    "updatedAt": "2024-07-25T14:30:00Z",
+    "totalJobs": 145,
+    "rating": 4.8,
+    "specifications": {
+      "maxStitches": 15000,
+      "threadTypes": ["Rayon", "Polyester", "Cotton"],
+      "densityRange": "0.4-0.6mm",
+      "hoopSizes": ["4x4", "5x7", "6x10", "8x12"]
     }
+  },
+  {
+    "id": 2,
+    "decorationType": "Screen Printing",
+    "decorationName": "Multi-Color Screen Print",
+    "description": "Vibrant screen printing for large quantity orders",
+    "techniques": ["Water-based Ink", "Plastisol Ink", "Discharge Printing"],
+    "materials": ["Standard Inks", "Specialty Inks", "Eco-Friendly Inks"],
+    "colors": ["Spot Colors", "Process Colors", "Specialty Colors"],
+    "positions": ["Front", "Back", "Sleeve", "All-Over Print"],
+    "minOrder": 100,
+    "maxColors": 8,
+    "setupCost": 35.0,
+    "unitCost": 2.25,
+    "leadTime": 5,
+    "status": "active",
+    "createdAt": "2024-02-15T10:15:00Z",
+    "updatedAt": "2024-07-28T11:20:00Z",
+    "totalJobs": 89,
+    "rating": 4.6,
+    "specifications": {
+      "meshCounts": ["110", "156", "200", "230"],
+      "inkTypes": ["Water-based", "Plastisol", "Discharge"],
+      "cureTempRange": "320-350°F",
+      "maxPrintSize": "16x20 inches"
+    }
+  },
+  {
+    "id": 3,
+    "decorationType": "Heat Transfer",
+    "decorationName": "Vinyl Heat Transfer",
+    "description": "Durable vinyl transfers for names, numbers, and graphics",
+    "techniques": ["Cut Vinyl", "Printed Vinyl", "Reflective Vinyl"],
+    "materials": ["PVC Vinyl", "PU Vinyl", "Reflective Vinyl", "Glitter Vinyl"],
+    "colors": ["Solid Colors", "Metallic", "Reflective", "Glitter"],
+    "positions": ["Front", "Back", "Sleeve", "Custom"],
+    "minOrder": 25,
+    "maxColors": 4,
+    "setupCost": 15.0,
+    "unitCost": 4.75,
+    "leadTime": 3,
+    "status": "active",
+    "createdAt": "2024-03-20T13:45:00Z",
+    "updatedAt": "2024-07-30T09:10:00Z",
+    "totalJobs": 67,
+    "rating": 4.7,
+    "specifications": {
+      "vinylThickness": "3-5 mil",
+      "adhesionTemp": "305-320°F",
+      "pressureTime": "10-15 seconds",
+      "washDurability": "50+ washes"
+    }
+  },
+  {
+    "id": 4,
+    "decorationType": "Digital Printing",
+    "decorationName": "Direct-to-Garment Print",
+    "description": "High-resolution digital printing for complex designs",
+    "techniques": ["DTG Printing", "Sublimation", "Digital Transfer"],
+    "materials": ["Water-based Inks", "Pigment Inks", "Sublimation Inks"],
+    "colors": ["Full Color", "CMYK", "Unlimited Colors"],
+    "positions": ["Front", "Back", "All-Over", "Pocket"],
+    "minOrder": 1,
+    "maxColors": 999,
+    "setupCost": 10.0,
+    "unitCost": 8.5,
+    "leadTime": 2,
+    "status": "active",
+    "createdAt": "2024-04-10T16:20:00Z",
+    "updatedAt": "2024-07-29T15:45:00Z",
+    "totalJobs": 134,
+    "rating": 4.9,
+    "specifications": {
+      "resolution": "1440x1440 DPI",
+      "colorProfile": "sRGB",
+      "fileFormats": ["PNG", "TIFF", "PDF"],
+      "maxPrintArea": "14x16 inches"
+    }
+  },
+  {
+    "id": 5,
+    "decorationType": "Patches",
+    "decorationName": "Custom Woven Patches",
+    "description": "Premium woven patches with merrowed borders",
+    "techniques": ["Woven", "Embroidered", "PVC"],
+    "materials": ["Polyester", "Cotton", "PVC", "Leather"],
+    "colors": ["Standard Thread", "Metallic Thread", "Glow-in-Dark"],
+    "positions": ["Chest", "Sleeve", "Back", "Hat"],
+    "minOrder": 100,
+    "maxColors": 8,
+    "setupCost": 45.0,
+    "unitCost": 1.85,
+    "leadTime": 10,
+    "status": "active",
+    "createdAt": "2024-05-05T11:30:00Z",
+    "updatedAt": "2024-07-27T12:15:00Z",
+    "totalJobs": 52,
+    "rating": 4.5,
+    "specifications": {
+      "patchSizes": ["2x2", "3x3", "4x4", "Custom"],
+      "borderTypes": ["Merrowed", "Heat Cut", "Laser Cut"],
+      "backingOptions": ["Iron-on", "Sew-on", "Velcro"],
+      "threadCount": "75% coverage minimum"
+    }
+  },
+  {
+    "id": 6,
+    "decorationType": "Laser Engraving",
+    "decorationName": "Precision Laser Engraving",
+    "description": "High-precision laser engraving for leather and denim",
+    "techniques": ["CO2 Laser", "Fiber Laser", "UV Laser"],
+    "materials": ["Leather", "Denim", "Canvas", "Synthetic"],
+    "colors": ["Natural Burn", "Color Fill", "Oxidation"],
+    "positions": ["Label", "Pocket", "Back Patch", "Custom"],
+    "minOrder": 50,
+    "maxColors": 1,
+    "setupCost": 20.0,
+    "unitCost": 2.95,
+    "leadTime": 4,
+    "status": "limited",
+    "createdAt": "2024-06-15T14:00:00Z",
+    "updatedAt": "2024-07-30T17:20:00Z",
+    "totalJobs": 23,
+    "rating": 4.8,
+    "specifications": {
+      "laserPower": "40-150W",
+      "precision": "±0.1mm",
+      "materialThickness": "Up to 6mm",
+      "engravingDepth": "0.1-2mm"
+    }
+  }
 ]

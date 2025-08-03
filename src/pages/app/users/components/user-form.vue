@@ -16,11 +16,27 @@ const { user } = defineProps({
 const emits = defineEmits(['close'])
 
 const formSchema = z.object({
-  firstName: z.string().min(1).default(user?.firstName || ''),
-  lastName: z.string().min(1).default(user?.lastName || ''),
-  username: z.string().min(1).default(user?.username || ''),
-  email: z.string().min(1).email().default(user?.email || ''),
-  phoneNumber: z.string().min(1).default(user?.phoneNumber || ''),
+  firstName: z
+    .string()
+    .min(1)
+    .default(user?.firstName || ''),
+  lastName: z
+    .string()
+    .min(1)
+    .default(user?.lastName || ''),
+  username: z
+    .string()
+    .min(1)
+    .default(user?.username || ''),
+  email: z
+    .string()
+    .min(1)
+    .email()
+    .default(user?.email || ''),
+  phoneNumber: z
+    .string()
+    .min(1)
+    .default(user?.phoneNumber || ''),
   status: userStatusSchema.default(user?.status || 'active'),
   role: userRoleSchema.default(user?.role || 'cashier'),
 })
@@ -65,6 +81,4 @@ function onSubmit(values) {
   </AutoForm>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -62,8 +62,10 @@ export const useThemeStore = defineStore(
       const savedTheme = localStorage.getItem('theme')
       const savedRadius = localStorage.getItem('radius')
 
-      if (savedTheme) theme.value = savedTheme
-      if (savedRadius) radius.value = savedRadius
+      if (savedTheme)
+        theme.value = savedTheme
+      if (savedRadius)
+        radius.value = savedRadius
     }
 
     return {
@@ -75,5 +77,5 @@ export const useThemeStore = defineStore(
   },
   {
     persist: true,
-  }
+  },
 )

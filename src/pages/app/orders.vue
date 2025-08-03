@@ -18,12 +18,31 @@ import { computed, onMounted, ref } from 'vue'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { useBuyersStore } from '@/stores/master-data/buyers'
 import { useOrdersStore } from '@/stores/orders'
@@ -63,7 +82,8 @@ const formData = ref({
 })
 
 // Store getters (reactive)
-const { orders, loading, selectedOrder, statistics, factoryOptions, productOptions } = storeToRefs(ordersStore)
+const { orders, loading, selectedOrder, statistics, factoryOptions, productOptions }
+  = storeToRefs(ordersStore)
 const { buyers, buyerOptions } = storeToRefs(buyersStore)
 
 // Computed
@@ -78,11 +98,12 @@ const filteredOrders = computed(() => {
   // Search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(order =>
-      order?.orderNumber?.toLowerCase().includes(query)
-      || order?.buyer?.toLowerCase().includes(query)
-      || order?.product?.toLowerCase().includes(query)
-      || order?.style?.toLowerCase().includes(query),
+    filtered = filtered.filter(
+      order =>
+        order?.orderNumber?.toLowerCase().includes(query)
+        || order?.buyer?.toLowerCase().includes(query)
+        || order?.product?.toLowerCase().includes(query)
+        || order?.style?.toLowerCase().includes(query),
     )
   }
 
@@ -158,17 +179,18 @@ function editOrder(order) {
   formData.value = {
     ...order,
     // Ensure items structure exists
-    items: order.items && order.items.length > 0
-      ? order.items
-      : [
-          {
-            productId: '',
-            quantity: order.quantity || 0,
-            unitPrice: order.averageUnitPrice || 0,
-            colors: [],
-            sizes: [],
-          },
-        ],
+    items:
+      order.items && order.items.length > 0
+        ? order.items
+        : [
+            {
+              productId: '',
+              quantity: order.quantity || 0,
+              unitPrice: order.averageUnitPrice || 0,
+              colors: [],
+              sizes: [],
+            },
+          ],
   }
   isEditing.value = true
   showDialog.value = true
@@ -209,8 +231,10 @@ async function saveOrder() {
     const orderData = {
       ...formData.value,
       // Calculate total amount from items
-      totalAmount: formData.value.items.reduce((sum, item) =>
-        sum + (item.quantity * item.unitPrice), 0),
+      totalAmount: formData.value.items.reduce(
+        (sum, item) => sum + item.quantity * item.unitPrice,
+        0,
+      ),
       // Set currency
       currency: 'USD',
     }
@@ -365,7 +389,9 @@ onMounted(async () => {
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
             <div class="relative">
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Search
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              />
               <Input
                 v-model="searchQuery"
                 :placeholder="$t('erp.orders.search')"
@@ -621,7 +647,11 @@ onMounted(async () => {
             <div class="space-y-4">
               <Label class="text-base font-semibold">{{ $t('erp.orders.items') }}</Label>
 
-              <div v-for="(item, index) in formData.items" :key="index" class="p-4 border rounded-lg space-y-4">
+              <div
+                v-for="(item, index) in formData.items"
+                :key="index"
+                class="p-4 border rounded-lg space-y-4"
+              >
                 <div class="flex justify-between items-center">
                   <Label class="font-medium">{{ $t('erp.orders.item') }} {{ index + 1 }}</Label>
                   <Button
@@ -686,12 +716,7 @@ onMounted(async () => {
                 </div>
               </div>
 
-              <Button
-                type="button"
-                variant="outline"
-                class="w-full"
-                @click="addItem"
-              >
+              <Button type="button" variant="outline" class="w-full" @click="addItem">
                 <Plus class="h-4 w-4 mr-2" />
                 {{ $t('erp.orders.addItem') }}
               </Button>
@@ -699,12 +724,7 @@ onMounted(async () => {
 
             <div class="space-y-2">
               <Label for="deliveryDate">{{ $t('erp.orders.deliveryDate') }} *</Label>
-              <Input
-                id="deliveryDate"
-                v-model="formData.deliveryDate"
-                type="date"
-                required
-              />
+              <Input id="deliveryDate" v-model="formData.deliveryDate" type="date" required />
             </div>
 
             <div class="space-y-2">
@@ -745,12 +765,7 @@ onMounted(async () => {
 
             <div class="space-y-2">
               <Label for="graphic">{{ $t('erp.orders.graphic') }}</Label>
-              <Input
-                id="graphic"
-                type="file"
-                accept="image/*,.pdf"
-                @change="handleFileUpload"
-              />
+              <Input id="graphic" type="file" accept="image/*,.pdf" @change="handleFileUpload" />
             </div>
 
             <!-- Total Amount Display -->
@@ -758,7 +773,11 @@ onMounted(async () => {
               <div class="flex justify-between items-center">
                 <Label class="text-base font-semibold">{{ $t('erp.orders.totalAmount') }}</Label>
                 <span class="text-2xl font-bold">
-                  {{ formatCurrency(formData.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0)) }}
+                  {{
+                    formatCurrency(
+                      formData.items.reduce((sum, item) => sum + item.quantity * item.unitPrice, 0),
+                    )
+                  }}
                 </span>
               </div>
             </div>
@@ -787,55 +806,73 @@ onMounted(async () => {
         <div v-if="selectedOrder" class="space-y-6">
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.orderNumber') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.orderNumber')
+              }}</Label>
               <p class="font-semibold">
                 {{ selectedOrder.orderNumber }}
               </p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.buyer') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.buyer')
+              }}</Label>
               <p>{{ selectedOrder.buyer }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.product') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.product')
+              }}</Label>
               <p>{{ selectedOrder.product }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.style') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.style')
+              }}</Label>
               <p>{{ selectedOrder.style }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.quantity') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.quantity')
+              }}</Label>
               <p>{{ selectedOrder.quantity?.toLocaleString() }}</p>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.deliveryDate') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.deliveryDate')
+              }}</Label>
               <p>{{ formatDate(selectedOrder.deliveryDate) }}</p>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.status') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.status')
+              }}</Label>
               <Badge :variant="getStatusVariant(selectedOrder.status)">
                 {{ $t(`erp.orders.${selectedOrder.status}`) }}
               </Badge>
             </div>
             <div>
-              <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.createdAt') }}</Label>
+              <Label class="text-sm font-medium text-muted-foreground">{{
+                $t('erp.orders.createdAt')
+              }}</Label>
               <p>{{ formatDate(selectedOrder.createdAt) }}</p>
             </div>
           </div>
 
           <!-- Order Progress -->
           <div class="p-4 bg-muted/50 rounded-lg">
-            <Label class="text-sm font-medium text-muted-foreground mb-3 block">{{ $t('erp.orders.progress') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground mb-3 block">{{
+              $t('erp.orders.progress')
+            }}</Label>
             <div class="grid grid-cols-4 gap-4 text-center">
               <div class="text-center">
                 <p class="text-2xl font-bold text-blue-600">
@@ -873,7 +910,9 @@ onMounted(async () => {
           </div>
 
           <div v-if="selectedOrder.notes">
-            <Label class="text-sm font-medium text-muted-foreground">{{ $t('erp.orders.notes') }}</Label>
+            <Label class="text-sm font-medium text-muted-foreground">{{
+              $t('erp.orders.notes')
+            }}</Label>
             <p class="mt-1 p-3 bg-muted/30 rounded-md">
               {{ selectedOrder.notes }}
             </p>

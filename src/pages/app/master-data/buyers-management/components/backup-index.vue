@@ -184,11 +184,7 @@ const columns = [
       <UiSelectItem value="all">
         All
       </UiSelectItem>
-      <UiSelectItem
-        v-for="c in buyersStore.countries"
-        :key="c"
-        :value="c"
-      >
+      <UiSelectItem v-for="c in buyersStore.countries" :key="c" :value="c">
         {{ c }}
       </UiSelectItem>
     </UiSelectContent>
@@ -205,16 +201,20 @@ const columns = [
       direction: buyersStore.sortDirection,
     }"
     :loading="buyersStore.loadingBuyers"
-    @update:page="val => buyersStore.currentPage = val"
-    @update:sort="sort => {
-      buyersStore.sortBy = sort?.field
-      buyersStore.sortDirection = sort?.direction
-      buyersStore.currentPage = 1
-    }"
-    @update:search="val => {
-      buyersStore.query = val
-      buyersStore.currentPage = 1
-    }"
+    @update:page="val => (buyersStore.currentPage = val)"
+    @update:sort="
+      sort => {
+        buyersStore.sortBy = sort?.field
+        buyersStore.sortDirection = sort?.direction
+        buyersStore.currentPage = 1
+      }
+    "
+    @update:search="
+      val => {
+        buyersStore.query = val
+        buyersStore.currentPage = 1
+      }
+    "
   />
   <div class="space-y-6">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -228,11 +228,7 @@ const columns = [
         </p>
       </div>
       <div class="flex items-center gap-2">
-        <UiButton
-          variant="outline"
-          :disabled="loadingBuyers"
-          @click="handleRefresh"
-        >
+        <UiButton variant="outline" :disabled="loadingBuyers" @click="handleRefresh">
           <RefreshCcw class="h-4 w-4" :class="loadingBuyers ? 'animate-spin' : ''" />
         </UiButton>
         <UiButton class="gap-2" :disabled="loadingBuyers" @click="openCreateDialog">
@@ -242,12 +238,18 @@ const columns = [
       </div>
     </div>
 
-    <div v-if="buyersError" class="p-4 rounded-md bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 flex items-center gap-2">
+    <div
+      v-if="buyersError"
+      class="p-4 rounded-md bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 flex items-center gap-2"
+    >
       <AlertCircle class="h-5 w-5" />
       <p>Buyer Error: {{ buyersError }}</p>
     </div>
 
-    <div v-if="statsError" class="p-4 rounded-md bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 flex items-center gap-2">
+    <div
+      v-if="statsError"
+      class="p-4 rounded-md bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 flex items-center gap-2"
+    >
       <AlertCircle class="h-5 w-5" />
       <p>Stats Error: {{ statsError }}</p>
     </div>
